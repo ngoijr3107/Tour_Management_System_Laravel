@@ -97,7 +97,10 @@
     </div>
     <!-- Navbar End -->
 
+    <div class="">
+            @yield('container')
 
+    </div>
 
 
     <!-- Footer Start -->
