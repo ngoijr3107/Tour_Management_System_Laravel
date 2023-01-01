@@ -22,10 +22,7 @@
                         <li class="list-group-item">&emsp;&emsp;Virtual Assistant</li>
                         <br>
                         <hr>
-                        <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Get Started</button></h5>
-                        </div>
+                        <button type="button" class="btn btn-success">Get Started</button>
 
                     </ul>
 
@@ -42,10 +39,7 @@
                         <li class="list-group-item">&emsp;&emsp;Virtual Assistant</li>
                         <br>
                         <hr>
-                        <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Get Started</button></h5>
-                        </div>
+                        <button type="button" class="btn btn-success">Get Started</button>
 
 
                     </ul>
@@ -61,11 +55,7 @@
                         <li class="list-group-item"><i class="fa fa-check text-primary mr-3"></i>Virtual Assistant</li>
                         <br>
                         <hr>
-                        <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Get Started</button></h5>
-                        </div>
-
+                        <button type="button" class="btn btn-success">Get Started</button>
                     </ul>
                 </div>
                 <div class="card" style="width: 17rem;margin-left:10px;margin-top:10px;">
@@ -79,10 +69,7 @@
                         <li class="list-group-item"><i class="fa fa-check text-primary mr-3"></i>Virtual Assistant</li>
                         <br>
                         <hr>
-                        <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Get Started</button></h5>
-                        </div>
+                        <button type="button" class="btn btn-success">Get Started</button>
 
                     </ul>
                 </div>
