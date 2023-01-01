@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    
 
     <!-- Favicon -->
     <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
@@ -27,6 +28,7 @@
 </head>
 
 <body>
+
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
         <div class="container">
@@ -75,17 +77,17 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="package.html" class="nav-item nav-link">Place</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/#about" class="nav-item nav-link">About</a>
+                        <a href="/#service" class="nav-item nav-link">Services</a>
+                        <a href="/#place" class="nav-item nav-link">Place</a>
+                        <a href="/#contact" class="nav-item nav-link">Contact</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Info</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">History</a>
-                                <a href="single.html" class="dropdown-item">Setting</a>
-                                <a href="single.html" class="dropdown-item">Log out</a>
+                                <a href="/history" class="dropdown-item">History</a>
+                                <a href="/setting" class="dropdown-item">Setting</a>
+                                <a href="/log-out" class="dropdown-item">Log out</a>
 
                             </div>
                         </div>
@@ -96,6 +98,8 @@
         </div>
     </div>
     <!-- Navbar End -->
+
+
 
     <div class="">
             @yield('container')
@@ -110,7 +114,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">Gurta </span>Jabo</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>Our system is an end to end complete software solution which will  help the tourists to provide service manager,booking pricing and other inventory</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -122,24 +126,23 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Local Guide</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Local Host</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Virtual Assistant</a>
+                    <p class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Local Guide</p>
+                    <p class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Local Host</p>
+                    <p class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Virtual Assistant</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
-                <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Place</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                <a class="text-white-50 mb-2" href="#about"><i class="fa fa-angle-right mr-2"></i>About</a>
+                    <a class="text-white-50 mb-2" href="#service"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                    <a class="text-white-50 mb-2" href="#place"><i class="fa fa-angle-right mr-2"></i>Place</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Rajshahi,Bangladesh</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+182 407 2334</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
                 <p><i class="fa fa-envelope mr-2"></i>info@gurtajabo.com</p>
             </div>
         </div>
@@ -173,11 +176,13 @@
     <script src="{{ asset('assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="{{ asset('mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('mail/contact.js') }}"></script>
+
+ 
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
