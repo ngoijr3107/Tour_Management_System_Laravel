@@ -15,5 +15,18 @@ class Place extends Model
         'photo',
     ];
 
+    public function local_guide_services()
+    {
+        return $this->hasMany(Local_guide::class);
+    }
+
+    public function local_host_services()
+    {
+        return $this->hasMany(Local_host::class);
+        
+    }
+
+
+
 
 }

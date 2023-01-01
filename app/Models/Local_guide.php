@@ -20,5 +20,11 @@ class Local_guide extends Model
         'password',
     ];
 
-    
+    public function local_guide_services()
+    {
+        return $this->hasMany(Local_guide::class);
+    }
+
+
+
 }
