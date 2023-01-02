@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Redirect;
 
 
 Route::get('/', [GuestController::class, 'homePage'])->name('/');
-Route::get('/place/1', [GuestController::class, 'choosePlace'])->name('place/1');
+Route::get('/place/{id}', [GuestController::class, 'choosePlace'])->name('place');
 
 
 Route::middleware([

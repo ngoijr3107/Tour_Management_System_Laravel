@@ -130,121 +130,29 @@
                 <h1>Recommended Place</h1>
             </div>
             <div class="row">
+
+                @foreach($places as $place)
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/sajek.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/placeImage/'.$place->photo) }}" alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Rangamati</small>
+                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>{{ $place->address }}</small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Per day</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Per Person</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">Sajek Valley</a>
+                            <a class="h5 text-decoration-none" href="">{{ $place->name }}</a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                     <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><a href="/place/1" class="btn btn-success ">Place Order</a></h5>
+                                    <h5  class="m-0"><a href="{{ url('/place/'.$place->id) }}" class="btn btn-success ">Place Order</a></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/sundarban.jpg') }}" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Bagarhart</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Per day</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Per Person</small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Sundarban Mangrove</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Place Order</button></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/coxbazar.jpg') }}" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cox's Bazar</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Per day</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Per Person</small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Cox's Bazar Sea Beach</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Place Order</button></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/sajek.jpg') }}" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Rangamati</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Per day</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Per Person</small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Sajek Valley</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Place Order</button></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/sundarban.jpg') }}" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Bagarhart</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Per day</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Per Person</small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Sundarban Mangrove</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Place Order</button></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/coxbazar.jpg') }}" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cox's Bazar</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Per day</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Per Person</small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Cox's Bazar Sea Beach</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><small></small></h6>
-                                    <h5  class="m-0"><button type="button" class="btn btn-success ">Place Order</button></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
+                @endforeach
+   
             </div>
         </div>
     </div>
