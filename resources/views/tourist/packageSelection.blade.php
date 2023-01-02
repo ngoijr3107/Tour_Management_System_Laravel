@@ -11,8 +11,8 @@
                 <h1>Select your package</h1>
             </div>
             <div class="row">
-                <div class="card" style="width: 17rem;margin-left:10px;margin-top:10px;">
-                    <div class="card-header">
+                <div class="card" style="width: 17rem;margin-left:10px;margin-top:10px;border: 2px solid gray;">
+                    <div class="card-header font-weight-bold">
                         Regular Package
                     </div>
                     <ul class="list-group list-group-flush">
@@ -28,8 +28,8 @@
 
               
                 </div>
-                <div class="card" style="width: 17rem;margin-left:10px;margin-top:10px;">
-                    <div class="card-header">
+                <div class="card" style="width: 17rem;margin-left:13px;margin-top:10px;border: 2px solid gray;">
+                    <div class="card-header font-weight-bold">
                         Premium Package
                     </div>
                     <ul class="list-group list-group-flush">
@@ -44,8 +44,8 @@
 
                     </ul>
                 </div>
-                <div class="card" style="width: 17rem;margin-left:10px;margin-top:10px;">
-                    <div class="card-header">
+                <div class="card" style="width: 17rem;margin-left:13px;margin-top:10px;border: 2px solid gray;">
+                    <div class="card-header font-weight-bold">
                         Pro Package
                     </div>
                     <ul class="list-group list-group-flush">
@@ -58,8 +58,8 @@
                         <button type="button" class="btn btn-success">Get Started</button>
                     </ul>
                 </div>
-                <div class="card" style="width: 17rem;margin-left:10px;margin-top:10px;">
-                    <div class="card-header">
+                <div class="card" style="width: 17rem;margin-left:13px;margin-top:10px;border: 2px solid gray;">
+                    <div class="card-header font-weight-bold">
                         Ultra Pro Package
                     </div>
                     <ul class="list-group list-group-flush">
