@@ -16,6 +16,7 @@ class CreateLocalGuideServicesTable extends Migration
         Schema::create('local_guide_services', function (Blueprint $table) {
             $table->id();
             $table->string('available')->nullable();
+            $table->string('local_guide_id')->nullable();
             $table->string('place_id')->nullable();
             $table->string('feature')->nullable();
             $table->string('room_picture')->nullable();

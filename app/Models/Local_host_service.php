@@ -11,6 +11,7 @@ class Local_host_service extends Model
 
     protected $fillable = [
         'available',
+        'local_guide_id',
         'place_id',
         'feature',
         'room_picture',
