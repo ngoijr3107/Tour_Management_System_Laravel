@@ -4,16 +4,16 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class=" " style="margin-left:-30px !important;margin-top:0px !important;">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img width="120px;" src="{{ asset('assets/img/logo.png')}}">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('/') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Gurta Jabo') }}
+                        {{ __('') }}
                     </x-jet-nav-link>
                 </div>
             </div>

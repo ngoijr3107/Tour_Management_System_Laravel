@@ -3,8 +3,8 @@
         {{ __('Profile Information') }}
     </x-slot>
 
-    <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+    <x-slot name="description" >
+          <p> {{ __('Update your account\'s profile information and email address.') }}  </p> 
     </x-slot>
 
     <x-slot name="form">
@@ -81,6 +81,39 @@
                 @endif
             @endif
         </div>
+
+        <!-- Phone -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="phone" value="{{ __('Phone') }}" />
+            <x-jet-input id="phone" type="number" class="mt-1 block w-full" wire:model.defer="state.phone" autocomplete="phone" />
+            <x-jet-input-error for="phone" class="mt-2" />
+        </div>
+
+        
+        <!-- Address -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="address" value="{{ __('Address') }}" />
+            <x-jet-input id="address" type="text" class="mt-1 block w-full" wire:model.defer="state.address" autocomplete="address" />
+            <x-jet-input-error for="address" class="mt-2" />
+        </div>
+        
+        <!-- NID -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="nid" value="{{ __('NID') }}" />
+            <x-jet-input id="nid" type="number" class="mt-1 block w-full" wire:model.defer="state.nid" autocomplete="nid" />
+            <x-jet-input-error for="nid" class="mt-2" />
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="date_of_birth" value="{{ __('Date of Birth') }}" />
+            <x-jet-input id="date_of_birth" type="date" class="mt-1 block w-full" wire:model.defer="state.date_of_birth" autocomplete="date_of_birth" />
+            <x-jet-input-error for="date_of_birth" class="mt-2" />
+        </div>
+
+       
+
+
     </x-slot>
 
     <x-slot name="actions">
