@@ -18,3 +18,14 @@ use App\Http\Controllers\GuestController;
 
 Route::get('/', [GuestController::class, 'homePage'])->name('/');
 Route::get('/place/1', [GuestController::class, 'choosePlace'])->name('place/1');
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
