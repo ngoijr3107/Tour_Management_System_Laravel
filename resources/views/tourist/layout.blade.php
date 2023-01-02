@@ -82,15 +82,34 @@
                         <a href="/#service" class="nav-item nav-link">Services</a>
                         <a href="/#place" class="nav-item nav-link">Place</a>
                         <a href="/#contact" class="nav-item nav-link">Contact</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Info</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="/history" class="dropdown-item">History</a>
-                                <a href="/setting" class="dropdown-item">Setting</a>
-                                <a href="/log-out" class="dropdown-item">Log out</a>
 
+
+                        @if(Auth::user())
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="/user/profile" class="dropdown-item">Profile</a>
+                                    <a href="/" class="dropdown-item">History</a>
+                                    <form method="POST" action="{{ route('logout') }}" x-data>
+                                        @csrf
+
+                                      <input type="submit" class="dropdown-item" value="Log out">
+                                    </form>
+                                  
+                                </div>
                             </div>
-                        </div>
+
+                        @else
+
+                            <a href="/login" class="nav-item nav-link">Login</a>
+                            <a href="/register" class="nav-item nav-link">Register</a>
+
+
+
+                        @endif
+
+
                         
                     </div>
                 </div>
