@@ -22,7 +22,7 @@
                         <li class="list-group-item">&emsp;&emsp;Virtual Assistant</li>
                         <br>
                         <hr>
-                        <button type="button" class="btn btn-success">Get Started</button>
+                        <a href="{{ url('place/'.$placeId.'/package/1') }}" class="btn btn-success">Get Started</a>
 
                     </ul>
 
@@ -39,7 +39,7 @@
                         <li class="list-group-item">&emsp;&emsp;Virtual Assistant</li>
                         <br>
                         <hr>
-                        <button type="button" class="btn btn-success">Get Started</button>
+                        <a href="{{ url('place/'.$placeId.'/package/2') }}" class="btn btn-success">Get Started</a>
 
 
                     </ul>
@@ -55,7 +55,8 @@
                         <li class="list-group-item"><i class="fa fa-check text-primary mr-3"></i>Virtual Assistant</li>
                         <br>
                         <hr>
-                        <button type="button" class="btn btn-success">Get Started</button>
+                        <a href="{{ url('place/'.$placeId.'/package/3') }}" class="btn btn-success">Get Started</a>
+
                     </ul>
                 </div>
                 <div class="card" style="width: 17rem;margin-left:13px;margin-top:10px;border: 2px solid gray;">
@@ -69,7 +70,7 @@
                         <li class="list-group-item"><i class="fa fa-check text-primary mr-3"></i>Virtual Assistant</li>
                         <br>
                         <hr>
-                        <button type="button" class="btn btn-success">Get Started</button>
+                        <a href="{{ url('place/'.$placeId.'/package/4') }}" class="btn btn-success">Get Started</a>
 
                     </ul>
                 </div>

@@ -23,5 +23,13 @@ class Local_guide_service extends Model
         
     ];
 
+    public function users()
+    {
+
+        return $this->belongsTo(User::class);
+
+    }
+
+
 
 }

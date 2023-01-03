@@ -30,3 +30,5 @@ Route::middleware([
         return redirect()->intended();
     })->name('dashboard');
 });
+
+Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');

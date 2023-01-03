@@ -62,4 +62,17 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function local_guide_services()
+    {
+        return $this->hasMany(Local_guide_service::class);
+    }
+
+    public function local_host_services()
+    {
+        return $this->hasMany(Local_host_service::class);
+        
+    }
+
+
 }
