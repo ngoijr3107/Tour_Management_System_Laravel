@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Place;
 use App\Models\Local_Guide_Service;
 use App\Models\Local_Host_Service;
-
+use App\Models\Virtual_assistant;
 
 
 class GuestController extends Controller
@@ -67,8 +67,10 @@ class GuestController extends Controller
             $localHosts=User::with('local_host_services')->where('usertype',2)->get();
 
             $place=Place::where('id',$placeId)->first();
-        
-            return view('tourist.proPackage.hostSelection',['placeId'=>$placeId,'packageId'=>$id,'localHosts'=>$localHosts,'place'=>$place]);
+
+            $virtualAssistantPrice=Virtual_assistant::sum('price');
+
+            return view('tourist.proPackage.hostSelection',['placeId'=>$placeId,'packageId'=>$id,'localHosts'=>$localHosts,'place'=>$place,'virtualAssistantPrice'=>$virtualAssistantPrice]);
 
 
 
@@ -80,8 +82,10 @@ class GuestController extends Controller
             $localGuides=User::with('local_guide_services')->where('usertype',1)->get();
 
             $place=Place::where('id',$placeId)->first();
+
+            $virtualAssistantPrice=Virtual_assistant::sum('price');
         
-            return view('tourist.ultraproPackage.guideSelection',['placeId'=>$placeId,'packageId'=>$id,'localGuides'=>$localGuides,'place'=>$place]);
+            return view('tourist.ultraproPackage.guideSelection',['placeId'=>$placeId,'packageId'=>$id,'localGuides'=>$localGuides,'place'=>$place,'virtualAssistantPrice'=>$virtualAssistantPrice]);
 
 
         }
@@ -89,7 +93,7 @@ class GuestController extends Controller
         else
         {
 
-
+            
 
 
         }

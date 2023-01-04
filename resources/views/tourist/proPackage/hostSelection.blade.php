@@ -40,7 +40,7 @@
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
                                             <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>{{ $service->rating }} <small>(250)</small></h6>
-                                            <h5 class="m-0">৳{{ $service->total_price }}</h5>
+                                            <h5 class="m-0">৳{{ $service->total_price + $virtualAssistantPrice }}</h5>
                                         </div>
                                     </div>
                                     <br>
