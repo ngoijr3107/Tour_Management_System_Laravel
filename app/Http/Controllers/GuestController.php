@@ -93,7 +93,7 @@ class GuestController extends Controller
         else
         {
 
-            
+            return view('error.404');
 
 
         }
