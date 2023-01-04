@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//Model added
 use App\Models\Local_guide_services;
 use App\Models\User;
+
 
 class RegularPackageController extends Controller
 {
