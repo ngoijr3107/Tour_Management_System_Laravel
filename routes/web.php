@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+//Controller added
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\RegularPackageController;
+use App\Http\Controllers\PremiumPackageController;
+use App\Http\Controllers\ProPackageController;
+use App\Http\Controllers\UltraproPackageController;
+
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -32,3 +39,15 @@ Route::middleware([
 });
 
 Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');
+
+//Regular Package
+Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{id}', [RegularPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
+
+//Premium Package
+Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{id}', [PremiumPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
+
+//Pro Package
+Route::get('/place/{placeId}/pro-package/{packageId}/guide-service/{id}', [ProPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
+
+//Ultarpro Package
+Route::get('/place/{placeId}/ultrapro-package/{packageId}/host-service/{id}', [UltraproPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
