@@ -24,7 +24,7 @@ class UltraproPackageController extends Controller
 
         $virtualAssistantPrice=Virtual_assistant::sum('price');
 
-        return view('tourist.regularpackage.detail_info_before_payment');
+        return view('tourist.ultrapropackage.detail_info_before_payment');
 
 
     }
