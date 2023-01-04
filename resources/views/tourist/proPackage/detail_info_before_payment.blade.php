@@ -50,7 +50,7 @@
                     <img class="img-fluid" src="{{ asset('assets/lhRoomImage/'.$hostService->room_picture) }}" style="height:162px;width:400px;" alt="">
                         <div class="p-4">
                          
-                            <a class="h5 text-decoration-none" href="">Hotel Room</a>
+                            <a class="h5 text-decoration-none" href="">Local House</a>
                            
                         </div>
                     </div>
