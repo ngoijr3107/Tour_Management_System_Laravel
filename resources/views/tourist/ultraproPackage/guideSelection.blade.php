@@ -52,7 +52,7 @@
                                             
                                             @if($service->available=="Yes")
 
-                                                <a href="{{ url('/place/'.$placeId.'/package/'.$packageId.'/guide-service/'.$service->id) }}" class="btn btn-success ">Details</a>
+                                                <a href="{{ url('/place/'.$placeId.'/ultrapro-package/'.$packageId.'/guide-service/'.$service->id) }}" class="btn btn-success ">Details</a>
 
 
                                             @else
