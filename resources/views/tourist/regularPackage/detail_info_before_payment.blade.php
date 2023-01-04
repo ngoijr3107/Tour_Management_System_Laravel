@@ -47,7 +47,7 @@
         <div class="row">
                 <div class="col-lg-6 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                    <img class="img-fluid" src="{{ asset('assets/lgHotelRoomImage/'.$guideService->room_picture) }}" height="200px" width="600px" alt="">
+                    <img class="img-fluid" src="{{ asset('assets/lgHotelRoomImage/'.$guideService->room_picture) }}" style="height:162px;width:400px;" alt="">
                         <div class="p-4">
                          
                             <a class="h5 text-decoration-none" href="">Hotel Room</a>
@@ -58,7 +58,7 @@
 
                 <div class="col-lg-6 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/lgFoodImage/'.$guideService->food_picture) }}" height="200px" width="600px" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/lgFoodImage/'.$guideService->food_picture) }}" style="height:162px;width:400px;" alt="">
 
                         <div class="p-4">
                           
@@ -96,7 +96,7 @@
         <tbody>
         <tr>
             <td class="center">1</td>
-            <td class="left strong">Hotel Price</td>
+            <td class="left strong">Hotel Service</td>
             <td class="left">{{ $guideService->hotel_name }} ({{ $guideService->room_type }} Room)</td>
 
         
@@ -104,7 +104,7 @@
         </tr>
         <tr>
             <td class="center">2</td>
-            <td class="left">Food Price</td>
+            <td class="left">Food Service</td>
             <td class="left">Menu : {{ $guideService->food_item }}</td>
 
           
