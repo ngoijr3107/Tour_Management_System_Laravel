@@ -139,7 +139,32 @@
 
     </div>
 
+ 
+
+    <form method="post" action="{{ url('/pay/now') }}">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">From</label>
+            <input type="date" class="form-control" name="from" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">To</label>
+            <input type="date" class="form-control" name="to" id="exampleInputPassword1" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Amount of Person</label>
+            <input type="number" class="form-control" name="person" id="exampleInputPassword1" placeholder="1">
+        </div>
+
+        <button type="submit" class="btn btn-success">Pay Now</button>
+
+
+    </form>
+
     </div>
+
+
     </div>
     
     </div>
