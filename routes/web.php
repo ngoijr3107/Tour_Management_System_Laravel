@@ -47,7 +47,7 @@ Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{id}', [R
 Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{id}', [PremiumPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
 
 //Pro Package
-Route::get('/place/{placeId}/pro-package/{packageId}/guide-service/{id}', [ProPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
+Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{id}', [ProPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
 
 //Ultarpro Package
-Route::get('/place/{placeId}/ultrapro-package/{packageId}/host-service/{id}', [UltraproPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
+Route::get('/place/{placeId}/ultrapro-package/{packageId}/guide-service/{id}', [UltraproPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');

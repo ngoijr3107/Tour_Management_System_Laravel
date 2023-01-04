@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //Model added
 use App\Models\Local_host_services;
 use App\Models\User;
+use App\Models\Virtual_assistant;
 
 
 class PremiumPackageController extends Controller

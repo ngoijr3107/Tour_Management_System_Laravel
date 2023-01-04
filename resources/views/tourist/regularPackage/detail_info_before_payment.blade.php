@@ -47,7 +47,7 @@
         <div class="row">
                 <div class="col-lg-6 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/package-1.jpg') }}" height="200px" width="600px" alt="">
+                    <img class="img-fluid" src="{{ asset('assets/lgHotelRoomImage/'.$guideService->room_picture) }}" height="200px" width="600px" alt="">
                         <div class="p-4">
                          
                             <a class="h5 text-decoration-none" href="">Hotel Room</a>
@@ -58,10 +58,11 @@
 
                 <div class="col-lg-6 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="{{ asset('assets/img/package-1.jpg') }}" height="200px" width="600px" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/lgFoodImage/'.$guideService->food_picture) }}" height="200px" width="600px" alt="">
+
                         <div class="p-4">
                           
-                            <a class="h5 text-decoration-none" href="">Food item</a>
+                            <a class="h5 text-decoration-none" href="">Food Item</a>
                             
                         </div>
                     </div>
