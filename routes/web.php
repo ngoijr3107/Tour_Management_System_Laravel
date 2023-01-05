@@ -23,9 +23,10 @@ use Illuminate\Support\Facades\Redirect;
 */
 
 
-
+//For Guest visit
 Route::get('/', [GuestController::class, 'homePage'])->name('/');
 Route::get('/place/{id}', [GuestController::class, 'choosePlace'])->name('place');
+Route::post('/contact/send-message', [GuestController::class, 'sendMessage'])->name('/contact/send-message');
 
 
 Route::middleware([

@@ -181,15 +181,29 @@
                             <h1 class="text-white m-0">Contact</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-white p-5">
-                            <form>
+                            <form method="post" action="/contact/send-message">
+
+                                @csrf
+
+                                @if(Session::has('successSendMessage'))
+
+                                <p style="text-align:center; color:green;">
+
+                                    {{Session::get('successSendMessage')}}
+
+
+                                </p>
+                                @endif
+                                
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Your name" required="required" />
+                                    <input type="text" name="name" class="form-control p-4" placeholder="Your name" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
+                                    <input type="email" name="email" class="form-control p-4" placeholder="Your email" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="textAreaExample1" rows="4" placeholder="   Message"></textarea>
+                                    <textarea class="form-control" name="message" id="textAreaExample1" rows="4" placeholder="   Message"></textarea>
                                 </div>
                                 <div>
                                     <button class="btn btn-primary btn-block py-3" type="submit">Send Message</button>

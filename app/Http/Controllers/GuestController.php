@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Redirect;
 
 // Model added
 use App\Models\User;
@@ -10,7 +11,7 @@ use App\Models\Place;
 use App\Models\Local_Guide_Service;
 use App\Models\Local_Host_Service;
 use App\Models\Virtual_assistant;
-
+use App\Models\Contact;
 
 class GuestController extends Controller
 {
@@ -99,6 +100,33 @@ class GuestController extends Controller
         }
 
       
+
+
+    }
+    public function sendMessage(Request $req)
+    {
+
+        Contact::create([
+
+            'name'   =>  $req->name,
+            'email'      => $req->email,
+            'message'   =>  $req->message,
+
+        ]);
+
+        
+        $details = [
+
+            'title' => 'Contact Confirmation Email',
+            'body' => 'Your messange successfully sended to ours.We will contact with you as soon as possible.'
+
+        ];
+    
+        \Mail::to($req->email)->send(new \App\Mail\ContactConfirmationMail($details));
+
+
+        Session()->flash('successSendMessage','Successfully send message !');
+        return redirect::to('/#contact');
 
 
     }
