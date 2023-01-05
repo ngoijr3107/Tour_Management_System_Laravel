@@ -19,10 +19,33 @@ class RegularPackageController extends Controller
 
         $guideProfile=User::where('id',$guideService->user_id)->first();
 
-        return view('tourist.regularpackage.detail_info_before_payment',['guideService'=>$guideService,'guideProfile'=>$guideProfile]);
+        return view('tourist.regularpackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'guideServiceId'=>$id,'guideService'=>$guideService,'guideProfile'=>$guideProfile]);
 
 
     }
+    public function billGenerate($placeId,$packageId,$guideServiceId,Request $req)
+    {
+
+        $today=date("Y-m-d");
+
+        $from=$req->from;
+        $to=$req->to;
+        $amountOfPerson=$req->person;
+
+        //Validate date
+        if($from<$today || $to<$today || $from>$to)
+        {
+
+            Session()->flash('wrongInformation','Invalid date !');
+            return back();
+
+        }
+
+        return view('tourist.regularpackage.billGenerate');
+
+
+    }
+
 
 
 }
