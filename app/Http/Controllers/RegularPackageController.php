@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //Model added
 use App\Models\Local_guide_service;
 use App\Models\User;
+use Session;
 
 
 class RegularPackageController extends Controller
@@ -55,6 +56,16 @@ class RegularPackageController extends Controller
         $guideBill=Local_guide_service::where('id',$guideServiceId)->value('total_price');
 
         $totalBill=$guideBill*$amountOfDay*$amountOfPerson;
+
+        //cache for ssl payment gateway
+        Session::put('totalBill',$totalBill);
+        Session::put('from',$from);
+        Session::put('to',$to);
+        Session::put('amountOfDay',$amountOfDay);
+        Session::put('amountOfPerson',$amountOfPerson);
+        Session::put('packageId',$packageId);
+        Session::put('lgServiceId',$guideServiceId);
+        Session::put('lhServiceId',null);    
         
         return view('tourist.regularpackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'totalBill'=>$totalBill]);
 

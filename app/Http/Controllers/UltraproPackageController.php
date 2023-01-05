@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Local_guide_service;
 use App\Models\User;
 use App\Models\Virtual_assistant;
+use Session;
 
 
 class UltraproPackageController extends Controller
@@ -62,6 +63,17 @@ class UltraproPackageController extends Controller
         $virtualAssistantBill=Virtual_assistant::sum('price');
 
         $totalBill=($guideBill + $virtualAssistantBill)*$amountOfDay*$amountOfPerson;
+
+        
+        //cache for ssl payment gateway
+        Session::put('totalBill',$totalBill);
+        Session::put('from',$from);
+        Session::put('to',$to);
+        Session::put('amountOfDay',$amountOfDay);
+        Session::put('amountOfPerson',$amountOfPerson);
+        Session::put('packageId',$packageId);
+        Session::put('lgServiceId',$guideServiceId);
+        Session::put('lhServiceId',null);    
         
         return view('tourist.ultrapropackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
 

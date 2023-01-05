@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //Model added
 use App\Models\Local_host_service;
 use App\Models\User;
-
+use Session;
 
 class PremiumPackageController extends Controller
 {
@@ -55,6 +55,16 @@ class PremiumPackageController extends Controller
         $hostBill=Local_host_service::where('id',$hostServiceId)->value('total_price');
 
         $totalBill=$hostBill*$amountOfDay*$amountOfPerson;
+
+        //cache for ssl payment gateway
+        Session::put('totalBill',$totalBill);
+        Session::put('from',$from);
+        Session::put('to',$to);
+        Session::put('amountOfDay',$amountOfDay);
+        Session::put('amountOfPerson',$amountOfPerson);
+        Session::put('packageId',$packageId);
+        Session::put('lgServiceId',null);
+        Session::put('lhServiceId',$hostServiceId);    
         
         return view('tourist.premiumpackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'totalBill'=>$totalBill]);
 

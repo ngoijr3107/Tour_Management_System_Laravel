@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Local_host_service;
 use App\Models\User;
 use App\Models\Virtual_assistant;
+use Session;
 
 
 class ProPackageController extends Controller
@@ -62,6 +63,16 @@ class ProPackageController extends Controller
         $virtualAssistantBill=Virtual_assistant::sum('price');
 
         $totalBill=($hostBill + $virtualAssistantBill)*$amountOfDay*$amountOfPerson;
+
+          //cache for ssl payment gateway
+          Session::put('totalBill',$totalBill);
+          Session::put('from',$from);
+          Session::put('to',$to);
+          Session::put('amountOfDay',$amountOfDay);
+          Session::put('amountOfPerson',$amountOfPerson);
+          Session::put('packageId',$packageId);
+          Session::put('lgServiceId',null);
+          Session::put('lhServiceId',$hostServiceId); 
         
         return view('tourist.propackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
 

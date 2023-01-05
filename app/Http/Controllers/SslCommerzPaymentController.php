@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
+use Auth;
+use Session;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -31,8 +33,8 @@ class SslCommerzPaymentController extends Controller
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
-        $post_data['cus_name'] = 'Customer Name';
-        $post_data['cus_email'] = 'customer@mail.com';
+        $post_data['cus_name'] = Auth::user()->name;
+        $post_data['cus_email'] = Auth::user()->email;
         $post_data['cus_add1'] = 'Customer Address';
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
@@ -95,21 +97,31 @@ class SslCommerzPaymentController extends Controller
         # Lets your oder trnsaction informations are saving in a table called "orders"
         # In orders table order uniq identity is "transaction_id","status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
 
+        //Get session for inserting data in database
+        $totalBill=Session::get('totalBill');
+        $from=Session::get('from');
+        $to=Session::get('to');
+        $amountOfDay=Session::get('amountOfDay');
+        $amountOfPerson=Session::get('amountOfPerson');
+        $packageId=Session::get('packageId');
+        $lgServiceId=Session::get('lgServiceId');
+        $lhServiceId=Session::get('lhServiceId');
+ 
         $post_data = array();
-        $post_data['total_amount'] = '10'; # You cant not pay less than 10
+        $post_data['total_amount'] = $totalBill; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
-        $post_data['cus_name'] = 'Customer Name';
-        $post_data['cus_email'] = 'customer@mail.com';
+        $post_data['cus_name'] = Auth::user()->name;
+        $post_data['cus_email'] = Auth::user()->email;
         $post_data['cus_add1'] = 'Customer Address';
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
         $post_data['cus_state'] = "";
         $post_data['cus_postcode'] = "";
         $post_data['cus_country'] = "Bangladesh";
-        $post_data['cus_phone'] = '8801XXXXXXXXX';
+        $post_data['cus_phone'] = Auth::user()->phone;
         $post_data['cus_fax'] = "";
 
         # SHIPMENT INFORMATION
@@ -138,6 +150,14 @@ class SslCommerzPaymentController extends Controller
         $update_product = DB::table('orders')
             ->where('transaction_id', $post_data['tran_id'])
             ->updateOrInsert([
+                'user_id'=> Auth::user()->id,
+                'from_date'=>$from,
+                'to_date'=>$to,
+                'amount_of_day'=>$amountOfDay,
+                'amount_of_person'=>$amountOfPerson,
+                'package_id'=>$packageId,
+                'lg_service_id'=>$lgServiceId,
+                'lh_service_id'=>$lhServiceId,
                 'name' => $post_data['cus_name'],
                 'email' => $post_data['cus_email'],
                 'phone' => $post_data['cus_phone'],
@@ -145,7 +165,8 @@ class SslCommerzPaymentController extends Controller
                 'status' => 'Pending',
                 'address' => $post_data['cus_add1'],
                 'transaction_id' => $post_data['tran_id'],
-                'currency' => $post_data['currency']
+                'currency' => $post_data['currency'],
+
             ]);
 
         $sslc = new SslCommerzNotification();
@@ -185,7 +206,7 @@ class SslCommerzPaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('transaction_id', $tran_id)
-                    ->update(['status' => 'Processing']);
+                    ->update(['status' => 'Success']);
 
                 echo "<br >Transaction is successfully Completed";
             } else {
@@ -198,7 +219,7 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'Failed']);
                 echo "validation Fail";
             }
-        } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
+        } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Success' || $order_detials->status == 'Complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
