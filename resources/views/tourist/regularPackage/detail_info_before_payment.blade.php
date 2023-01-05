@@ -161,7 +161,8 @@
     
     <form method="get" action="{{ url('place/'.$placeId.'/regular-package/'.$packageId.'/guide-service/'.$guideServiceId.'/bill-generate') }}">
 
-    @csrf <!-- {{ csrf_field() }} -->
+        @csrf <!-- {{ csrf_field() }} -->
+        
         <div class="form-group">
             <label for="exampleInputEmail1">From</label>
             <input type="date" class="form-control" name="from" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>

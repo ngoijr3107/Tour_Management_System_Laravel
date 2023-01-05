@@ -54,6 +54,13 @@ Route::middleware([
 
 //Premium Package
 Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{id}', [PremiumPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{hostServiceId}/bill-generate', [PremiumPackageController::class, 'billGenerate'])->name('place/package/host-service/bill-generate');
+});
 
 //Pro Package
 Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{id}', [ProPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
