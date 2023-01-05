@@ -64,9 +64,23 @@ Route::middleware([
 
 //Pro Package
 Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{id}', [ProPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{hostServiceId}/bill-generate', [ProPackageController::class, 'billGenerate'])->name('place/package/host-service/bill-generate');
+});
 
 //Ultarpro Package
 Route::get('/place/{placeId}/ultrapro-package/{packageId}/guide-service/{id}', [UltraproPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/place/{placeId}/ultrapro-package/{packageId}/guide-service/{guideServiceId}/bill-generate', [UltraproPackageController::class, 'billGenerate'])->name('place/package/guide-service/bill-generate');
+});
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

@@ -5,6 +5,19 @@
     <br>
 
     <div class="container" >
+
+    
+        @if(Session::has('wrongInformation'))
+
+            <p style="text-align:center; color:red;">
+
+                {{Session::get('wrongInformation')}}
+
+
+            </p>
+
+        @endif
+
         <div class="card">
             <div class="card-header">
 
@@ -154,24 +167,25 @@
 
     </div>
 
-    
-    <form method="post" action="{{ url('/pay/now') }}">
+    <form method="get" action="{{ url('place/'.$placeId.'/ultrapro-package/'.$packageId.'/guide-service/'.$guideServiceId.'/bill-generate') }}">
+
+        @csrf <!-- {{ csrf_field() }} -->
 
         <div class="form-group">
             <label for="exampleInputEmail1">From</label>
-            <input type="date" class="form-control" name="from" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+            <input type="date" class="form-control" name="from" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">To</label>
-            <input type="date" class="form-control" name="to" id="exampleInputPassword1" placeholder="">
+            <input type="date" class="form-control" name="to" id="exampleInputPassword1" placeholder="" required>
         </div>
 
         <div class="form-group">
             <label for="exampleInputPassword1">Amount of Person</label>
-            <input type="number" class="form-control" name="person" id="exampleInputPassword1" placeholder="1">
+            <input type="number" class="form-control" name="person" id="exampleInputPassword1" value="1" required>
         </div>
 
-        <button type="submit" class="btn btn-success">Pay Now</button>
+        <button type="submit" class="btn btn-success">Confirm</button>
 
 
     </form>

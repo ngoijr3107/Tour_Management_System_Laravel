@@ -153,7 +153,7 @@
 
  
 
-    <form method="get" action="{{ url('place/'.$placeId.'/premium-package/'.$packageId.'/host-service/'.$guideServiceId.'/bill-generate') }}">
+    <form method="get" action="{{ url('place/'.$placeId.'/premium-package/'.$packageId.'/host-service/'.$hostServiceId.'/bill-generate') }}">
 
         @csrf <!-- {{ csrf_field() }} -->
 

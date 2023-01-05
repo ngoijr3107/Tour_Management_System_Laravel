@@ -19,7 +19,7 @@ class PremiumPackageController extends Controller
 
         $hostProfile=User::where('id',$hostService->user_id)->first();
 
-        return view('tourist.premiumpackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'guideServiceId'=>$id,'hostService'=>$hostService,'hostProfile'=>$hostProfile]);
+        return view('tourist.premiumpackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'hostServiceId'=>$id,'hostService'=>$hostService,'hostProfile'=>$hostProfile]);
 
 
     }
