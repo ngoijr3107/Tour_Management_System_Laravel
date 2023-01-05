@@ -169,7 +169,7 @@
                     </div>
           
                     <ul class="list-inline text-white m-0">
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Email : info@gurtajabo.com</li>
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Email : gurtajabo@gmail.com</li>
                         <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Phone : 01824072334</li>
                         <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Address : Rajshahi,Bangladesh</li>
 

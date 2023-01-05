@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class order extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name','email','phone','amount','address','status','transaction_id','currency'];
+
 }

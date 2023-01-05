@@ -8,6 +8,7 @@ use App\Http\Controllers\RegularPackageController;
 use App\Http\Controllers\PremiumPackageController;
 use App\Http\Controllers\ProPackageController;
 use App\Http\Controllers\UltraproPackageController;
+use App\Http\Controllers\SslCommerzPaymentController;
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -52,3 +53,17 @@ Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{id}', [ProPac
 
 //Ultarpro Package
 Route::get('/place/{placeId}/ultrapro-package/{packageId}/guide-service/{id}', [UltraproPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END

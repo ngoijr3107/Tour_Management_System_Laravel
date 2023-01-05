@@ -25,7 +25,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>info@gurtajabo.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>gurtajabo@gmail.com</p>
                         <p class="text-body px-3">|</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
                     </div>
@@ -165,7 +165,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Rajshahi,Bangladesh</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@gurtajabo.com</p>
+                <p><i class="fa fa-envelope mr-2"></i>gurtajabo@gmail.com</p>
             </div>
         </div>
     </div>
