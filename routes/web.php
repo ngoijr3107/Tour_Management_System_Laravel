@@ -44,7 +44,13 @@ Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPa
 
 //Regular Package
 Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{id}', [RegularPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
-Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{guideServiceId}/bill-generate', [RegularPackageController::class, 'billGenerate'])->name('place/package/guide-service/bill-generate');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{guideServiceId}/bill-generate', [RegularPackageController::class, 'billGenerate'])->name('place/package/guide-service/bill-generate');
+});
 
 //Premium Package
 Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{id}', [PremiumPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');

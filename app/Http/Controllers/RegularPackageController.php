@@ -41,7 +41,14 @@ class RegularPackageController extends Controller
 
         }
 
-        return view('tourist.regularpackage.billGenerate');
+
+        $amountOfDay=(strtotime($to)-strtotime($from))/(24*60*60)+1;
+
+        $guideBill=Local_guide_service::where('id',$guideServiceId)->value('total_price');
+
+        $totalBill=$guideBill*$amountOfDay*$amountOfPerson;
+        
+        return view('tourist.regularpackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'totalBill'=>$totalBill]);
 
 
     }
