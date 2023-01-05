@@ -45,7 +45,15 @@ class ProPackageController extends Controller
             return back();
 
         }
+    
+        //validate Person
+        if($amountOfPerson<=0)
+        {
 
+            Session()->flash('wrongInformation','Invalid amount of person !');
+            return back();
+
+        }
 
         $amountOfDay=(strtotime($to)-strtotime($from))/(24*60*60)+1;
 
