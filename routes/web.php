@@ -43,6 +43,7 @@ Route::middleware([
         return redirect()->intended();
     })->name('dashboard');
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
+    Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
 });
 
 Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');
