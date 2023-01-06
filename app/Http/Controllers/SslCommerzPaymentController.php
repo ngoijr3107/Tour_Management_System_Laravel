@@ -5,8 +5,20 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
+
+//Model added
+use App\Models\Local_guide_service;
+use App\Models\Local_host_service;
+use App\Models\Virtual_assistant;
+use App\Models\Place;
+use App\Models\User;
+
+use Mail;
+
 use Auth;
 use Session;
+use PDF;
+use Redirect;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -182,7 +194,7 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-        echo "Transaction is Successful";
+        //echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -208,7 +220,112 @@ class SslCommerzPaymentController extends Controller
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Success']);
 
-                echo "<br >Transaction is successfully Completed";
+                
+                //Get session for view in pdf
+                $totalBill=Session::get('totalBill');
+                $from=Session::get('from');
+                $to=Session::get('to');
+                $amountOfDay=Session::get('amountOfDay');
+                $amountOfPerson=Session::get('amountOfPerson');
+                $packageId=Session::get('packageId');
+                $lgServiceId=Session::get('lgServiceId');
+                $lhServiceId=Session::get('lhServiceId');
+
+                //handle session out
+                if($packageId==null)
+                {
+
+                    return redirect::to('/');
+
+                }
+         
+            
+                $today=date('F d, Y');
+
+                //local guide
+                if($lgServiceId !=null)
+                {
+
+                    $serviceDetails=Local_guide_service::where('id',$lgServiceId)->first();
+    
+                    $placeDetails=Place::where('id',$serviceDetails->place_id)->first();
+
+                    $serviceHolderProfile=User::where('id',$serviceDetails->user_id)->first();
+
+
+                }
+                //local host
+                else if($lhServiceId !=null)
+                {
+
+                    $serviceDetails=Local_host_service::where('id',$lhServiceId)->first();
+                
+                    $placeDetails=Place::where('id',$serviceDetails->place_id)->first();
+
+                    $serviceHolderProfile=User::where('id',$serviceDetails->user_id)->first();
+
+
+                }
+
+                if($packageId==1)
+                {
+
+                    $packageName="Regular Package";
+
+                }
+                else if($packageId==2)
+                {
+
+                    
+                    $packageName="Premium Package";
+
+
+                }
+                else if($packageId==3)
+                {
+
+                    
+                    $packageName="Pro Package";
+
+
+                }
+                else if($packageId==4)
+                {
+
+                    
+                    $packageName="Ultrapro Package";
+
+
+                }
+
+                $virtualAssistantPrice=Virtual_assistant::sum('price');         
+                
+                //semd mail to tourist
+                $details = [
+
+                    'title' => 'Payment Confirmation Email',
+                    'body' => 'Your payment (Tran No - '.$tran_id.') suceessfully done.We will contact with you as soon as possible.'
+
+                ];
+            
+                \Mail::to(Auth::user()->email)->send(new \App\Mail\PaymentConfirmationMail($details));
+
+                //semd mail to local guide or local host
+                $details = [
+
+                    'title' => 'Service Notification Email',
+                    'body' => Auth::user()->name.' hire you with '.$amountOfPerson.' person from - '.$from.' to '.$to.' date for your service name - '.$serviceDetails->service_name
+    
+                ];
+                
+                \Mail::to($serviceHolderProfile->email)->send(new \App\Mail\ServiceNotificationMail($details));
+      
+                $pdf = PDF::loadView('tourist.SuccesfullPaymentCopy', compact('virtualAssistantPrice','packageId','packageName','today', 'tran_id','from','to','amountOfDay','amountOfPerson','serviceHolderProfile','serviceDetails','placeDetails','totalBill'));
+                
+                return $pdf->stream('Payment Copy.pdf',array("Attachment" => false));
+
+
+                //echo "<br >Transaction is successfully Completed";
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.
@@ -223,7 +340,89 @@ class SslCommerzPaymentController extends Controller
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
-            echo "Transaction is successfully Completed";
+
+            //Get session for view in pdf
+            $totalBill=Session::get('totalBill');
+            $from=Session::get('from');
+            $to=Session::get('to');
+            $amountOfDay=Session::get('amountOfDay');
+            $amountOfPerson=Session::get('amountOfPerson');
+            $packageId=Session::get('packageId');
+            $lgServiceId=Session::get('lgServiceId');
+            $lhServiceId=Session::get('lhServiceId');
+
+            //handle session out
+            if($packageId==null)
+            {
+
+                return redirect::to('/');
+
+            }
+         
+             $today=date('F d, Y');
+
+             //local guide
+             if($lgServiceId !=null)
+             {
+
+                $serviceDetails=Local_guide_service::where('id',$lgServiceId)->first();
+ 
+                $placeDetails=Place::where('id',$serviceDetails->place_id)->first();
+
+                $serviceHolderProfile=User::where('id',$serviceDetails->user_id)->first();
+
+
+             }
+             //local host
+             else if($lhServiceId !=null)
+             {
+
+                $serviceDetails=Local_host_service::where('id',$lhServiceId)->first();
+            
+                $placeDetails=Place::where('id',$serviceDetails->place_id)->first();
+
+                $serviceHolderProfile=User::where('id',$serviceDetails->user_id)->first();
+
+
+             }
+
+             if($packageId==1)
+             {
+
+                $packageName="Regular Package";
+
+             }
+             else if($packageId==2)
+             {
+
+                
+                $packageName="Premium Package";
+
+
+             }
+             else if($packageId==3)
+             {
+
+                
+                $packageName="Pro Package";
+
+
+             }
+             else if($packageId==4)
+             {
+
+                
+                $packageName="Ultrapro Package";
+
+
+             }
+
+            $virtualAssistantPrice=Virtual_assistant::sum('price');
+
+            $pdf = PDF::loadView('tourist.SuccesfullPaymentCopy', compact('virtualAssistantPrice','packageId','packageName','today', 'tran_id','from','to','amountOfDay','amountOfPerson','serviceHolderProfile','serviceDetails','placeDetails','totalBill'));
+
+            return $pdf->stream('Payment Copy.pdf',array("Attachment" => false));
+
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";

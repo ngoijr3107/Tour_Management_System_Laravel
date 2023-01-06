@@ -4,7 +4,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Contact Confirmation Email</title>
+  <title>{{ $details["title"] }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="{{ asset('assets/css/styleMail.css')}}" rel="stylesheet">
 
@@ -57,9 +57,9 @@
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Contact Confirmation Email</h1>
+              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Payment Confirmation Email</h1>
              
-              <p> Your message successfully sended to ours.We will contact with you as soon as possible.</p>
+              <p>{{ $details["body"] }}</p>
   
             </td>
         
@@ -146,7 +146,7 @@
           <!-- start permission -->
           <tr>
             <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because we received a message from you.</p>
+              <p style="margin: 0;">You received this email because we received a payment from you.</p>
             </td>
           </tr>
           <!-- end permission -->
