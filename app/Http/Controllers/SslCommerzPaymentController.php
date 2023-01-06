@@ -115,9 +115,14 @@ class SslCommerzPaymentController extends Controller
         $to=Session::get('to');
         $amountOfDay=Session::get('amountOfDay');
         $amountOfPerson=Session::get('amountOfPerson');
+        $placeId=Session::get('placeId');
         $packageId=Session::get('packageId');
         $lgServiceId=Session::get('lgServiceId');
         $lhServiceId=Session::get('lhServiceId');
+
+        $today=date('F d, Y');
+
+        Session::put('paymentDate',$today);
  
         $post_data = array();
         $post_data['total_amount'] = $totalBill; # You cant not pay less than 10
@@ -127,7 +132,7 @@ class SslCommerzPaymentController extends Controller
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = Auth::user()->name;
         $post_data['cus_email'] = Auth::user()->email;
-        $post_data['cus_add1'] = 'Customer Address';
+        $post_data['cus_add1'] = "";
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
         $post_data['cus_state'] = "";
@@ -167,6 +172,7 @@ class SslCommerzPaymentController extends Controller
                 'to_date'=>$to,
                 'amount_of_day'=>$amountOfDay,
                 'amount_of_person'=>$amountOfPerson,
+                'place_id'=>$placeId,
                 'package_id'=>$packageId,
                 'lg_service_id'=>$lgServiceId,
                 'lh_service_id'=>$lhServiceId,
@@ -178,6 +184,7 @@ class SslCommerzPaymentController extends Controller
                 'address' => $post_data['cus_add1'],
                 'transaction_id' => $post_data['tran_id'],
                 'currency' => $post_data['currency'],
+                'payment_date' => $today,
 
             ]);
 
@@ -230,6 +237,7 @@ class SslCommerzPaymentController extends Controller
                 $packageId=Session::get('packageId');
                 $lgServiceId=Session::get('lgServiceId');
                 $lhServiceId=Session::get('lhServiceId');
+                $paymentDate=Session::get('paymentDate');
 
                 //handle session out
                 if($packageId==null)
@@ -239,9 +247,6 @@ class SslCommerzPaymentController extends Controller
 
                 }
          
-            
-                $today=date('F d, Y');
-
                 //local guide
                 if($lgServiceId !=null)
                 {
@@ -317,6 +322,8 @@ class SslCommerzPaymentController extends Controller
                     'body' => Auth::user()->name.' hire you with '.$amountOfPerson.' person from - '.$from.' to '.$to.' date for your service name - '.$serviceDetails->service_name
     
                 ];
+
+                $today=$paymentDate;
                 
                 \Mail::to($serviceHolderProfile->email)->send(new \App\Mail\ServiceNotificationMail($details));
       
@@ -350,6 +357,7 @@ class SslCommerzPaymentController extends Controller
             $packageId=Session::get('packageId');
             $lgServiceId=Session::get('lgServiceId');
             $lhServiceId=Session::get('lhServiceId');
+            $paymentDate=Session::get('paymentDate');
 
             //handle session out
             if($packageId==null)
@@ -358,9 +366,7 @@ class SslCommerzPaymentController extends Controller
                 return redirect::to('/');
 
             }
-         
-             $today=date('F d, Y');
-
+       
              //local guide
              if($lgServiceId !=null)
              {
@@ -418,6 +424,8 @@ class SslCommerzPaymentController extends Controller
              }
 
             $virtualAssistantPrice=Virtual_assistant::sum('price');
+
+            $today=$paymentDate;
 
             $pdf = PDF::loadView('tourist.SuccesfullPaymentCopy', compact('virtualAssistantPrice','packageId','packageName','today', 'tran_id','from','to','amountOfDay','amountOfPerson','serviceHolderProfile','serviceDetails','placeDetails','totalBill'));
 

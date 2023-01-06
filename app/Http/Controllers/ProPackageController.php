@@ -70,6 +70,7 @@ class ProPackageController extends Controller
           Session::put('to',$to);
           Session::put('amountOfDay',$amountOfDay);
           Session::put('amountOfPerson',$amountOfPerson);
+          Session::put('placeId',$placeId);
           Session::put('packageId',$packageId);
           Session::put('lgServiceId',null);
           Session::put('lhServiceId',$hostServiceId); 

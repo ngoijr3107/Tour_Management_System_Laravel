@@ -71,6 +71,7 @@ class UltraproPackageController extends Controller
         Session::put('to',$to);
         Session::put('amountOfDay',$amountOfDay);
         Session::put('amountOfPerson',$amountOfPerson);
+        Session::put('placeId',$placeId);
         Session::put('packageId',$packageId);
         Session::put('lgServiceId',$guideServiceId);
         Session::put('lhServiceId',null);    

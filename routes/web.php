@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 //Controller added
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegularPackageController;
 use App\Http\Controllers\PremiumPackageController;
 use App\Http\Controllers\ProPackageController;
@@ -29,6 +30,9 @@ Route::get('/', [GuestController::class, 'homePage'])->name('/');
 Route::get('/place/{id}', [GuestController::class, 'choosePlace'])->name('place');
 Route::post('/contact/send-message', [GuestController::class, 'sendMessage'])->name('/contact/send-message');
 
+//For registered user
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -38,6 +42,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return redirect()->intended();
     })->name('dashboard');
+    Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
 });
 
 Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');
