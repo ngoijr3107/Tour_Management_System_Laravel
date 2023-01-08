@@ -12,8 +12,12 @@ use App\Models\User;
 use App\Models\Virtual_assistant;
 use App\Models\Place;
 
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
+
 use Auth;
 use PDF;
+use Redirect;
 
 class HomeController extends Controller
 {
@@ -110,6 +114,22 @@ class HomeController extends Controller
         return $pdf->download('Payment Copy.pdf',array("Attachment" => false));
   
 
+
+    }
+    public function running()
+    {
+
+        $pythonpath ="./" ;
+        $process = new Process("python3".$pythonpath . "main.py" ."");
+        $process->run();
+        
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+    
+        $data = $process->getOutput();
+    
+        dd($data);
 
     }
 

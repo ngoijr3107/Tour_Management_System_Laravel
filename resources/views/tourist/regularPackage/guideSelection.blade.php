@@ -53,7 +53,7 @@
 
                                             <div class="rate">
 
-                                                <input type="radio" onclick="handlerClick()" id="star5" name="rate" value="5" />
+                                                <input type="radio" onclick="handlerClick(this)" id="star5" name="rate" value="5" />
                                                 <label for="star5" title="text">5 stars</label>
                                                 <input type="radio" id="star4" name="rate" value="4" />
                                                 <label for="star4" title="text">4 stars</label>
@@ -78,7 +78,7 @@
                                                 
                                                 @else
 
-                                                    <button class="btn btn-danger ">Not Available</button>
+                                                    <button class="btn btn-danger "  onclick="handlerClick(this)">Not Available</button>
 
 
 
@@ -107,7 +107,17 @@
 
 @endsection()
 
+<script>
 
+    function handlerClick(e)
+    {
+
+        console.log("hello world");
+
+    }
+
+
+</script>
 <style>
 
     *{

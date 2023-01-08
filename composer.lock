@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b676d024eff2cddcb7d53a91fd7d7107",
+    "content-hash": "12291b703b7b12fe6732d850b335cb4f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -374,6 +374,54 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.2"
             },
             "time": "2022-10-27T11:44:00+00:00"
+        },
+        {
+            "name": "dgvai/laravel-user-review",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dgvai/laravel-user-review.git",
+                "reference": "5629cd2a64b9db4c9c74b9a46927608f6f249541"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dgvai/laravel-user-review/zipball/5629cd2a64b9db4c9c74b9a46927608f6f249541",
+                "reference": "5629cd2a64b9db4c9c74b9a46927608f6f249541",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.20.26|^7.30.4|^8.40",
+                "php": "^7.2"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DGvai\\Review\\ReviewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DGvai\\Review\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jalal Uddin",
+                    "email": "dgvai-git@users.noreply.github.com"
+                }
+            ],
+            "description": "A Laravel Package for User Review on Models, like Product review for ecommerce systems.",
+            "support": {
+                "issues": "https://github.com/dgvai/laravel-user-review/issues",
+                "source": "https://github.com/dgvai/laravel-user-review/tree/1.5.1"
+            },
+            "time": "2021-11-07T05:36:03+00:00"
         },
         {
             "name": "doctrine/inflector",

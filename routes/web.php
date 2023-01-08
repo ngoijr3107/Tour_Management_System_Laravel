@@ -44,6 +44,8 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
+    Route::get('/virtual-assistant', [HomeController::class, 'running'])->name('/virtual-assistant');
+
 });
 
 Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');

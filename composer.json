@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "barryvdh/laravel-dompdf": "^2.0",
+        "dgvai/laravel-user-review": "^1.5",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
@@ -15,7 +16,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "picqer/php-barcode-generator": "^2.2",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "symfony/process": "^5.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
