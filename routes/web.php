@@ -43,8 +43,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-
-    Route::get('/dashboard', [HomeController::class, 'afterLogin'])->name('/dashboard');
+   
+    Route::get('/dashboard', [HomeController::class, 'afterLogin'])->name('dashboard');
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
 
