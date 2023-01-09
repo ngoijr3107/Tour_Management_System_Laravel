@@ -10,6 +10,10 @@ use App\Http\Controllers\PremiumPackageController;
 use App\Http\Controllers\ProPackageController;
 use App\Http\Controllers\UltraproPackageController;
 use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LocalGuideController;
+use App\Http\Controllers\LocalHostController;
+use App\Http\Controllers\SuperAdminController;
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -39,9 +43,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return redirect()->intended();
-    })->name('dashboard');
+
+    Route::get('/dashboard', [HomeController::class, 'afterLogin'])->name('/dashboard');
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
 
@@ -110,3 +113,4 @@ Route::middleware([
 
    
 });
+

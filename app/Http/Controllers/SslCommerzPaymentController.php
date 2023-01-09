@@ -185,6 +185,7 @@ class SslCommerzPaymentController extends Controller
                 'transaction_id' => $post_data['tran_id'],
                 'currency' => $post_data['currency'],
                 'payment_date' => $today,
+                'tour_status'=> 'Pending',
 
             ]);
 

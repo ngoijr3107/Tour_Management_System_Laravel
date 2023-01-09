@@ -116,6 +116,28 @@ class HomeController extends Controller
 
 
     }
+
+    public function afterLogin()
+    {
+
+        $usertype=Auth::user()->usertype;
+
+        if($usertype==0)
+        {
+
+            return redirect()->intended();
+
+        }
+        else
+        {
+
+            return view('admin.dashboard',['usertype'=>$usertype]);
+
+
+        }
+
+
+    }
   
 
 }
