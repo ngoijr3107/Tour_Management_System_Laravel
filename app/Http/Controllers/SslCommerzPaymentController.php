@@ -309,8 +309,9 @@ class SslCommerzPaymentController extends Controller
                 $details = [
 
                     'title' => 'Payment Confirmation Email',
-                    'body' => 'Your payment (Tran No - '.$tran_id.') suceessfully done.We will contact with you as soon as possible.'
-
+                    'body' => 'Your payment (Tran No - '.$tran_id.') suceessfully done.We will contact with you as soon as possible.',
+                    'packageId'=> $packageId,
+                    'transactionId'=>$tran_id
                 ];
             
                 \Mail::to(Auth::user()->email)->send(new \App\Mail\PaymentConfirmationMail($details));
