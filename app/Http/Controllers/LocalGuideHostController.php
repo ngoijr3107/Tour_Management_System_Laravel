@@ -115,6 +115,31 @@ class LocalGuideHostController extends Controller
 
         }
 
+        $service['service_name']=$serviceName;
+        $service['available']=$available;
+        $service['user_id']=$userId;
+        $service['place_id']=$placeId;
+        $service['feature']=$feature;
+        $service['food_item']=$foodItem;
+        $service['food_price']=$foodPrice;
+
+
+        if(Auth::user()->usertype==1)
+        {
+
+            $totalPrice=$serviceCharge+$hotelPrice+$foodPrice;
+
+
+        }
+        else
+        {
+
+            $totalPrice=$roomPrice+$foodPrice;
+
+
+        }
+
+        dd($service);
 
     }
 
