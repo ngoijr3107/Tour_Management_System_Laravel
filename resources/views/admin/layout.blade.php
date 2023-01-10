@@ -58,7 +58,14 @@
               </a>
               <a class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
-                Logout
+
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                                        @csrf
+
+                        <input type="submit" class="dropdown-item" style="margin-left:-20px;" value="Log out">
+
+                </form>
+              
               </a>
             </div>
           </li>
@@ -255,15 +262,15 @@
               <span class="menu-title">Profile</span>
             </a>
           </li>
-          @if($usertype==3)
+          @if(Auth::user()->usertype==3)
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/admin/place') }}">
+              <a class="nav-link" href="{{ url('/place/list') }}">
                 <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">Place</span>
               </a>
             </li>
           @endif
-          @if($usertype==1 || $usertype==2)
+          @if(Auth::user()->usertype==1 || Auth::user()->usertype==2)
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
@@ -272,10 +279,10 @@
               </a>
               <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Add Service</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ url('/add/service') }}">Add Service</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">All Service</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ url('/all/service') }}">All Service</a></li>
                 </ul>
               </div>
             </li>
@@ -287,56 +294,56 @@
               </a>
               <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Pending Tours</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Pending Tours</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Completed Tours</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/completed/tours') }}">Completed Tours</a></li>
                 </ul>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ url('/balance/statement') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Balance Statement</span>
               </a>
             </li>
           @endif
-          @if($usertype==3)
+          @if(Auth::user()->usertype==3)
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ url('/local-guide/list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Local Guide</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ url('/local-host/list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Local Host</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ url('/virtual-assistant/list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Virtual Assistant</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ url('/tourist/list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Tourist</span>
               </a>
             </li>
           @endif
 
-          @if($usertype==3)
+          @if(Auth::user()->usertype==3)
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ url('/transaction/list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Transaction</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/documentation/documentation.html">
+              <a class="nav-link" href="{{ url('/message/list') }}">
                 <i class="icon-paper menu-icon"></i>
                 <span class="menu-title">Message</span>
               </a>
@@ -349,7 +356,7 @@
         <div class="content-wrapper">
         
         
-          
+            @yield('container')
        
          
         </div>
@@ -388,6 +395,7 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="{{ asset('assets/admin/js/dashboard.js') }}"></script>
+  <script src="{{ asset('assets/admin/js/file-upload.js') }}"></script>
   <script src="{{ asset('assets/admin/js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
 </body>

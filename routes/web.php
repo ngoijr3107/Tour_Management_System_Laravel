@@ -11,8 +11,7 @@ use App\Http\Controllers\ProPackageController;
 use App\Http\Controllers\UltraproPackageController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LocalGuideController;
-use App\Http\Controllers\LocalHostController;
+use App\Http\Controllers\LocalGuideHostController;
 use App\Http\Controllers\SuperAdminController;
 
 use Illuminate\Support\Facades\Redirect;
@@ -114,3 +113,36 @@ Route::middleware([
    
 });
 
+
+
+//Local guide & host
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+
+    Route::get('/add/service', [LocalGuideHostController::class, 'addService'])->name('/add/service');
+    Route::post('/add/service/process', [LocalGuideHostController::class, 'addServiceProcess'])->name('/add/service/process');
+    Route::get('/all/service', [LocalGuideHostController::class, 'allService'])->name('/all/service');
+    Route::get('/balance/statement', [LocalGuideHostController::class, 'balanceStatement'])->name('/balance/statement');
+   
+});
+
+
+//Super admin
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+
+    Route::get('/place/list', [SuperAdminController::class, 'placeList'])->name('/place/list');
+    Route::get('/add/place', [SuperAdminController::class, 'addPlace'])->name('/add/place');
+    Route::get('/local-guide/list', [SuperAdminController::class, 'guideList'])->name('/local-guide/list');
+    Route::get('/local-host/list', [SuperAdminController::class, 'guideList'])->name('/local-host/list');
+    Route::get('/virtual-assistant/list', [SuperAdminController::class, 'virtualAssistantList'])->name('/virtual-assistant/list');
+    Route::get('/transaction/list', [SuperAdminController::class, 'transactionList'])->name('/transaction/list');
+
+
+});

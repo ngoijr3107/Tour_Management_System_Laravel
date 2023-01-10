@@ -131,7 +131,9 @@ class HomeController extends Controller
         else
         {
 
-            return view('admin.dashboard',['usertype'=>$usertype]);
+            $today=date('F d, Y');
+
+            return view('admin.dashboard',['usertype'=>$usertype,'today'=>$today]);
 
 
         }
