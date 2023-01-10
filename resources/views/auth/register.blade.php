@@ -6,7 +6,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" >
             @csrf
 
             <div>
@@ -17,6 +17,21 @@
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <div class="mt-4" >
+
+                <x-jet-label for="usertype" value="{{ __('Role') }}" />
+
+                <div class="mt-2" style="display:inline-flex;">
+                    <x-jet-input id="usertype" class="block mt-1" type="radio" name="usertype" :value="0" required />
+                    <x-jet-label for="usertype" class="ml-1 mt-1" value="{{ __('Tourist') }}" />
+                    <x-jet-input id="usertype" class="block mt-1 ml-4" type="radio" name="usertype" :value="1" required />
+                    <x-jet-label for="usertype"  class="ml-1 mt-1" value="{{ __('Local Guide') }}" />
+                    <x-jet-input id="usertype" class="block mt-1 ml-4" type="radio" name="usertype" :value="2" required />
+                    <x-jet-label for="usertype"  class="ml-1 mt-1" value="{{ __('Local Host') }}" />
+                </div>
+
             </div>
 
             <div class="mt-4">
