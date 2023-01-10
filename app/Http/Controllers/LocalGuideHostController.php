@@ -95,14 +95,15 @@ class LocalGuideHostController extends Controller
         $hotelPrice=$req->hotelPrice;
         $available=$req->available;
         $userId=Auth::user()->id;
-        $placeId=$req->$placeId;
+        $placeId=$req->placeId;
         $feature=$req->feature;
-        $serviceCharge=$req->$serviceCharge;
+        $serviceCharge=$req->serviceCharge;
         $foodItem=$req->foodItem;
         $foodPrice=$req->foodPrice;
         $roomPrice=$req->roomPrice;
         $roomPicture=$req->roomImage;
         $foodPicture=$req->foodImage;
+
 
         $service=array();
 

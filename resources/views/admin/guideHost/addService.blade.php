@@ -12,13 +12,16 @@
                         Add Service
                     </p>
                     <form class="forms-sample" method="post" action="{{ url('add/service/process') }}">
+
+                        @csrf
+
                         <div class="form-group">
                         <label for="exampleInputName1">Service Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="servcieName" placeholder="Service name">
+                        <input type="text" class="form-control" id="exampleInputName1" name="serviceName" placeholder="Service name">
                         </div>
                         <div class="form-group">
                             <label for="exampleSelectGender">Place</label>
-                            <select class="form-control" id="exampleSelectGender" name="placeName">
+                            <select class="form-control" id="exampleSelectGender" name="placeId">
                             @foreach($places as $place)
                                 <option value="{{ $place->id }}">{{ $place->name }}</option>
                             @endforeach
@@ -54,7 +57,7 @@
                         @endif
                         <div class="form-group">
                         <label for="exampleInputPassword4">Food Item</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Food Item">
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Food Item" name="foodItem">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Food Price</label>
@@ -94,7 +97,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleSelectGender">Service Available</label>
-                            <select class="form-control" id="exampleSelectGender" name="serviceAvailable">
+                            <select class="form-control" id="exampleSelectGender" name="available">
                             <option>Yes</option>
                             <option>No</option>
                             </select>
