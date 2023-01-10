@@ -73,6 +73,50 @@ class LocalGuideHostController extends Controller
 
 
     }
+    public function addServiceProcess(Request $req)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+
+        $serviceName=$req->serviceName;
+        $hotelName=$req->hotelName;
+        $roomType=$req->roomType;
+        $hotelPrice=$req->hotelPrice;
+        $available=$req->available;
+        $userId=Auth::user()->id;
+        $placeId=$req->$placeId;
+        $feature=$req->feature;
+        $serviceCharge=$req->$serviceCharge;
+        $foodItem=$req->foodItem;
+        $foodPrice=$req->foodPrice;
+        $roomPrice=$req->roomPrice;
+        $roomPicture=$req->roomImage;
+        $foodPicture=$req->foodImage;
+
+        $service=array();
+
+        if($serviceCharge<0 || $hotelPrice<0 || $roomPrice<0 || $foodPrice<0)
+        {
+
+            Session()->flash('wrongInformation','Invaild price !');
+            return back();
+
+
+        }
+
+
+    }
 
 
 }
