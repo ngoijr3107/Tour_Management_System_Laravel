@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2023 at 10:03 AM
+-- Generation Time: Jan 10, 2023 at 05:08 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -104,7 +104,7 @@ CREATE TABLE `local_guide_services` (
 --
 
 INSERT INTO `local_guide_services` (`id`, `service_name`, `available`, `user_id`, `place_id`, `feature`, `hotel_name`, `room_type`, `room_picture`, `service_charge`, `rating`, `hotel_price`, `food_item`, `food_picture`, `food_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 'Sajek Student Pack', 'Yes', '1', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'Hotel Maitree', 'Non AC', 'student-pack.jpeg', '250', 3.5, 800.00, 'Rice,Chicken,Vegetables', 'food1.jpg', 80.00, 1130.00, NULL, NULL),
+(1, 'Sajek Student Pack', 'Yes', '1', '1', 'Daily activities and entertainment, such as yoga classes, beach volleyball, and live music\nAccess to the resort\'s state-of-the-art fitness center and spa', 'Hotel Maitree', 'Non AC', 'student-pack.jpeg', '250', 3.5, 800.00, 'Rice,Chicken,Vegetables', 'food1.jpg', 80.00, 1130.00, NULL, NULL),
 (2, 'Sajek Couple Pack', 'No', '1', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'Meghadree Eco Resort', 'AC', 'couple-pack.jpg', '300', 0.0, 2000.00, 'Rice,Fish', 'food2.jpg', 100.00, 2400.00, NULL, NULL),
 (3, 'Sajek Family Pack', 'Yes', '2', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'Monghor Resort', 'AC', 'family-pack.jpg', '500', 0.0, 2000.00, 'Biryani', 'food3.jpg', 100.00, 2600.00, NULL, NULL);
 
@@ -222,7 +222,17 @@ INSERT INTO `orders` (`id`, `user_id`, `from_date`, `to_date`, `amount_of_day`, 
 (109, '1', '2023-01-09', '2023-01-10', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 09, 2023', '', 'Success', 'Pending', '63bbbadabe0b1', 'BDT', NULL, NULL),
 (110, '1', '2023-01-09', '2023-01-13', 5, 1, '1', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 5500, 'January 09, 2023', '', 'Success', 'Pending', '63bbbb300f2aa', 'BDT', NULL, NULL),
 (111, '1', '2023-01-09', '2023-01-13', 5, 1, '1', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 5500, 'January 09, 2023', '', 'Success', 'Pending', '63bbbbfcbe6c1', 'BDT', NULL, NULL),
-(112, '1', '2023-01-09', '2023-01-11', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 3390, 'January 09, 2023', '', 'Success', 'Pending', '63bbbc7c2dfa7', 'BDT', NULL, NULL);
+(112, '1', '2023-01-09', '2023-01-11', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 3390, 'January 09, 2023', '', 'Success', 'Pending', '63bbbc7c2dfa7', 'BDT', NULL, NULL),
+(113, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', '', 'Pending', 'Pending', '63bd54ea22b23', 'BDT', NULL, NULL),
+(114, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', '', 'Pending', NULL, '63bd553052c14', 'BDT', NULL, NULL),
+(115, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', '', 'Pending', NULL, '63bd559a3eb27', 'BDT', NULL, NULL),
+(116, '1', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 3390, 'January 10, 2023', '', 'Success', 'Pending', '63bd5694a3563', 'BDT', NULL, NULL),
+(117, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', '', 'Pending', 'Pending', '63bd572870ba5', 'BDT', NULL, NULL),
+(118, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', '', 'Pending', 'Pending', '63bd574deecd5', 'BDT', NULL, NULL),
+(119, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', '01824072334', 3390, 'January 10, 2023', '', 'Pending', 'Pending', '63bd576226121', 'BDT', NULL, NULL),
+(120, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', '', 3390, 'January 10, 2023', '', 'Pending', 'Pending', '63bd57b812c4d', 'BDT', NULL, NULL),
+(121, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 3390, 'January 10, 2023', '', 'Success', 'Pending', '63bd57f10bf36', 'BDT', NULL, NULL),
+(122, '13', '2023-01-10', '2023-01-13', 4, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 4520, 'January 10, 2023', '', 'Success', 'Pending', '63bd586f233de', 'BDT', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +308,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('zVEkzyWgDWQ19UXkEJL24SslfyoS84FQCbDh6F6S', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'YToxNTp7czo2OiJfdG9rZW4iO3M6NDA6IlhnUXRVQzRIMmJqMXhsN05MSmJxeDFidHMxcXg1a2hYbktrdFc2cm8iO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI5OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvaGlzdG9yeSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkSnc1TTJjdGhiczE1WHBxbnhPa01KdW5DZ2hNTzg3SlBMOU9qbzBWeDUzdGdKS1ZqVy5iZmUiO3M6OToidG90YWxCaWxsIjtkOjMzOTA7czo0OiJmcm9tIjtzOjEwOiIyMDIzLTAxLTA5IjtzOjI6InRvIjtzOjEwOiIyMDIzLTAxLTExIjtzOjExOiJhbW91bnRPZkRheSI7aTozO3M6MTQ6ImFtb3VudE9mUGVyc29uIjtzOjE6IjEiO3M6NzoicGxhY2VJZCI7czoxOiIxIjtzOjk6InBhY2thZ2VJZCI7czoxOiIxIjtzOjExOiJsZ1NlcnZpY2VJZCI7czoxOiIxIjtzOjExOiJsaFNlcnZpY2VJZCI7TjtzOjExOiJwYXltZW50RGF0ZSI7czoxNjoiSmFudWFyeSAwOSwgMjAyMyI7fQ==', 1673253443);
+('WxHEMyY4fha0g9Fsn9jz7a9Ti4HaC34BkZ2N6drv', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiTGpiU0l5UHVuQ1JMSnRwS3BUQ3lwWUpVcnBWcWVUTHRDNndpOVBxciI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ2OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYWRkL3NlcnZpY2U/ZmVhdHVyZT1md2ZmZWZlJmZvb2RJbWFnZT1sb2NhbCUyMGd1aWRlJTIwMS5qcGcmZm9vZFByaWNlPTE1MCZob3RlbE5hbWU9UmFkaXNvbSZob3RlbFByaWNlPTk1MCZwbGFjZU5hbWU9MSZyb29tSW1hZ2U9bG9jYWwlMjBob3N0JTIwMS5qcGcmcm9vbVR5cGU9QUMmc2VydmNpZU5hbWU9U2FqZWslMjBOZXcmc2VydmljZUF2YWlsYWJsZT1ZZXMmc2VydmljZUNoYXJnZT0xMTAiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEp3NU0yY3RoYnMxNVhwcW54T2tNSnVuQ2doTU84N0pQTDlPam8wVng1M3RnSktWalcuYmZlIjt9', 1673366834);
 
 -- --------------------------------------------------------
 
@@ -309,12 +319,13 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `usertype` int(11) NOT NULL DEFAULT 0,
+  `usertype` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date_of_birth` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `profile_photo_path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -330,11 +341,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `usertype`, `email`, `phone`, `address`, `date_of_birth`, `nid`, `profile_photo_path`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sajeeb Chakraborty', 1, 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-19', '8449849844', 'profile-photos/KgaxzcG50KjRCLvJuu5kv5x9lpbv3pFJLGG8CFEK.jpg', '2023-01-02 11:14:18', '$2y$10$Jw5M2cthbs15XpqnxOkMJunCghMO87JPL9Ojo0Vx53tgJKVjW.bfe', NULL, NULL, NULL, 'H1qYRKl2ubqqhYa7x2uirWdSvkIdSvt6X47ldynFYgdd6BVpwGBbnai7es0E', '2023-01-02 09:27:29', '2023-01-02 14:27:24'),
-(2, 'Robin Chakraborty', 1, 'robincb.symphony@gmail.com', NULL, NULL, NULL, NULL, NULL, '2023-01-02 10:13:58', '$2y$10$qs7uJrm24D43KjZKKMDbc.ryQkuWEycSHVAPfktLsM2SvTgzDrUx2', NULL, NULL, NULL, NULL, '2023-01-02 10:02:55', '2023-01-02 10:13:58'),
-(3, 'MD AL Amin', 2, 'alamin.rucse18@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Jahid Hasan', 2, 'jahid.cseru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `usertype`, `email`, `phone`, `address`, `date_of_birth`, `nid`, `status`, `profile_photo_path`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Sajeeb Chakraborty', '1', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-19', '8449849844', 'Approve', 'profile-photos/KgaxzcG50KjRCLvJuu5kv5x9lpbv3pFJLGG8CFEK.jpg', '2023-01-02 11:14:18', '$2y$10$Jw5M2cthbs15XpqnxOkMJunCghMO87JPL9Ojo0Vx53tgJKVjW.bfe', NULL, NULL, NULL, 'HH8p14BzusJsBShdNtP6OikI9dhxBE6uxcYLuYWTtyJ0iiS9eeKr44bGonN4', '2023-01-02 09:27:29', '2023-01-02 14:27:24'),
+(2, 'Robin Chakraborty', '1', 'robincb.symphony@gmail.com', '01824072334', NULL, NULL, NULL, NULL, NULL, '2023-01-02 10:13:58', '$2y$10$qs7uJrm24D43KjZKKMDbc.ryQkuWEycSHVAPfktLsM2SvTgzDrUx2', NULL, NULL, NULL, NULL, '2023-01-02 10:02:55', '2023-01-02 10:13:58'),
+(3, 'MD AL Amin', '2', 'alamin.rucse18@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Jahid Hasan', '2', 'jahid.cseru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'Sajeeb Chakraborty', '0', 'sajeebcb.cseru@gmail.com', '', NULL, NULL, NULL, NULL, NULL, '2023-01-10 06:03:49', '$2y$10$RnWFKMUo6kDqslmn2rry7O93BGy47eTHH6nF1N0Ar34atqIYrwkKC', NULL, NULL, NULL, NULL, '2023-01-10 06:02:16', '2023-01-10 06:03:49');
 
 -- --------------------------------------------------------
 
@@ -477,7 +489,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -495,7 +507,7 @@ ALTER TABLE `places`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `virtual_assistants`
