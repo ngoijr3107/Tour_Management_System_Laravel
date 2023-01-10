@@ -19,7 +19,7 @@ class LocalGuideHostController extends Controller
 
         if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
         {
-            abort(404,"Sorry! you can not do this action.");
+            return view('errorPage.404');
         }
 
         return view('admin.guideHost.addService');
@@ -31,7 +31,7 @@ class LocalGuideHostController extends Controller
 
         if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
         {
-            abort(404,"Sorry! you can not do this action.");
+           return view('errorPage.404');
         }
 
         $usertype=Auth::user()->usertype;
