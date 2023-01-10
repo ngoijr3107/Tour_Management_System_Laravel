@@ -9,6 +9,7 @@ use App\Models\Local_host_service;
 
 use Illuminate\Http\Request;
 use Auth;
+use Gate;
 
 class LocalGuideHostController extends Controller
 {
@@ -16,12 +17,22 @@ class LocalGuideHostController extends Controller
     public function addService()
     {
 
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+            abort(404,"Sorry! you can not do this action.");
+        }
+
         return view('admin.guideHost.addService');
 
 
     }
     public function allService()
     {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+            abort(404,"Sorry! you can not do this action.");
+        }
 
         $usertype=Auth::user()->usertype;
 

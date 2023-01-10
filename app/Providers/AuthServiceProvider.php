@@ -23,8 +23,24 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->registerPolicies();
 
-        //
+          /* define a super admin role */
+          Gate::define('isSuperAdmin', function($user) {
+            return $user->usertype == 3;
+         });
+        
+         /* define a local guide role */
+         Gate::define('isLocalGuide', function($user) {
+             return $user->usertype == 1;
+         });
+       
+         /* define a local host role */
+         Gate::define('isLocalHost', function($user) {
+             return $user->usertype == 2;
+         });
+         
+        
     }
 }
