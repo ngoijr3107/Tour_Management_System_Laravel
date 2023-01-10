@@ -11,11 +11,21 @@
                     <p class="card-description">
                         Add Service
                     </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post" action="{{ url('add/service/process') }}">
                         <div class="form-group">
                         <label for="exampleInputName1">Service Name</label>
                         <input type="text" class="form-control" id="exampleInputName1" name="servcieName" placeholder="Service name">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleSelectGender">Place</label>
+                            <select class="form-control" id="exampleSelectGender" name="placeName">
+                            @foreach($places as $place)
+                                <option value="{{ $place->id }}">{{ $place->name }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+
+
                         @if(Auth::user()->usertype==1)
                             <div class="form-group">
                             <label for="exampleInputName2">Hotel Name</label>
