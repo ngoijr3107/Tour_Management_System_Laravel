@@ -40,6 +40,11 @@ class AuthServiceProvider extends ServiceProvider
          Gate::define('isLocalHost', function($user) {
              return $user->usertype == 2;
          });
+
+        /* define a tourist role */
+        Gate::define('isTourist', function($user) {
+            return $user->usertype == 0;
+        });
          
         
     }
