@@ -69,8 +69,9 @@
   <script src="{{ asset('assets/admin/js/template.js') }}"></script>
   <script src="{{ asset('assets/admin/js/settings.js') }}"></script>
   <script src="{{ asset('assets/admin/js/todolist.js') }}"></script>
-  
+
   <!-- endinject -->
+  
 </body>
 
 </html>
