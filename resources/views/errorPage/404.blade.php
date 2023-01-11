@@ -63,12 +63,13 @@
   <!-- Plugin js for this page -->
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  
+
   <script src="{{ asset('assets/admin/js/off-canvas.js') }}"></script>
   <script src="{{ asset('assets/admin/js/hoverable-collapse.js') }}"></script>
   <script src="{{ asset('assets/admin/js/template.js') }}"></script>
   <script src="{{ asset('assets/admin/js/settings.js') }}"></script>
   <script src="{{ asset('assets/admin/js/todolist.js') }}"></script>
+  
   <!-- endinject -->
 </body>
 
