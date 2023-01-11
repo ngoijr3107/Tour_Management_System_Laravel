@@ -90,6 +90,11 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <img  src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="width:30px;height:30px;border-radius:50%;margin-top:-5px;" /></a>
                                 <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    @cannot('isTourist')
+
+                                        <a href="/dashboard" class="dropdown-item">Dashboard</a>
+
+                                    @endcan
                                     <a href="/user/profile" class="dropdown-item">Profile</a>
                                     <a href="/history" class="dropdown-item">History</a>
                                     <form method="POST" action="{{ route('logout') }}" x-data>
