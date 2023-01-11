@@ -18,8 +18,9 @@
   <!-- inject:css -->
 
   <link rel="stylesheet" href="{{ asset('assets/admin/css/vertical-layout-light/style.css') }}">
-  
+
   <!-- endinject -->
+  
 </head>
 
 <body>
