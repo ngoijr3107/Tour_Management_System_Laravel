@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="{{ asset('assets/admin/css/vertical-layout-light/style.css') }}">
 
   <!-- endinject -->
-  
+
 </head>
 
 <body>
@@ -58,6 +58,7 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="{{ asset('assets/admin/vendors/js/vendor.bundle.base.js') }}"></script>
+  
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <!-- End plugin js for this page -->
