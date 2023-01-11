@@ -14,6 +14,7 @@
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
+  
   <link rel="stylesheet" href="{{ asset('assets/admin/css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
 </head>
