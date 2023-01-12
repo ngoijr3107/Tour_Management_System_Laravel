@@ -123,6 +123,14 @@ class SuperAdminController extends Controller
        return back();
 
     }
+    public function placeList()
+    {
+
+        $places=Place::all();
+
+        return view('admin.superAdmin.placeList',['places'=>$places]);
+
+    }
 
 
 }
