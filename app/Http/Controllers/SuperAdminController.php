@@ -45,7 +45,7 @@ class SuperAdminController extends Controller
     public function superAdminList()
     {
 
-        $superAdmins=User::where('usertype',0)->get();
+        $superAdmins=User::where('usertype',3)->get();
 
         return view('admin.superAdmin.superAdminList',['superAdmins'=>$superAdmins]);
 

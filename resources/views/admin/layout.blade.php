@@ -336,6 +336,21 @@
                 <span class="menu-title">Tourist</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                <i class="icon-bar-graph menu-icon"></i>
+                <span class="menu-title">Super Admin</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="charts">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Add Super Admin</a></li>
+                </ul>
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/super-admin/list') }}">All Super Admin</a></li>
+                </ul>
+              </div>
+            </li>
           @endif
 
           @if(Auth::user()->usertype==3)
