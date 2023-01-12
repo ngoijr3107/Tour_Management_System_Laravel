@@ -44,21 +44,21 @@
 
                                 <tr>
                                 <td class="py-1">
-                                    <img src="{{ asset('/') }}" alt="image"/>
+                                    <img src="{{ $guide->profile_photo_url }}" alt="image"/>
                                 </td>
                                 <td>
-                                    Herman Beck
+                                    {{ $guide->name }}
                                 </td>
                                 <td>
-                                    <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+
+                                    {{ $guide->email }}
+
                                 </td>
                                 <td>
-                                    $ 77.99
+                                    {{ $guide->phone }}
                                 </td>
                                 <td>
-                                    May 15, 2015
+                                    <a class="btn btn-rounded btn-success" href="{{ url('local-guide/list/'. $guide->id) }}">Details</a>
                                 </td>
                                 </tr>
                             
