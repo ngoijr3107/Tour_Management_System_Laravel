@@ -137,7 +137,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/place/list', [SuperAdminController::class, 'placeList'])->name('/place/list');
+    Route::get('/place-list', [SuperAdminController::class, 'placeList'])->name('/place-list');
     Route::get('/add/place', [SuperAdminController::class, 'addPlace'])->name('/add/place');
     Route::get('/local-guide/list', [SuperAdminController::class, 'guideList'])->name('/local-guide/list');
     Route::get('/local-host/list', [SuperAdminController::class, 'hostList'])->name('/local-host/list');
