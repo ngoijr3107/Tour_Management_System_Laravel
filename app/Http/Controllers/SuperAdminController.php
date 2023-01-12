@@ -76,6 +76,17 @@ class SuperAdminController extends Controller
         return view('admin.superAdmin.superAdminList',['superAdmins'=>$superAdmins]);
 
     }
+    public function addPlace()
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        return view('admin.superAdmin.addPlace');
+
+    }
 
 
 }
