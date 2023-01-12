@@ -283,7 +283,7 @@
                   <li class="nav-item"> <a class="nav-link" href="{{ url('/add/place') }}">Add Place</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ url('/place-list') }}">Completed Tours</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/place-list') }}">All Place</a></li>
                 </ul>
               </div>
             </li>
