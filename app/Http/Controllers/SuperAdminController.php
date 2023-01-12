@@ -149,6 +149,24 @@ class SuperAdminController extends Controller
         return view('admin.superAdmin.pendingGuideHost',['pendingGuideHosts'=>$pendingGuideHosts]);
 
     }
+    public function approveGuideHost($id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $guideHost=array();
+
+        $guideHost['status']="Approve";
+
+        $approve=User::where('id',$id)->update($guideHost);
+
+        Session()->flash('success','Guide or Host approved successfully !');
+        return back();
+
+    }
 
 
 }

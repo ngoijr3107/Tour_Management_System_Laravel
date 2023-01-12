@@ -140,6 +140,7 @@ Route::middleware([
     Route::get('/place-list', [SuperAdminController::class, 'placeList'])->name('/place-list');
     Route::get('/add/place', [SuperAdminController::class, 'addPlace'])->name('/add/place');
     Route::get('/pending/guide-host', [SuperAdminController::class, 'pendingGuideHost'])->name('/pending/guide-host');
+    Route::get('/pending/guide-host/approve/{id}', [SuperAdminController::class, 'approveGuideHost'])->name('/pending/guide-host/approve');
     Route::post('/add/place/process', [SuperAdminController::class, 'addPlaceProcess'])->name('/add/place/process');
     Route::get('/local-guide-list', [SuperAdminController::class, 'guideList'])->name('/local-guide/list');
     Route::get('/local-host-list', [SuperAdminController::class, 'hostList'])->name('/local-host/list');

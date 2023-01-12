@@ -13,10 +13,18 @@
                 <div class="card">
                     <div class="card-body">
                     <h4 class="card-title">Pending Guide & Host</h4>
-                    <p class="card-description">
+
+                    @if(Session::has('success'))
+
+                        <div class="alert alert-success">
+
+                            {{Session::get('success')}}
 
 
-                    </p>
+                        </div>
+
+                    @endif
+
                     <div class="table-responsive">
                         <table class="table table-striped">
                         <thead>
@@ -59,8 +67,8 @@
                                     {{ $pendingGuideHost->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-primary" href="{{ url('local-pendingGuideHost/list/'. $pendingGuideHost->id) }}">Details</a>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-pendingGuideHost/approve/'. $pendingGuideHost->id) }}">Approve</a>
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('pending/GuideHost/list/'. $pendingGuideHost->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('pending/guide-host/approve/'. $pendingGuideHost->id) }}">Approve</a>
                                 </td>
                                 </tr>
                             
