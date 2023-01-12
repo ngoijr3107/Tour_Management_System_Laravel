@@ -6,12 +6,18 @@ use App\Models\User;
 use App\Models\Virtual_assistant;
 
 use Illuminate\Http\Request;
+use Gate;
 
 class SuperAdminController extends Controller
 {
     
     public function guideList()
     {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
 
         $guides=User::where('usertype',1)->get();
 
@@ -20,6 +26,11 @@ class SuperAdminController extends Controller
     }
     public function hostList()
     {
+        
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
 
         $hosts=User::where('usertype',2)->get();
 
@@ -29,6 +40,11 @@ class SuperAdminController extends Controller
     public function touristList()
     {
 
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
         $tourists=User::where('usertype',0)->get();
 
         return view('admin.superAdmin.touristList',['tourists'=>$tourists]);
@@ -37,6 +53,11 @@ class SuperAdminController extends Controller
     public function virtualAssistantList()
     {
 
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
         $virtualAssistant=Virtual_assistant::all();
 
         return view('admin.superAdmin.virtualAssistantList',['virtualAssistant'=>$virtualAssistant]);
@@ -44,6 +65,11 @@ class SuperAdminController extends Controller
     }
     public function superAdminList()
     {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
 
         $superAdmins=User::where('usertype',3)->get();
 
