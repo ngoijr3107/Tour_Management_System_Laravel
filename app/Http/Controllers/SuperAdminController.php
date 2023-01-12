@@ -8,6 +8,7 @@ use App\Models\Place;
 
 use Illuminate\Http\Request;
 use Gate;
+use Auth;
 
 class SuperAdminController extends Controller
 {
@@ -157,11 +158,23 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
 
+        $guideHostDetails=User::where('id',$id)->first();
+
         $guideHost=array();
 
         $guideHost['status']="Approve";
 
         $approve=User::where('id',$id)->update($guideHost);
+
+        //semd approval notification mail to guide or host
+        $details = [
+
+            'title' => 'Approve Account Email',
+            'body' => 'Hi '. $guideHostDetails->name .'! Your account approved by "Gurta Jabo".You are now interacted and provide your service in our system.',
+
+        ];
+        
+            \Mail::to($guideHostDetails->email)->send(new \App\Mail\ApprovalMail($details));
 
         Session()->flash('success','Guide or Host approved successfully !');
         return back();
