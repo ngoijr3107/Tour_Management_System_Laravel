@@ -12,7 +12,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Local Guide</h4>
+                    <h4 class="card-title">Local Host</h4>
                     <p class="card-description">
 
 
@@ -40,25 +40,25 @@
                         </thead>
                         <tbody>
 
-                            @foreach($guides as $guide)
+                            @foreach($hosts as $host)
 
                                 <tr>
                                 <td class="py-1">
-                                    <img src="{{ $guide->profile_photo_url }}" alt="image"/>
+                                    <img src="{{ $host->profile_photo_url }}" alt="image"/>
                                 </td>
                                 <td>
-                                    {{ $guide->name }}
+                                    {{ $host->name }}
                                 </td>
                                 <td>
 
-                                    {{ $guide->email }}
+                                    {{ $host->email }}
 
                                 </td>
                                 <td>
-                                    {{ $guide->phone }}
+                                    {{ $host->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-guide/list/'. $guide->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('local-host/list/'. $host->id) }}">Details</a>
                                 </td>
                                 </tr>
                             
