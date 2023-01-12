@@ -267,7 +267,7 @@
           </li>
           @if(Auth::user()->usertype==3)
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/pending/service-provider') }}">
+            <a class="nav-link" href="{{ url('/pending/guide-host') }}">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Pending Guide-Host</span>
             </a>
