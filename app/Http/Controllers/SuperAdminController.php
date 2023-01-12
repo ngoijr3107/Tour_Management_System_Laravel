@@ -125,10 +125,22 @@ class SuperAdminController extends Controller
     }
     public function placeList()
     {
+        
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
 
         $places=Place::all();
 
         return view('admin.superAdmin.placeList',['places'=>$places]);
+
+    }
+    public function pendingGuideHost()
+    {
+
+
+
 
     }
 
