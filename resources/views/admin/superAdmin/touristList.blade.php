@@ -12,7 +12,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Local Guide</h4>
+                    <h4 class="card-title">Local Tourist</h4>
                     <p class="card-description">
 
 
@@ -43,28 +43,28 @@
                         </thead>
                         <tbody>
 
-                            @foreach($guides as $guide)
+                            @foreach($tourists as $tourist)
 
                                 <tr>
                                 <td class="py-1">
-                                    <img src="{{ $guide->profile_photo_url }}" alt="image"/>
+                                    <img src="{{ $tourist->profile_photo_url }}" alt="image"/>
                                 </td>
                                 <td>
-                                    {{ $guide->name }}
+                                    {{ $tourist->name }}
                                 </td>
                                 <td>
 
-                                    {{ $guide->email }}
+                                    {{ $tourist->email }}
 
                                 </td>
                                 <td>
-                                    {{ $guide->phone }}
+                                    {{ $tourist->phone }}
                                 </td>
                                 <td>
-                                    {{ $guide->address }}
+                                    {{ $tourist->address }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-guide/list/'. $guide->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('local-tourist/list/'. $tourist->id) }}">Details</a>
                                 </td>
                                 </tr>
                             
