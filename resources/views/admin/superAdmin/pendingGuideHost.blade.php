@@ -34,7 +34,7 @@
                                 Phone
                             </th>
                             <th>
-                                Address
+                                Action
                             </th>
                         
                             </tr>
@@ -59,7 +59,8 @@
                                     {{ $pendingGuideHost->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-pendingGuideHost/list/'. $pendingGuideHost->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('local-pendingGuideHost/list/'. $pendingGuideHost->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('local-pendingGuideHost/approve/'. $pendingGuideHost->id) }}">Approve</a>
                                 </td>
                                 </tr>
                             
