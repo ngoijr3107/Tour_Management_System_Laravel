@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Virtual_assistant;
+use App\Models\Place;
 
 use Illuminate\Http\Request;
 use Gate;
@@ -85,6 +86,41 @@ class SuperAdminController extends Controller
         }
 
         return view('admin.superAdmin.addPlace');
+
+    }
+    public function addPlaceProcess(Request $req)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $placeName=$req->name;
+        $address=$req->address;
+
+        $validatedData = $req->validate([
+
+            'name' => ['required', 'unique:places', 'max:255'],
+            'address' => ['required'],
+            'placeImage' => ['required','mimes:jpeg,jpg,png|max:1000']
+
+        ]);
+ 
+       $uploadedfile=$req->file('placeImage');
+       $placeImage=rand().'.'.$uploadedfile->getClientOriginalExtension();
+       $uploadedfile->move(public_path('assets/placeImage'),$placeImage);
+
+       $place=array();
+
+       $place['name']=$placeName;
+       $place['address']=$address;
+       $place['photo']=$placeImage;
+
+       $addPlace=Place::create($place);
+
+       Session()->flash('success','Place added successfully !');
+       return back();
 
     }
 
