@@ -266,11 +266,20 @@
             </a>
           </li>
           @if(Auth::user()->usertype==3)
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/place/list') }}">
-                <i class="icon-layout menu-icon"></i>
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#places" aria-expanded="false" aria-controls="charts">
+                <i class="icon-bar-graph menu-icon"></i>
                 <span class="menu-title">Place</span>
+                <i class="menu-arrow"></i>
               </a>
+              <div class="collapse" id="places">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/add/place') }}">Add Place</a></li>
+                </ul>
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/place-list') }}">Completed Tours</a></li>
+                </ul>
+              </div>
             </li>
           @endif
           @if(Auth::user()->usertype==1 || Auth::user()->usertype==2)
@@ -313,25 +322,25 @@
           @endif
           @if(Auth::user()->usertype==3)
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/local-guide/list') }}">
+              <a class="nav-link" href="{{ url('/local-guide-list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Local Guide</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/local-host/list') }}">
+              <a class="nav-link" href="{{ url('/local-host-list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Local Host</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/virtual-assistant/list') }}">
+              <a class="nav-link" href="{{ url('/virtual-assistant-list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Virtual Assistant</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/tourist/list') }}">
+              <a class="nav-link" href="{{ url('/tourist-list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Tourist</span>
               </a>
@@ -347,7 +356,7 @@
                   <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Add Super Admin</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ url('/super-admin/list') }}">All Super Admin</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/super-admin-list') }}">All Super Admin</a></li>
                 </ul>
               </div>
             </li>
