@@ -267,6 +267,12 @@
           </li>
           @if(Auth::user()->usertype==3)
           <li class="nav-item">
+            <a class="nav-link" href="{{ url('/pending/service-provider') }}">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Pending Guide-Host</span>
+            </a>
+          </li>
+          <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#places" aria-expanded="false" aria-controls="charts">
                 <i class="icon-bar-graph menu-icon"></i>
                 <span class="menu-title">Place</span>
