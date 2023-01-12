@@ -125,7 +125,7 @@ class SuperAdminController extends Controller
     }
     public function placeList()
     {
-        
+
         if(!(Gate::allows('isSuperAdmin')))
         {
             return view('errorPage.404');
@@ -139,8 +139,14 @@ class SuperAdminController extends Controller
     public function pendingGuideHost()
     {
 
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
 
+        $pendingGuideHosts=User::where('status','Pending')->where('usertype',2)->orWhere('usertype',1)->get();
 
+        return view('admin.superAdmin.pendingGuideHost',['pendingGuideHosts'=>$pendingGuideHosts]);
 
     }
 
