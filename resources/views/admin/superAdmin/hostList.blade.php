@@ -36,6 +36,9 @@
                             <th>
                                 Address
                             </th>
+                            <th>
+                                Action
+                            </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +59,9 @@
                                 </td>
                                 <td>
                                     {{ $host->phone }}
+                                </td>
+                                <td>
+                                    {{ $host->address }}
                                 </td>
                                 <td>
                                     <a class="btn btn-rounded btn-success" href="{{ url('local-host/list/'. $host->id) }}">Details</a>
