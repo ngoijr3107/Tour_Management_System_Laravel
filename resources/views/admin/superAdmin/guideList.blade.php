@@ -36,9 +36,7 @@
                             <th>
                                 Address
                             </th>
-                            <th>
-                                Action
-                            </th>
+                          
                             </tr>
                         </thead>
                         <tbody>
@@ -59,9 +57,6 @@
                                 </td>
                                 <td>
                                     {{ $guide->phone }}
-                                </td>
-                                <td>
-                                    {{ $guide->address }}
                                 </td>
                                 <td>
                                     <a class="btn btn-rounded btn-success" href="{{ url('local-guide/list/'. $guide->id) }}">Details</a>

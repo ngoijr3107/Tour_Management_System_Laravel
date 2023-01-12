@@ -12,7 +12,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Local Tourist</h4>
+                    <h4 class="card-title">Tourist</h4>
                     <p class="card-description">
 
 
@@ -36,9 +36,7 @@
                             <th>
                                 Address
                             </th>
-                            <th>
-                                Action
-                            </th>
+                        
                             </tr>
                         </thead>
                         <tbody>
@@ -59,9 +57,6 @@
                                 </td>
                                 <td>
                                     {{ $tourist->phone }}
-                                </td>
-                                <td>
-                                    {{ $tourist->address }}
                                 </td>
                                 <td>
                                     <a class="btn btn-rounded btn-success" href="{{ url('local-tourist/list/'. $tourist->id) }}">Details</a>
