@@ -44,7 +44,6 @@ class SuperAdminController extends Controller
         {
             return view('errorPage.404');
         }
-        
 
         $tourists=User::where('usertype',0)->get();
 
