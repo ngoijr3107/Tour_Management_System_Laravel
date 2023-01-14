@@ -11,6 +11,12 @@ class Local_guide_service extends Model
 
     protected $fillable = [
         'available',
+        'service_name',
+        'user_id',
+        'hotel_name',
+        'room_type',
+        'food_item',
+        'food_picture',
         'local_guide_id',
         'place_id',
         'feature',
