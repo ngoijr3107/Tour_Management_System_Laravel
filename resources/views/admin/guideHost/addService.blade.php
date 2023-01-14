@@ -114,10 +114,16 @@
                         <label for="exampleTextarea1">Feature</label>
                         <textarea class="form-control" id="exampleTextarea1" rows="4" name="feature"></textarea>
                         </div>
-                        <div class="form-group">
-                        <label for="exampleInputPassword4">Service Charge</label>
-                        <input type="number" class="form-control" id="exampleInputPassword4" name="serviceCharge" placeholder="Service Charge" required>
-                        </div>
+
+                        @if(Auth::user()->usertype==1)
+
+                            <div class="form-group">
+                            <label for="exampleInputPassword4">Service Charge</label>
+                            <input type="number" class="form-control" id="exampleInputPassword4" name="serviceCharge" placeholder="Service Charge" required>
+                            </div>
+
+                        @endif
+                        
                         <div class="form-group">
                             <label for="exampleSelectGender">Service Available</label>
                             <select class="form-control" id="exampleSelectGender" name="available" required>
