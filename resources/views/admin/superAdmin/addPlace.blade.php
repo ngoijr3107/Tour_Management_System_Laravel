@@ -41,17 +41,17 @@
 
                         <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Place name">
+                        <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Place name" required>
                         </div>
 
                         <div class="form-group">
                         <label for="exampleInputName1">Address</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="address" placeholder="Address">
+                        <input type="text" class="form-control" id="exampleInputName1" name="address" placeholder="Address" required>
                         </div>
 
                         <div class="form-group">
                        <label>Place Image</label>
-                       <input type="file" class="file-upload-default" name="placeImage">
+                       <input type="file" class="file-upload-default" name="placeImage" required>
                        <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
