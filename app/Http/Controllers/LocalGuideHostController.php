@@ -145,6 +145,12 @@ class LocalGuideHostController extends Controller
 
             $service['room_picture']=$imageName;
             $service['food_picture']=$imageName;
+            $service['total_price']=$totalPrice;
+
+            $addService=Local_guide_service::create($service);
+
+            Session()->flash('success','Service added successfully !');
+            return back();
 
         }
         else
@@ -162,13 +168,14 @@ class LocalGuideHostController extends Controller
   
             $service['room_picture']=$imageName;
             $service['food_picture']=$imageName;
+            $service['total_price']=$totalPrice;
 
+            $addService=Local_host_service::create($service);
+
+            Session()->flash('success','Service added successfully !');
+            return back();
 
         }
-
-        $service['total_price']=$totalPrice;
-
-        dd($service);
 
     }
    
