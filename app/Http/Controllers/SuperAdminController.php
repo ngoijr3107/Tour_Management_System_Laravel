@@ -145,7 +145,7 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
 
-        $pendingGuideHosts=User::where('status','Pending')->where('usertype',2)->orWhere('usertype',1)->get();
+        $pendingGuideHosts=User::where('status','Pending')->where('usertype',2)->orWhere('usertype',1)->where('status','Pending')->get();
 
         return view('admin.superAdmin.pendingGuideHost',['pendingGuideHosts'=>$pendingGuideHosts]);
 
@@ -174,7 +174,7 @@ class SuperAdminController extends Controller
 
         ];
         
-            \Mail::to($guideHostDetails->email)->send(new \App\Mail\ApprovalMail($details));
+        \Mail::to($guideHostDetails->email)->send(new \App\Mail\ApprovalMail($details));
 
         Session()->flash('success','Guide or Host approved successfully !');
         return back();
