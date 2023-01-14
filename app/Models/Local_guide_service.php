@@ -17,7 +17,6 @@ class Local_guide_service extends Model
         'room_type',
         'food_item',
         'food_picture',
-        'local_guide_id',
         'place_id',
         'feature',
         'room_picture',
