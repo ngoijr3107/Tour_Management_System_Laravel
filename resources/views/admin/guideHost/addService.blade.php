@@ -12,14 +12,13 @@
                         Add Service
                     </p>
 
-                    @if ($errors->any())
+                    @if(Session::has('wrongInformation'))
 
                         <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+
+                            {{Session::get('wrongInformation')}}
+
+
                         </div>
 
                     @endif
