@@ -131,10 +131,15 @@ class LocalGuideHostController extends Controller
             $totalPrice=$serviceCharge+$hotelPrice+$foodPrice;
 
             //For Image compression, Image upload in webp format
+            $imageName=rand().'webp';
             $convertImageToWebp = Webp::make($req->file('roomImage'));
-            $convertImageToWebp->save(public_path('assets/placeImage/'.$placeName.'.webp'));
+            $convertImageToWebp->save(public_path('assets/lgHotelRoomImage/'.$imageName));
 
+            $convertImageToWebp = Webp::make($req->file('foodImage'));
+            $convertImageToWebp->save(public_path('assets/lgFoodImage/'.$imageName));
 
+            $service['room_picture']=$imageName;
+            $service['food_picture']=$imageName;
 
         }
         else
