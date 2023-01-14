@@ -11,7 +11,7 @@
                     <p class="card-description">
                         Add Service
                     </p>
-                    <form class="forms-sample" method="post" action="{{ url('add/service/process') }}">
+                    <form class="forms-sample" method="post" action="{{ url('add/service/process') }}" enctype="multipart/form-data">
 
                         @csrf
 

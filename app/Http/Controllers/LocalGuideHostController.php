@@ -11,6 +11,7 @@ use App\Models\Place;
 use Illuminate\Http\Request;
 use Auth;
 use Gate;
+use Webp;
 
 class LocalGuideHostController extends Controller
 {
@@ -130,6 +131,10 @@ class LocalGuideHostController extends Controller
 
             $totalPrice=$serviceCharge+$hotelPrice+$foodPrice;
 
+            $service['hotel_name']=$hotelName;
+            $service['room_type']=$roomType;
+            $service['service_charge']=$serviceCharge;
+
             //For Image compression, Image upload in webp format
             $imageName=rand().'webp';
             $convertImageToWebp = Webp::make($req->file('roomImage'));
@@ -160,6 +165,8 @@ class LocalGuideHostController extends Controller
 
 
         }
+
+        $service['total_price']=$totalPrice;
 
         dd($service);
 
