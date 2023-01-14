@@ -40,11 +40,11 @@
 
                         <div class="form-group">
                         <label for="exampleInputName1">Service Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="serviceName" placeholder="Service name">
+                        <input type="text" class="form-control" id="exampleInputName1" name="serviceName" placeholder="Service name" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleSelectGender">Place</label>
-                            <select class="form-control" id="exampleSelectGender" name="placeId">
+                            <select class="form-control" id="exampleSelectGender" name="placeId" required>
                             @foreach($places as $place)
                                 <option value="{{ $place->id }}">{{ $place->name }}</option>
                             @endforeach
@@ -55,7 +55,7 @@
                         @if(Auth::user()->usertype==1)
                             <div class="form-group">
                             <label for="exampleInputName2">Hotel Name</label>
-                            <input type="text" class="form-control" id="exampleInputName2" name="hotelName" placeholder="Hotel Name">
+                            <input type="text" class="form-control" id="exampleInputName2" name="hotelName" placeholder="Hotel Name" required>
                             </div>
 
                             <div class="form-group">
@@ -67,24 +67,24 @@
                             </div>
                             <div class="form-group">
                             <label for="exampleInputPassword4">Hotel Price</label>
-                            <input type="number" class="form-control" id="exampleInputPassword4" name="hotelPrice" placeholder="Hotel Price">
+                            <input type="number" class="form-control" id="exampleInputPassword4" name="hotelPrice" placeholder="Hotel Price" required>
                             </div>
 
                         @elseif(Auth::user()->usertype==2)
                         
                             <div class="form-group">
                             <label for="exampleInputPassword4">Room Price</label>
-                            <input type="number" class="form-control" id="exampleInputPassword4" name="roomPrice" placeholder="Hotel Price">
+                            <input type="number" class="form-control" id="exampleInputPassword4" name="roomPrice" placeholder="Hotel Price" required>
                             </div>
 
                         @endif
                         <div class="form-group">
                         <label for="exampleInputPassword4">Food Item</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Food Item" name="foodItem">
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Food Item" name="foodItem" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Food Price</label>
-                            <input type="number" class="form-control" id="exampleInputPassword4" name="foodPrice" placeholder="Food Price">
+                            <input type="number" class="form-control" id="exampleInputPassword4" name="foodPrice" placeholder="Food Price" required>
                             </div>
                     
 
@@ -92,7 +92,7 @@
                        <label>Room Image</label>
                        <input type="file" class="file-upload-default" name="roomImage">
                        <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" required>
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
@@ -103,7 +103,7 @@
                         <label>Food Image</label>
                         <input type="file" class="file-upload-default" name="foodImage">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" required>
                             <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                             </span>
@@ -116,11 +116,11 @@
                         </div>
                         <div class="form-group">
                         <label for="exampleInputPassword4">Service Charge</label>
-                        <input type="number" class="form-control" id="exampleInputPassword4" name="serviceCharge" placeholder="Service Charge">
+                        <input type="number" class="form-control" id="exampleInputPassword4" name="serviceCharge" placeholder="Service Charge" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleSelectGender">Service Available</label>
-                            <select class="form-control" id="exampleSelectGender" name="available">
+                            <select class="form-control" id="exampleSelectGender" name="available" required>
                             <option>Yes</option>
                             <option>No</option>
                             </select>
