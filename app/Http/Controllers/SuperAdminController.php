@@ -9,6 +9,7 @@ use App\Models\Place;
 use Illuminate\Http\Request;
 use Gate;
 use Auth;
+use Webp;
 
 class SuperAdminController extends Controller
 {
@@ -107,21 +108,32 @@ class SuperAdminController extends Controller
             'placeImage' => ['required','mimes:jpeg,jpg,png|max:1000']
 
         ]);
- 
-       $uploadedfile=$req->file('placeImage');
-       $placeImage=rand().'.'.$uploadedfile->getClientOriginalExtension();
-       $uploadedfile->move(public_path('assets/placeImage'),$placeImage);
 
-       $place=array();
+        //For Image compression, Image upload in webp format
+        $convertImageToWebp = Webp::make($req->file('placeImage'));
+        $convertImageToWebp->save(public_path('assets/placeImage/'.$placeName.'.webp'));
 
-       $place['name']=$placeName;
-       $place['address']=$address;
-       $place['photo']=$placeImage;
+        /*
 
-       $addPlace=Place::create($place);
+            //Image upload in jpg,png format
 
-       Session()->flash('success','Place added successfully !');
-       return back();
+            $uploadedfile=$req->file('placeImage');
+            $placeImage=rand().'.'.$uploadedfile->getClientOriginalExtension();
+            $uploadedfile->move(public_path('assets/placeImage'),$placeImage);
+
+
+        */
+
+        $place=array();
+
+        $place['name']=$placeName;
+        $place['address']=$address;
+        $place['photo']=$placeName.'.webp';
+
+        $addPlace=Place::create($place);
+
+        Session()->flash('success','Place added successfully !');
+        return back();
 
     }
     public function placeList()
