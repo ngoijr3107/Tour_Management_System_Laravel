@@ -132,6 +132,7 @@ class LocalGuideHostController extends Controller
             $totalPrice=$serviceCharge+$hotelPrice+$foodPrice;
 
             $service['hotel_name']=$hotelName;
+            $service['hotel_price']=$hotelPrice;
             $service['room_type']=$roomType;
             $service['service_charge']=$serviceCharge;
 
