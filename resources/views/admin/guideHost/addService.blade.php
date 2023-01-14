@@ -11,6 +11,17 @@
                     <p class="card-description">
                         Add Service
                     </p>
+                    @if(Session::has('success'))
+
+                        <div class="alert alert-success">
+
+                            {{Session::get('success')}}
+
+
+                        </div>
+
+                     @endif
+
                     <form class="forms-sample" method="post" action="{{ url('add/service/process') }}" enctype="multipart/form-data">
 
                         @csrf
