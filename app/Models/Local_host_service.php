@@ -17,6 +17,7 @@ class Local_host_service extends Model
         'food_picture',
         'place_id',
         'feature',
+        'room_price',
         'room_picture',
         'rating',
         'hotel_price',
