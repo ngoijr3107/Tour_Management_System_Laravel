@@ -20,7 +20,7 @@ class RegularPackageController extends Controller
 
         $guideProfile=User::where('id',$guideService->user_id)->first();
 
-        return view('tourist.regularpackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'guideServiceId'=>$id,'guideService'=>$guideService,'guideProfile'=>$guideProfile]);
+        return view('tourist.regularPackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'guideServiceId'=>$id,'guideService'=>$guideService,'guideProfile'=>$guideProfile]);
 
 
     }
@@ -68,7 +68,7 @@ class RegularPackageController extends Controller
         Session::put('lgServiceId',$guideServiceId);
         Session::put('lhServiceId',null);    
         
-        return view('tourist.regularpackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'totalBill'=>$totalBill]);
+        return view('tourist.regularPackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'totalBill'=>$totalBill]);
 
 
     }
