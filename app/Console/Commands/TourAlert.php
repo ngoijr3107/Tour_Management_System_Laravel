@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Auth;
 
 class TourAlert extends Command
 {
@@ -37,6 +38,17 @@ class TourAlert extends Command
      */
     public function handle()
     {
+
+        //semd mail to tourist
+        $details = [
+
+            'title' => 'Tour Notification',
+            'body' => 'Your tour starting',
+    
+        ];
+    
+        \Mail::to('sajeebchakraborty.cse2000@gmail.com')->send(new \App\Mail\ContactConfirmationMail($details));
+
         \Log::info("Send Alert successfully!");
     }
 }

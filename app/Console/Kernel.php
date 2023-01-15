@@ -17,13 +17,13 @@ class Kernel extends ConsoleKernel
     protected $commands = [
 
         Commands\TourAlert::class,
-        
+
     ];
 
     protected function schedule(Schedule $schedule)
     {
 
-        $schedule->command('tour:alert')->everyMinute();
+        $schedule->command('tour:alert')>dailyAt('00:05');
 
     }
 
