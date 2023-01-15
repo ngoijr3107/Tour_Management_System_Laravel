@@ -25,7 +25,7 @@ class ProPackageController extends Controller
 
         $virtualAssistantPrice=Virtual_assistant::sum('price');
 
-        return view('tourist.propackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'hostServiceId'=>$id,'hostService'=>$hostService,'hostProfile'=>$hostProfile,'virtualAssistant'=>$virtualAssistant,'virtualAssistantPrice'=>$virtualAssistantPrice]);
+        return view('tourist.proPackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'hostServiceId'=>$id,'hostService'=>$hostService,'hostProfile'=>$hostProfile,'virtualAssistant'=>$virtualAssistant,'virtualAssistantPrice'=>$virtualAssistantPrice]);
 
 
     }
@@ -75,7 +75,7 @@ class ProPackageController extends Controller
           Session::put('lgServiceId',null);
           Session::put('lhServiceId',$hostServiceId); 
         
-        return view('tourist.propackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
+        return view('tourist.Propackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
 
 
     }
