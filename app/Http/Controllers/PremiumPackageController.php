@@ -19,7 +19,7 @@ class PremiumPackageController extends Controller
 
         $hostProfile=User::where('id',$hostService->user_id)->first();
 
-        return view('tourist.premiumpackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'hostServiceId'=>$id,'hostService'=>$hostService,'hostProfile'=>$hostProfile]);
+        return view('tourist.premiumPackage.detail_info_before_payment',['placeId'=>$placeId,'packageId'=>$packageId,'hostServiceId'=>$id,'hostService'=>$hostService,'hostProfile'=>$hostProfile]);
 
 
     }
@@ -67,7 +67,7 @@ class PremiumPackageController extends Controller
         Session::put('lgServiceId',null);
         Session::put('lhServiceId',$hostServiceId);    
         
-        return view('tourist.premiumpackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'totalBill'=>$totalBill]);
+        return view('tourist.premiumPackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'totalBill'=>$totalBill]);
 
 
     }
