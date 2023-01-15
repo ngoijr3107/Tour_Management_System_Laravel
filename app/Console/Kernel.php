@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
 
-        $schedule->command('tour:alert')>dailyAt('00:05');
+        $schedule->command('tour:alert')>dailyAt('00:00');
 
     }
 

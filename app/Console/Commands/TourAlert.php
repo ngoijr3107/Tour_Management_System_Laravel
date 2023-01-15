@@ -5,6 +5,10 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Auth;
 
+//Model added
+use App\Models\Order;
+use App\Models\User;
+
 class TourAlert extends Command
 {
     /**
@@ -39,16 +43,26 @@ class TourAlert extends Command
     public function handle()
     {
 
-        //semd mail to tourist
-        $details = [
+        $orders=Order::all();
 
-            'title' => 'Tour Notification',
-            'body' => 'Your tour starting',
-    
-        ];
-    
-        \Mail::to('sajeebchakraborty.cse2000@gmail.com')->send(new \App\Mail\ContactConfirmationMail($details));
+        foreach($orders as $order)
+        {
 
+            $user=User::where('id',$order->id)->get();
+
+            //semd mail to tourist
+            $details = [
+
+                'title' => 'Tour Notification',
+                'body' => 'Your tour starting',
+        
+            ];
+        
+            \Mail::to($order->email)->send(new \App\Mail\TourAlertMail($details));
+
+        }
+
+      
         \Log::info("Send Alert successfully!");
     }
 }
