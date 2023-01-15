@@ -76,7 +76,7 @@ class UltraproPackageController extends Controller
         Session::put('lgServiceId',$guideServiceId);
         Session::put('lhServiceId',null);    
         
-        return view('tourist.ultrapropackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
+        return view('tourist.ultraproPackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
 
 
     }
