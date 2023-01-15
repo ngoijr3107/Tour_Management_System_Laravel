@@ -30,7 +30,7 @@ class TourAlertMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Tour Alert Email')
+        return $this->subject('Tour Notification Alert Email')
         ->view('tourist.mail.TourAlertEmail');
     }
 }
