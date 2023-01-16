@@ -9768,3 +9768,10 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+
+@media (min-width:320px)  { .packageCard{ width:19rem; } }
+@media (min-width:480px)  { .packageCard{ width:19rem; } }
+@media (min-width:600px)  { .packageCard{ width:17rem; } }
+@media (min-width:801px)  { .packageCard{ width:17rem; } }
+@media (min-width:1025px) { .packageCard{ width:17rem; } }
+@media (min-width:1281px) { .packageCard{ width:17rem; } }
