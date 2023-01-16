@@ -164,7 +164,7 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-5 mb-lg-0">
-                    
+
                     <div class="mb-4">
                         <h1 class="text-white"><span class="text-primary">Tourist </span> Helpline</h1>
                     </div>
@@ -175,6 +175,7 @@
                         <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Address : Rajshahi,Bangladesh</li>
 
                     </ul>
+                    
                 </div>
                 <div class="col-lg-5">
                     <div class="card border-0">
