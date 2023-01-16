@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Gurta Jabo</title>
+  <title>Gurte Jabo</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/admin/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/admin/vendors/ti-icons/css/themify-icons.css') }}">
@@ -26,7 +26,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="{{ url('/admin/dashboard') }}"><h3>Gurta Jabo</h3></a>
+        <a class="navbar-brand brand-logo mr-5" href="{{ url('/admin/dashboard') }}"><h3>Gurte Jabo</h3></a>
         <a class="navbar-brand brand-logo-mini" style="width:300px !important;" href="{{ url('/admin/dashboard') }}"><h3>GJ</h3></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
