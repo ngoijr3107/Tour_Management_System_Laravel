@@ -227,7 +227,7 @@
     
     <div >
     <h3  style="margin-left:-550px;">Founder</h3>
-    <h3 style="margin-top:-50x !important;margin-left:-550px;">Gurta Jabo</h3>
+    <h3 style="margin-top:-50x !important;margin-left:-550px;">Gurte Jabo</h3>
 
     </div>
 	</body>
