@@ -153,9 +153,9 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    <p class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Local Guide</p>
-                    <p class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Local Host</p>
-                    <p class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Virtual Assistant</p>
+                    <a href="#service" class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Local Guide</a>
+                    <a href="#service" class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Local Host</a>
+                    <a href="#service" class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Virtual Assistant</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
