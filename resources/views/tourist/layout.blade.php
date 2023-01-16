@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gurta Jabo</title>
+    <title>Gurte Jabo</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>gurtajabo@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>gurtejabo@gmail.com</p>
                         <p class="text-body px-3">|</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
                     </div>
@@ -71,7 +71,7 @@
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">Gurta </span>Jabo</h1>
+                    <h1 class="m-0 text-primary"><span class="text-dark">Gurte </span>Jabo</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -139,7 +139,7 @@
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">Gurta </span>Jabo</h1>
+                    <h1 class="text-primary"><span class="text-white">Gurte </span>Jabo</h1>
                 </a>
                 <p>Our system is an end to end complete software solution which will  help the tourists to provide service manager,booking pricing and other inventory</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
@@ -170,18 +170,18 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Rajshahi,Bangladesh</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
-                <p><i class="fa fa-envelope mr-2"></i>gurtajabo@gmail.com</p>
+                <p><i class="fa fa-envelope mr-2"></i>gurtejabo@gmail.com</p>
             </div>
         </div>
     </div>
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white-50">Copyright &copy; <a href="#">gurtajabo.com</a>. All Rights Reserved.</a>
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">gurtejabo.com</a>. All Rights Reserved.</a>
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
-                <p class="m-0 text-white-50">Designed by <a href="https://htmlcodex.com">Gurta Jabo</a>
+                <p class="m-0 text-white-50">Designed by <a href="https://htmlcodex.com">Gurte Jabo</a>
                 </p>
             </div>
         </div>
