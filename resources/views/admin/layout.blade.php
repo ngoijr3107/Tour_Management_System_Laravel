@@ -55,7 +55,7 @@
               <img src="{{ Auth::user()->profile_photo_url }}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="{{ url('/user/profile') }}">
+              <a class="dropdown-item" href="{{ url('/') }}">
                 <i class="ti-home text-primary"></i>
                 Home
               </a>
