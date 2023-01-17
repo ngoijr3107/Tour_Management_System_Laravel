@@ -30,7 +30,6 @@
 
                                     <br>
 
-
                                     <a class="h5 text-decoration-none"  href="">{{  $service->service_name }}</a>
                                     <p style="margin-top:0.5px;"></p>
                                   
