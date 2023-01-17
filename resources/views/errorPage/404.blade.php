@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Gurte Jabo</title>
+  <title>Ghurte Jabo</title>
 
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/admin/vendors/feather/feather.css') }}">
@@ -45,7 +45,7 @@
             </div>
             <div class="row mt-5">
               <div class="col-12 mt-xl-2">
-                <p class="text-white font-weight-medium text-center">Copyright &copy; Gurte Jabo .  All rights reserved.</p>
+                <p class="text-white font-weight-medium text-center">Copyright &copy; Ghurte Jabo .  All rights reserved.</p>
               </div>
             </div>
           </div>
