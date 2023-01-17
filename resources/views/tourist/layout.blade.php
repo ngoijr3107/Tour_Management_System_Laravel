@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>gurtejabo@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>ghurtejabo@gmail.com</p>
                         <p class="text-body px-3">|</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
                     </div>
@@ -139,7 +139,7 @@
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">Gurte </span>Jabo</h1>
+                    <h1 class="text-primary"><span class="text-white">Ghurte </span>Jabo</h1>
                 </a>
                 <p>Our system is an end to end complete software solution which will  help the tourists to provide service manager,booking pricing and other inventory</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
