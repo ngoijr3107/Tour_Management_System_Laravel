@@ -42,6 +42,7 @@
                                             <h5 class="m-0">৳{{ $service->total_price }}</h5>
                                         </div>
                                     </div>
+                                    
                                     <br>
 
                                     <div class="">
