@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gurte Jabo</title>
+    <title>Ghurte Jabo</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>info@Gurtejabo.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>info@Ghurtejabo.com</p>
                         <p class="text-body px-3">|</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
                     </div>
@@ -68,7 +68,7 @@
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">Gurte </span>Jabo</h1>
+                    <h1 class="m-0 text-primary"><span class="text-dark">Ghurte </span>Jabo</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
