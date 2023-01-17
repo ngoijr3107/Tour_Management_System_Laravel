@@ -146,5 +146,4 @@ Route::middleware([
     Route::get('/super-admin-list', [SuperAdminController::class, 'superAdminList'])->name('/super-admin/list');
     Route::get('/transaction/list', [SuperAdminController::class, 'transactionList'])->name('/transaction/list');
 
-
 });
