@@ -113,8 +113,6 @@ Route::middleware([
    
 });
 
-
-
 //Local guide & host
 Route::middleware([
     'auth:sanctum',
@@ -128,7 +126,6 @@ Route::middleware([
     Route::get('/balance/statement', [LocalGuideHostController::class, 'balanceStatement'])->name('/balance/statement');
    
 });
-
 
 //Super admin
 Route::middleware([
