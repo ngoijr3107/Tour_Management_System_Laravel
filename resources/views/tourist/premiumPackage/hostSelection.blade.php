@@ -59,8 +59,6 @@
 
                                                 <button class="btn btn-danger ">Not Available</button>
 
-
-
                                             @endif
 
                                         </div>
