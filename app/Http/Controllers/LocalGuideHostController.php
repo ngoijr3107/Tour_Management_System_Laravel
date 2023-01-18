@@ -245,7 +245,7 @@ class LocalGuideHostController extends Controller
         return view('admin.guideHost.completedTours',['completedTours'=>$completedTours]);
 
     }
-    public function receiveCompleteRequest($id)
+    public function receiveTourCompletedRequest($id)
     {
 
         $tourInformation=Order::where('id',$id)->first();
