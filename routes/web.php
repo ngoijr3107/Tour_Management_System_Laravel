@@ -124,7 +124,9 @@ Route::middleware([
     Route::post('/add/service/process', [LocalGuideHostController::class, 'addServiceProcess'])->name('/add/service/process');
     Route::get('/all/service', [LocalGuideHostController::class, 'allService'])->name('/all/service');
     Route::get('/balance/statement', [LocalGuideHostController::class, 'balanceStatement'])->name('/balance/statement');
-   
+    Route::get('/pending/tours', [LocalGuideHostController::class, 'pendingTour'])->name('/pending/tours');
+    Route::get('/completed/tours', [LocalGuideHostController::class, 'completedTour'])->name('/completed/tours');
+
 });
 
 //Super admin
