@@ -22,9 +22,6 @@
                         <thead>
                             <tr>
                             <th>
-                                User
-                            </th>
-                            <th>
                                 Name
                             </th>
                             <th>
@@ -32,6 +29,9 @@
                             </th>
                             <th>
                                 Phone
+                            </th>
+                            <th>
+                                Service Name
                             </th>
                             <th>
                                 Action
@@ -58,6 +58,11 @@
                                 <td>
                                     {{ $pendingTour->phone }}
                                 </td>
+                                @foreach($pendingTour->local_guide_service as $service)
+                                    <td>
+                                        {{ $service->service_name }}
+                                    </td>
+                                @endforeach
                                 <td>
                                     <a class="btn btn-rounded btn-success" href="{{ url('local-pendingTour/list/'. $pendingTour->id) }}">Details</a>
                                 </td>
