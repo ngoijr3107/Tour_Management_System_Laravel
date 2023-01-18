@@ -179,6 +179,38 @@ class LocalGuideHostController extends Controller
         }
 
     }
+    public function pendingTour()
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $pendingTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Pending')->get();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $pendingTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Pending')->get();
+
+
+        }
+
+        return view('admin.guideHost.pendingTours',['pendingTours'=>$pendingTours]);
+
+    }
    
 
 }
