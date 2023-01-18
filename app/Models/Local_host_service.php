@@ -26,4 +26,11 @@ class Local_host_service extends Model
         
     ];
 
+    public function users()
+    {
+
+        return $this->belongsTo(User::class);
+
+    }
+
 }

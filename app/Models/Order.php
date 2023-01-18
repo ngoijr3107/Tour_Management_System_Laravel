@@ -14,7 +14,22 @@ class order extends Model
 
     public function place()
     {
+
         return $this->belongsTo('App\Models\Place');
+
     }
+    public function local_guide_service()
+    {
+
+        return $this->belongsTo('App\Models\Local_guide_service');
+
+    }
+    public function local_host_service()
+    {
+
+        return $this->belongsTo('App\Models\Local_host_service');
+
+    }
+
 
 }
