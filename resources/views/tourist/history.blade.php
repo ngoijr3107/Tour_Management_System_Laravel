@@ -49,7 +49,9 @@
 
 </table>
 
-{{ $histories->links() }}
+<br>
+
+<div class="float-right">  {{ $histories->links() }} </div>
 
 @endsection()
 
