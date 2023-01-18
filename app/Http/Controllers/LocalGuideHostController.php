@@ -273,6 +273,15 @@ class LocalGuideHostController extends Controller
 
         $updateStatus=Order::where('id',$id)->update($tour);
 
+        //semd mail to tourist
+        $details = [
+
+            'transactionId'=>$tourInformation->tran_id,
+
+        ];
+    
+        \Mail::to($tourInformation->email)->send(new \App\Mail\TourCompletedEMail($details));
+
         Session()->flash('success','Send request successfully . Wait 7 days for payment !');
         return back();
 
