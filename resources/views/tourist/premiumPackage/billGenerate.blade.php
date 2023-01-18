@@ -30,13 +30,15 @@
 </head>
 <body class="bg-light">
 <div class="container">
-    <div class="py-5 text-center">
+    <div class="py-3 text-center">
         <h2>Billing Info</h2>
+
+        <h3 style="color:red;"> "Any complaint or review must be submitted within 7 days of the end of the tour"</h3>
 
     
     </div>
 
-    <div class="row">
+    <div class="row py-3">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
