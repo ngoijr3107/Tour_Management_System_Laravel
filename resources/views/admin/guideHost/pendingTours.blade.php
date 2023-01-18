@@ -22,19 +22,22 @@
                         <thead>
                             <tr>
                             <th>
-                                Name
+                                From
                             </th>
                             <th>
-                                Email
+                                To
                             </th>
-                            <th>
-                                Phone
-                            </th>
+                          
                             <th>
                                 Place
                             </th>
+                                                  
                             <th>
                                 Action
+                            </th>
+
+                            <th>
+                                Tour Status
                             </th>
                           
                             </tr>
@@ -46,27 +49,36 @@
                                 <tr>
 
                                 <td>
-                                    {{ $pendingTour->name }}
+
+                                    {{ $pendingTour->from_date }}
+
                                 </td>
+
                                 <td>
 
-                                    {{ $pendingTour->email }}
+                                    {{ $pendingTour->to_date }}
 
                                 </td>
-                                <td>
 
-                                    {{ $pendingTour->phone }}
-
-                                </td>
                                 <td>
 
                                     {{ $pendingTour->place->name }}
 
                                 </td>
-
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-pendingTour/list/'. $pendingTour->id) }}">Details</a>
+
+                                    <a class="btn btn-rounded btn-success" href="{{ url('pendingTour/details/'. $pendingTour->id) }}">Details</a>
+
                                 </td>
+                              
+                                <td>
+
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('pendingTour/send/completed-request'. $pendingTour->id) }}">Send Complete Request</a>
+
+
+                                </td>
+                             
+
                                 </tr>
                             
                              
