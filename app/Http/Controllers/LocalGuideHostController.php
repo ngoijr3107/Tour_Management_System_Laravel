@@ -276,7 +276,7 @@ class LocalGuideHostController extends Controller
         //semd mail to tourist
         $details = [
 
-            'transactionId'=>$tourInformation->tran_id,
+            'id'=>$id,
 
         ];
     
