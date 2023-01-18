@@ -240,7 +240,7 @@ class LocalGuideHostController extends Controller
 
         }
 
-        return view('admin.guideHost.completdTours',['completedTours'=>$completedTours]);
+        return view('admin.guideHost.completedTours',['completedTours'=>$completedTours]);
 
     }
 
