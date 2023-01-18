@@ -31,7 +31,7 @@
                                 Phone
                             </th>
                             <th>
-                                Service Name
+                                Place
                             </th>
                             <th>
                                 Action
@@ -44,9 +44,7 @@
                             @foreach($pendingTours as $pendingTour)
 
                                 <tr>
-                                <td class="py-1">
-                                    <img src="{{ $pendingTour->profile_photo_url }}" alt="image"/>
-                                </td>
+
                                 <td>
                                     {{ $pendingTour->name }}
                                 </td>
@@ -56,13 +54,16 @@
 
                                 </td>
                                 <td>
+
                                     {{ $pendingTour->phone }}
+
                                 </td>
-                                @foreach($pendingTour->local_guide_service as $service)
-                                    <td>
-                                        {{ $service->service_name }}
-                                    </td>
-                                @endforeach
+                                <td>
+
+                                    {{ $pendingTour->place->name }}
+
+                                </td>
+
                                 <td>
                                     <a class="btn btn-rounded btn-success" href="{{ url('local-pendingTour/list/'. $pendingTour->id) }}">Details</a>
                                 </td>

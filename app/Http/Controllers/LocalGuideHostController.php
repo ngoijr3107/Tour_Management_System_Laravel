@@ -197,13 +197,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $pendingTours=Order::with('local_guide_service')->where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
+            $pendingTours=Order::with('place')->where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $pendingTours=Order::with('local_host_service')->where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
+            $pendingTours=Order::with('place')->where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
 
         }
