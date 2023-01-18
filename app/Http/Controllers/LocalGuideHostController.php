@@ -193,6 +193,8 @@ class LocalGuideHostController extends Controller
             return view('errorPage.404');
 
         }
+       
+        $today=date('Y-m-d');
 
         if(Auth::user()->usertype == 1)
         {
@@ -208,7 +210,7 @@ class LocalGuideHostController extends Controller
 
         }
 
-        return view('admin.guideHost.pendingTours',['pendingTours'=>$pendingTours]);
+        return view('admin.guideHost.pendingTours',['pendingTours'=>$pendingTours,'today'=>$today]);
 
     }
     public function completedTour()
