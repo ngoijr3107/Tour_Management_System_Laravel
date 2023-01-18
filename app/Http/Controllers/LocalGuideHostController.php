@@ -197,13 +197,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $pendingTours=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','Pending')->get();
+            $pendingTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $pendingTours=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','Pending')->get();
+            $pendingTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
 
         }
@@ -229,13 +229,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $completedTours=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','Completed')->get();
+            $completedTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $completedTours=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','Completed')->get();
+            $completedTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
 
         }
