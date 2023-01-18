@@ -37,7 +37,7 @@
                             </th>
 
                             <th>
-                                Tour Status
+                                Tour Complete Request
                             </th>
                           
                             </tr>
@@ -73,8 +73,15 @@
                               
                                 <td>
 
-                                    <a class="btn btn-rounded btn-primary" href="{{ url('pendingTour/send/completed-request'. $pendingTour->id) }}">Send Complete Request</a>
+                                    @if($today>=$pendingTour->to_date)
 
+                                        <a class="btn btn-rounded btn-primary" href="{{ url('pendingTour/send/completed-request'. $pendingTour->id) }}">Send Request</a>
+
+                                    @else
+
+                                        <div style="color:red;">Not Available</div>
+
+                                    @endif
 
                                 </td>
                              
