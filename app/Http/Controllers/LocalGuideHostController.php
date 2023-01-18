@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Local_guide_service;
 use App\Models\Local_host_service;
 use App\Models\Place;
-
+use App\Models\Order;
 
 use Illuminate\Http\Request;
 use Auth;
