@@ -245,6 +245,38 @@ class LocalGuideHostController extends Controller
         return view('admin.guideHost.completedTours',['completedTours'=>$completedTours]);
 
     }
+    public function receiveCompleteRequest($id)
+    {
+
+        $tourInformation=Order::where('id',$id)->first();
+
+        $today=date('Y-m-d');
+
+        if($today<$tourInformation->from_date)
+        {
+
+            Session()->flash('wrong','Tour is not starting !');
+            return back();
+
+        }
+        else if($today<$tourInformation->to_date)
+        {
+
+            Session()->flash('wrong','Tour is not completed !');
+            return back();
+
+        }
+
+        $tour=array();
+
+        $tour['tour_status']="Completed";
+
+        $updateStatus=Order::where('id',$id)->update($tour);
+
+        Session()->flash('success','Send request successfully . Wait 7 days for payment !');
+        return back();
+
+    }
 
    
 

@@ -75,7 +75,7 @@
 
                                     @if($today>=$pendingTour->to_date)
 
-                                        <a class="btn btn-rounded btn-primary" href="{{ url('pendingTour/send/completed-request'. $pendingTour->id) }}">Send Request</a>
+                                        <a class="btn btn-rounded btn-primary" href="{{ url('pendingTour/send/completed-request/'. $pendingTour->id) }}">Send Request</a>
 
                                     @else
 
