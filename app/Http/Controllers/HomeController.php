@@ -153,5 +153,17 @@ class HomeController extends Controller
         return view('tourist.reviewPage',['id'=>$id]);
 
     }
+    public function reviewSubmit(Request $req,$id)
+    {
+
+        $orderInformation=Order::where('id',$id)->first();
+
+        if(Auth::user()->id!=$orderInformation->user_id)
+        {
+            return view('errorPage.404');
+        }
+
+
+    }
 
 }
