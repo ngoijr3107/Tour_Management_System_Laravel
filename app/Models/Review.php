@@ -19,4 +19,18 @@ class Review extends Model
 
     ];
 
+    public function local_guide_service()
+    {
+
+        return $this->belongsTo(Local_guide_service::class);
+
+    }
+    public function local_host_service()
+    {
+
+        return $this->belongsTo(Local_host_service::class);
+        
+        
+    }
+
 }
