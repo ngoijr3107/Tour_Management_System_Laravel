@@ -188,6 +188,28 @@ class HomeController extends Controller
             return view('errorPage.404');
         }
 
+        $today=date('Y-m-d');
+
+        $reviewStatus=Review::where('order_id',$id)->count();
+
+        if($reviewStatus>=1)
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        $tourEndDate=$orderInformation->to_date;
+
+        $reviewLastDate=date('Y-m-d', strtotime($tourEndDate. ' + 7 days'));
+
+        if($today>$reviewLastDate)
+        {
+
+            return view('errorPage.404');
+
+        }
+
         $review=array();
 
         $review['order_id']=$id;
