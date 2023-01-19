@@ -32,11 +32,10 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/', [GuestController::class, 'homePage'])->name('/');
 Route::get('/place/{id}', [GuestController::class, 'choosePlace'])->name('place');
 Route::post('/contact/send-message', [GuestController::class, 'sendMessage'])->name('/contact/send-message');
+Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');
+
 
 //For registered user
-
-
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -47,10 +46,10 @@ Route::middleware([
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
     Route::get('/tour/review/{id}', [HomeController::class, 'reviewPage'])->name('/tour/review');
+    Route::post('/tour/review/submit/{id}', [HomeController::class, 'reviewSubmit'])->name('/tour/review/submit');
 
 });
 
-Route::get('/place/{placeId}/package/{id}', [GuestController::class, 'selectedPackage'])->name('place/package');
 
 //Regular Package
 Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{id}', [RegularPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
@@ -62,6 +61,7 @@ Route::middleware([
     Route::get('/place/{placeId}/regular-package/{packageId}/guide-service/{guideServiceId}/bill-generate', [RegularPackageController::class, 'billGenerate'])->name('place/package/guide-service/bill-generate');
 });
 
+
 //Premium Package
 Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{id}', [PremiumPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
 Route::middleware([
@@ -71,6 +71,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/place/{placeId}/premium-package/{packageId}/host-service/{hostServiceId}/bill-generate', [PremiumPackageController::class, 'billGenerate'])->name('place/package/host-service/bill-generate');
 });
+
 
 //Pro Package
 Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{id}', [ProPackageController::class, 'afterSelectedHost'])->name('place/package/host-service');
@@ -82,6 +83,7 @@ Route::middleware([
     Route::get('/place/{placeId}/pro-package/{packageId}/host-service/{hostServiceId}/bill-generate', [ProPackageController::class, 'billGenerate'])->name('place/package/host-service/bill-generate');
 });
 
+
 //Ultarpro Package
 Route::get('/place/{placeId}/ultrapro-package/{packageId}/guide-service/{id}', [UltraproPackageController::class, 'afterSelectedGuide'])->name('place/package/guide-service');
 Route::middleware([
@@ -91,6 +93,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/place/{placeId}/ultrapro-package/{packageId}/guide-service/{guideServiceId}/bill-generate', [UltraproPackageController::class, 'billGenerate'])->name('place/package/guide-service/bill-generate');
 });
+
 
 // SSLCOMMERZ Start
 Route::middleware([
@@ -114,6 +117,7 @@ Route::middleware([
    
 });
 
+
 //Local guide & host
 Route::middleware([
     'auth:sanctum',
@@ -130,6 +134,7 @@ Route::middleware([
     Route::get('/completed/tours', [LocalGuideHostController::class, 'completedTour'])->name('/completed/tours');
 
 });
+
 
 //Super admin
 Route::middleware([
