@@ -140,6 +140,11 @@ class HomeController extends Controller
 
 
     }
-  
+    public function reviewPage($id)
+    {
+
+        
+
+    }
 
 }

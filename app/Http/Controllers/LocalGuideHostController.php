@@ -248,6 +248,18 @@ class LocalGuideHostController extends Controller
     public function receiveTourCompletedRequest($id)
     {
 
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
         $tourInformation=Order::where('id',$id)->first();
 
         $today=date('Y-m-d');
