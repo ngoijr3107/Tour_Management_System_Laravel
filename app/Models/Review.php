@@ -17,6 +17,7 @@ class Review extends Model
         'local_host_service_id',
         'rating',
         'comment',
+        'date',
 
     ];
 
