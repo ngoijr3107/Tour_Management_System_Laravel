@@ -216,6 +216,7 @@ class HomeController extends Controller
         $review['user_id']=Auth::user()->id;
         $review['rating']=$req->rating;
         $review['comment']=$req->comment;
+        $review['date']=$today;
 
         if($orderInformation->lg_service_id!=Null)
         {
