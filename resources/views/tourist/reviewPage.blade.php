@@ -10,11 +10,14 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+      <link href="{{ asset('assets/css/styleRating.css')}}" rel="stylesheet">
+
+
 
                                 <div class="container">
                                     <div class="row">
                                        <div class="col mt-4">
-                                          <form class="py-2 px-4" action="{{url('tour/review/submit/.'$id)}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
+                                          <form class="py-2 px-4" action="{{url('tour/review/submit/'.$id)}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
                                              @csrf
                                              <p class="font-weight-bold ">Rating</p>
                                              <div class="form-group row">
