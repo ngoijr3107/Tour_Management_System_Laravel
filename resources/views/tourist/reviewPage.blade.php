@@ -112,6 +112,7 @@
                                              <div class="form-group row">
                                                 <div class="col">
                                                    <div class="rate">
+
                                                       <input type="radio" id="star5" class="rate" name="rating" value="5"/>
                                                       <label for="star5" title="text">5 stars</label>
                                                       <input type="radio" id="star4" class="rate" name="rating" value="4"/>
@@ -122,9 +123,10 @@
                                                       <label for="star2" title="text">2 stars</label>
                                                       <input type="radio" id="star1" class="rate" name="rating" value="1"/>
                                                       <label for="star1" title="text">1 star</label>
+                                                      
                                                    </div>
                                                 </div>
-                                                
+
                                              </div>
                                              <div class="form-group row mt-4">
                                                 <div class="col">
