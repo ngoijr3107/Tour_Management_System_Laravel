@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('order_id')->nullable();
             $table->string('user_id')->nullable();
             $table->string('rating')->nullable();
-            $table->string('comment')->nullable();
+            $table->longText('comment')->nullable();
             $table->string('date')->nullable();
             $table->timestamps();
         });
