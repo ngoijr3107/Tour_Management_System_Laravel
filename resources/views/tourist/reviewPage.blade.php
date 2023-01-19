@@ -124,6 +124,7 @@
                                                       <label for="star1" title="text">1 star</label>
                                                    </div>
                                                 </div>
+                                                
                                              </div>
                                              <div class="form-group row mt-4">
                                                 <div class="col">
