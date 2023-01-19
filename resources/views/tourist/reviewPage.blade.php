@@ -42,7 +42,7 @@
                             </div>
 
                         </div>
-                        
+
                         <div class="form-group row mt-4">
 
                             <div class="col">
@@ -51,6 +51,7 @@
 
                         </div>
                         <div class="mt-3 text-right">
+                            
                             <button class="btn btn-sm py-2 px-3 btn-info">Submit</button>
                         </div>
                     </form>
