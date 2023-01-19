@@ -150,7 +150,16 @@ class HomeController extends Controller
             return view('errorPage.404');
         }
 
-        return view('tourist.reviewPage',['id'=>$id]);
+        $status=Null;
+
+        if($today-$orderInformation->to_date>7)
+        {
+
+            $status="Date is Over !";
+
+        }
+
+        return view('tourist.reviewPage',['id'=>$id,'status'=>$status]);
 
     }
     public function reviewSubmit(Request $req,$id)
