@@ -17,6 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->string('local_guide_service_id')->nullable();
             $table->string('local_host_service_id')->nullable();
+            $table->string('order_id')->nullable();
             $table->string('user_id')->nullable();
             $table->string('rating')->nullable();
             $table->string('comment')->nullable();

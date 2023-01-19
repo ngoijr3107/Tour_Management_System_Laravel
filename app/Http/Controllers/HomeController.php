@@ -11,6 +11,7 @@ use App\Models\Local_host_service;
 use App\Models\User;
 use App\Models\Virtual_assistant;
 use App\Models\Place;
+use App\Models\Review;
 
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -153,6 +154,15 @@ class HomeController extends Controller
         $status=Null;
 
         $today=date('Y-m-d');
+
+        $reviewStatus=Review::where('order_id',$id)->count();
+
+        if($reviewStatus>=1)
+        {
+
+            $status="Thanks for submitted your review !";
+
+        }
 
         $tourEndDate=$orderInformation->to_date;
 
