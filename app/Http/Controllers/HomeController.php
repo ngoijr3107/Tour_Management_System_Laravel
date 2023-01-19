@@ -230,6 +230,8 @@ class HomeController extends Controller
 
         }
 
+        Review::create($review);
+
         return back();
 
 
