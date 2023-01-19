@@ -188,6 +188,28 @@ class HomeController extends Controller
             return view('errorPage.404');
         }
 
+        $review=array();
+
+        $review['order_id']=$id;
+        $review['user_id']=Auth::user()->id;
+        $review['rating']=$req->rating;
+        $review['comment']=$req->comment;
+
+        if($orderInformation->lg_service_id!=Null)
+        {
+
+            $review['local_guide_service_id']=$orderInformation->lg_service_id;
+
+        }
+        else if($orderInformation->lh_service_id!=Null)
+        {
+
+            $review['local_host_service_id']=$orderInformation->lh_service_id;
+
+        }
+
+        return back();
+
 
     }
 
