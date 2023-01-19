@@ -152,7 +152,13 @@ class HomeController extends Controller
 
         $status=Null;
 
-        if($today-$orderInformation->to_date>7)
+        $today=date('Y-m-d');
+
+        $tourEndDate=$orderInformation->to_date;
+
+        $reviewLastDate=date('Y-m-d', strtotime($tourEndDate. ' + 7 days'));
+
+        if($today>$reviewLastDate)
         {
 
             $status="Date is Over !";
