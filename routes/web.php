@@ -46,6 +46,7 @@ Route::middleware([
     Route::get('/dashboard', [HomeController::class, 'afterLogin'])->name('dashboard');
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
+    Route::get('/tour/review/{id}', [HomeController::class, 'reviewPage'])->name('/tour/review');
 
 });
 
