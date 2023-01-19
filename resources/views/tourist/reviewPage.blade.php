@@ -106,7 +106,7 @@
                                 <div class="container">
                                     <div class="row">
                                        <div class="col mt-4">
-                                          <form class="py-2 px-4" action="{{url('admin.review.store')}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
+                                          <form class="py-2 px-4" action="{{url('tour/review/submit/.'$id)}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
                                              @csrf
                                              <p class="font-weight-bold ">Rating</p>
                                              <div class="form-group row">

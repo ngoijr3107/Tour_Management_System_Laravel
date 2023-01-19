@@ -150,7 +150,7 @@ class HomeController extends Controller
             return view('errorPage.404');
         }
 
-        return view('tourist.reviewPage');
+        return view('tourist.reviewPage',['id'=>$id]);
 
     }
 
