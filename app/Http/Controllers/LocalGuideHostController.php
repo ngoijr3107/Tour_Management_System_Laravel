@@ -239,7 +239,6 @@ class LocalGuideHostController extends Controller
 
             $completedTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
-
         }
 
         return view('admin.guideHost.completedTours',['completedTours'=>$completedTours]);
