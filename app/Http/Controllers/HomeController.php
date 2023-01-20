@@ -26,9 +26,11 @@ class HomeController extends Controller
     public function viewHistory()
     {
 
+        $today=date('Y-m-d');
+
         $histories=Order::with('place')->where('user_id',Auth::user()->id)->where('status','=','Success')->orderBy('id', 'desc')->simplePaginate(5);;
 
-        return view('tourist.history',['histories'=>$histories]);
+        return view('tourist.history',['histories'=>$histories,'today'=>$today]);
 
 
     }
