@@ -203,7 +203,7 @@ class SuperAdminController extends Controller
         
         $bookingLists=Order::where('status','Success')->where('tour_status','!=','Cancel')->get();
 
-        return view('admin.guideHost.bookingList',['bookingLists'=>$bookingLists]);
+        return view('admin.superAdmin.bookingList',['bookingLists'=>$bookingLists]);
 
     }
     public function returnBookingList()
@@ -216,7 +216,36 @@ class SuperAdminController extends Controller
         
         $returnBookingLists=Order::where('status','Success')->where('tour_status','Cancel')->get();
 
-        return view('admin.guideHost.returnBookingList',['returnBookingLists'=>$returnBookingLists]);
+        return view('admin.superAdmin.returnBookingList',['returnBookingLists'=>$returnBookingLists]);
+
+    }
+    public function billGuideHost($id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+        
+        $bookingInformation=Order::where('id',$id)->first();
+
+        $review=Review::where('order_id',$id)->first();
+
+        if($bookingInformation->lg_service_id!=Null)
+        {
+
+            $service=Local_guide_service::where('id',$bookingInformation->lg_service_id)->first();
+
+        }
+        else if($bookingInformation->lh_service_id!=Null)
+        {
+
+            $service=Local_guide_service::where('id',$bookingInformation->lh_service_id)->first();
+
+
+        }
+
+        return view('admin.superAdmin.billGenerate',['service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review]);
 
     }
 
