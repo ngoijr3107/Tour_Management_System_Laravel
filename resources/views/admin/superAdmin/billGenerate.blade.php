@@ -56,7 +56,7 @@
       
                         <div class="form-group">
                         <label for="exampleInputName1">Transaction No</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="accountNo" placeholder="Transaction No" required>
+                        <input type="text" class="form-control" id="exampleInputName1" name="transactionNo" placeholder="Transaction No" required>
                         </div>
                         
                         <div class="form-group">
