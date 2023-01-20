@@ -277,6 +277,15 @@ class HomeController extends Controller
     
         \Mail::to($orderInformation->email)->send(new \App\Mail\ReturnBookingEmail($details));
 
+        //semd mail to local guide or host
+        $details = [
+
+            'description'=>'Tour canceled from tourist. ' . $orderInformation->name .' cancel your tour.',
+
+        ];
+    
+        \Mail::to($orderInformation->email)->send(new \App\Mail\ReturnBookingEmail($details));
+
         Session()->flash('success','Tour canceled successfully. Return money to your account within 7 days !');
         return back();
 
