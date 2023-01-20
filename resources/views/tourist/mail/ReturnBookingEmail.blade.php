@@ -4,7 +4,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Tour Notification Alert Email</title>
+  <title>Return Booking Email</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="{{ asset('assets/css/styleMail.css')}}" rel="stylesheet">
 
@@ -57,9 +57,9 @@
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Tour Notification Alert Email</h1>
+              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Return Booking Email</h1>
              
-              <p> Welcome to our tour! We are excited to take you on an adventure through our beautiful city. Please make sure to have your cameras ready, as we will be passing by some of the most iconic landmarks and hidden gems. Our tour guide will be providing information and answering any questions you may have along the way. Let's get started!</p>
+              <p>{{ $details["description"] }}</p>
   
             </td>
         
@@ -146,7 +146,7 @@
           <!-- start permission -->
           <tr>
             <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because you booking our package in our system</p>
+              <p style="margin: 0;">You received this email because you canceled service of our system.</p>
             </td>
           </tr>
           <!-- end permission -->
