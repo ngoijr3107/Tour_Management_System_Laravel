@@ -20,6 +20,7 @@
       <th scope="col">Tour Status</th>
       <th scope="col">Payment Copy</th>
       <th scope="col">Virtual Assistant Service</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -33,13 +34,16 @@
             <td data-label="Payment Copy"><a href="{{ url('/download/payment-copy/'.$history->id) }}" class="btn btn-success">Download</a></td>
             @if($history->package_id=='3' || $history->package_id=='4')
             
-              <td data-label="Virtual Assistant Service"><a href="{{ url('http://localhost:3000/?transactionId='.$history->transaction_id) }}"  target="_blank" class="btn btn-danger">Get App</a></td>
+              <td data-label="Virtual Assistant Service"><a href="{{ url('http://localhost:3000/?transactionId='.$history->transaction_id) }}"  target="_blank" class="btn btn-dark">Get App</a></td>
             
             @else
 
               <td data-label="Virtual Assistant Service">Not Available</td>  
             
             @endif
+
+            <td data-label="Virtual Assistant Service"><a href="{{ url('return/booking/'.$history->id) }}" class="btn btn-danger">Return Booking</a></td>
+
         </tr>
     @endforeach
  
