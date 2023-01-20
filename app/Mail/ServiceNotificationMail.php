@@ -31,6 +31,6 @@ class ServiceNotificationMail extends Mailable
     public function build()
     {
         return $this->subject('Service Notification Email')
-        ->view('tourist.mail.ServiceNotificationEmail');
+        ->view('admin.guideHost.mail.ServiceNotificationEmail');
     }
 }
