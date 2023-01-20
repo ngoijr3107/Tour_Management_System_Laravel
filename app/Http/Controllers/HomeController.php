@@ -239,5 +239,38 @@ class HomeController extends Controller
 
 
     }
+    public function returnBooking($id)
+    {
+
+        $orderInformation=Order::where('id',$id)->first();
+
+        if(Auth::user()->id!=$orderInformation->user_id)
+        {
+            return view('errorPage.404');
+        }
+
+        $today=date('Y-m-d');
+
+        $tourStartDate=$orderInformation->from_date;
+
+        $returnLastDate=date('Y-m-d', strtotime($tourStartDate. ' - 1 days'));
+
+        if($today<$returnLastDate)
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        $tour=array();
+
+        $tour['tour_status']="Cancel";
+
+        Order::where('id',$id)->update($tour);
+
+        Session()->flash('success','Tour canceled successfully. Return money your account within 7 days !');
+        return back();
+
+    }
 
 }
