@@ -225,6 +225,7 @@ class HomeController extends Controller
 
             $review['local_guide_service_id']=$orderInformation->lg_service_id;
 
+
         }
         else if($orderInformation->lh_service_id!=Null)
         {
@@ -234,6 +235,31 @@ class HomeController extends Controller
         }
 
         Review::create($review);
+
+        if($orderInformation->lg_service_id!=Null)
+        {
+
+            $avgRating=Review::where('local_guide_service_id',$orderInformation->lg_service_id)->avg('rating');
+
+            Local_guide_service::where('id',$orderInformation->lg_service_id)->update(
+
+                ['rating'=>$avgRating],
+
+            );
+            
+        }
+        else if($orderInformation->lh_service_id!=Null)
+        {
+
+            $avgRating=Review::where('local_host_service_id',$orderInformation->lh_service_id)->avg('rating');
+
+            Local_host_service::where('id',$orderInformation->lh_service_id)->update(
+
+                ['rating'=>$avgRating],
+
+            );
+            
+        }
 
         return back();
 
