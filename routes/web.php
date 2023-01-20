@@ -47,6 +47,7 @@ Route::middleware([
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');
     Route::get('/tour/review/{id}', [HomeController::class, 'reviewPage'])->name('/tour/review');
     Route::post('/tour/review/submit/{id}', [HomeController::class, 'reviewSubmit'])->name('/tour/review/submit');
+    Route::post('/tour/return/booking/{id}', [HomeController::class, 'returnBooking'])->name('tour/return/booking');
 
 });
 
