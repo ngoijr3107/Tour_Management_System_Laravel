@@ -284,7 +284,7 @@ class HomeController extends Controller
 
         ];
     
-        \Mail::to($orderInformation->email)->send(new \App\Mail\ReturnBookingEmail($details));
+        \Mail::to($orderInformation->email)->send(new \App\Mail\TourCanceledEmail($details));
 
         Session()->flash('success','Tour canceled successfully. Return money to your account within 7 days !');
         return back();
