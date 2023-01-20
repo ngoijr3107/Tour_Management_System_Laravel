@@ -6,6 +6,9 @@ use App\Models\User;
 use App\Models\Virtual_assistant;
 use App\Models\Place;
 use App\Models\Order;
+use App\Models\Review;
+use App\Models\Local_guide_service;
+use App\Models\Local_host_service;
 
 use Illuminate\Http\Request;
 use Gate;
@@ -240,7 +243,7 @@ class SuperAdminController extends Controller
         else if($bookingInformation->lh_service_id!=Null)
         {
 
-            $service=Local_guide_service::where('id',$bookingInformation->lh_service_id)->first();
+            $service=Local_host_service::where('id',$bookingInformation->lh_service_id)->first();
 
 
         }

@@ -156,7 +156,7 @@ Route::middleware([
     Route::get('/virtual-assistant-list', [SuperAdminController::class, 'virtualAssistantList'])->name('/virtual-assistant/list');
     Route::get('/super-admin-list', [SuperAdminController::class, 'superAdminList'])->name('/super-admin/list');
     Route::get('/booking-list', [SuperAdminController::class, 'bookingList'])->name('/booking-list');
-    Route::get('/booking/list/pay-now/{id}', [SuperAdminController::class, 'billGuideHost'])->name('/booking/list/pay-now');
+    Route::get('/pay/guide-host/{id}', [SuperAdminController::class, 'billGuideHost'])->name('/pay/guide-host');
     Route::get('/booking/list/return', [SuperAdminController::class, 'returnBookingList'])->name('/booking/list/return');
 
 });

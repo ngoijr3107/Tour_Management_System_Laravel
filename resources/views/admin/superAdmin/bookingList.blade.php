@@ -80,7 +80,7 @@
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-rounded btn-primary" href="{{ url('bookingList/pay-now/'. $bookingList->id) }}">Pay Now</a>
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('/pay/guide-host/'. $bookingList->id) }}">Pay Now</a>
 
                                 </td>
                               
