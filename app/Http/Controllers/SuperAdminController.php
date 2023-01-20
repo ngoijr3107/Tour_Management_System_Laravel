@@ -215,7 +215,7 @@ class SuperAdminController extends Controller
         
         $returnBookingLists=Order::where('status','Success')->where('tour_status','Cancel')->get();
 
-        return view('bookingList',['returnBookingLists'=>$returnBookingLists]);
+        return view('returnBookingList',['returnBookingLists'=>$returnBookingLists]);
 
     }
 
