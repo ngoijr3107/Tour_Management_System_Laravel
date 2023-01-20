@@ -42,7 +42,21 @@
             
             @endif
 
-            <td data-label="Action"><a href="{{ url('return/booking/'.$history->id) }}" class="btn btn-danger">Return Booking</a></td>
+            @php
+
+              $returnLastDate=date('Y-m-d', strtotime($history->from_date. ' - 1 days'));
+
+            @endphp
+
+            @if($today<=$returnLastDate)
+
+              <td data-label="Action"><a href="{{ url('return/booking/'.$history->id) }}" class="btn btn-danger">Return Booking</a></td>
+
+            @else
+
+              <td data-label="Action">Not Available</td>
+
+            @endif
 
         </tr>
     @endforeach
