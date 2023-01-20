@@ -205,6 +205,19 @@ class SuperAdminController extends Controller
         return view('bookingList',['bookingLists'=>$bookingLists]);
 
     }
+    public function returnBookingList()
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+        
+        $returnBookingLists=Order::where('status','Success')->where('tour_status','Cancel')->get();
+
+        return view('bookingList',['returnBookingLists'=>$returnBookingLists]);
+
+    }
 
 
 }
