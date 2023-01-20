@@ -10,6 +10,28 @@
 
 <br>
 
+@if(Session::has('wrong'))
+
+  <div class="alert alert-danger">
+
+      {{Session::get('wrong')}}
+
+
+  </div>
+
+@endif
+
+@if(Session::has('success'))
+
+  <div class="alert alert-success">
+
+      {{Session::get('success')}}
+
+
+  </div>
+
+@endif
+
 <table>
 
   <thead>
