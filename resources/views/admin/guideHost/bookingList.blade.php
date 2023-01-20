@@ -38,6 +38,9 @@
                             <th>
                                 Action
                             </th>
+                            <th>
+                                Pay to Guide-Host
+                            </th>
                             
                             </tr>
                         </thead>
@@ -75,8 +78,13 @@
                                     <a class="btn btn-rounded btn-success" href="{{ url('bookingList/details/'. $bookingList->id) }}">Details</a>
 
                                 </td>
+                                <td>
+
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('bookingList/pay-now/'. $bookingList->id) }}">Pay Now</a>
+
+                                </td>
                               
-                             
+
 
                                 </tr>
                             
