@@ -156,5 +156,6 @@ Route::middleware([
     Route::get('/virtual-assistant-list', [SuperAdminController::class, 'virtualAssistantList'])->name('/virtual-assistant/list');
     Route::get('/super-admin-list', [SuperAdminController::class, 'superAdminList'])->name('/super-admin/list');
     Route::get('/booking/list', [SuperAdminController::class, 'bookingList'])->name('/booking/list');
+    Route::get('/return/booking-list', [SuperAdminController::class, 'returnBookingList'])->name('/return/booking-list');
 
 });

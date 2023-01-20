@@ -200,7 +200,9 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
         
-        
+        $bookingLists=Order::where('status','Success')->where('tour_status','Success')->get();
+
+        return view('bookingList',['bookingLists'=>$bookingLists]);
 
     }
 
