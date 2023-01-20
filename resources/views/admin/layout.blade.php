@@ -319,6 +319,9 @@
                   <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Pending Tours</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/canceled/tours') }}">Canceled Tours</a></li>
+                </ul>
+                <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{ url('/completed/tours') }}">Completed Tours</a></li>
                 </ul>
               </div>
