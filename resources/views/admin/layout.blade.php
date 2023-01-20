@@ -271,13 +271,13 @@
           </li>
           @if(Auth::user()->usertype==3)
           <li class="nav-item">
-              <a class="nav-link" href="{{ url('/booking/list') }}">
+              <a class="nav-link" href="{{ url('/booking-list') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Booking List</span>
               </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ url('/return/booking-list') }}">
+              <a class="nav-link" href="{{ url('/booking/list/return') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Return Booking</span>
               </a>

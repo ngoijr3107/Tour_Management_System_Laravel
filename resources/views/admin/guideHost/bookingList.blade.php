@@ -12,7 +12,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Canceled Tours</h4>
+                    <h4 class="card-title">Booking List</h4>
                     <p class="card-description">
 
 
@@ -21,6 +21,9 @@
                         <table class="table table-striped">
                         <thead>
                             <tr>
+                            <th>
+                                Transaction No
+                            </th>
                             <th>
                                 From
                             </th>
@@ -40,30 +43,36 @@
                         </thead>
                         <tbody>
 
-                            @foreach($canceledTours as $canceledTour)
+                            @foreach($bookingLists as $bookingList)
 
                                 <tr>
 
                                 <td>
 
-                                    {{ $canceledTour->from_date }}
+                                    {{ $bookingList->transaction_id }}
 
                                 </td>
 
                                 <td>
 
-                                    {{ $canceledTour->to_date }}
+                                    {{ $bookingList->from_date }}
 
                                 </td>
 
                                 <td>
 
-                                    {{ $canceledTour->place->name }}
+                                    {{ $bookingList->to_date }}
+
+                                </td>
+
+                                <td>
+
+                                    {{ $bookingList->place->name }}
 
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-rounded btn-success" href="{{ url('canceledTour/details/'. $canceledTour->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('bookingList/details/'. $bookingList->id) }}">Details</a>
 
                                 </td>
                               

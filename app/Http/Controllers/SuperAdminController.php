@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Virtual_assistant;
 use App\Models\Place;
+use App\Models\Order;
 
 use Illuminate\Http\Request;
 use Gate;
@@ -200,7 +201,7 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
         
-        $bookingLists=Order::where('status','Success')->where('tour_status','Success')->get();
+        $bookingLists=Order::where('status','Success')->where('tour_status','!=','Cancel')->get();
 
         return view('admin.guideHost.bookingList',['bookingLists'=>$bookingLists]);
 
