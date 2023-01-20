@@ -268,7 +268,16 @@ class HomeController extends Controller
 
         Order::where('id',$id)->update($tour);
 
-        Session()->flash('success','Tour canceled successfully. Return money your account within 7 days !');
+        //semd mail to tourist
+        $details = [
+
+            'description'=>'Tour canceled successfully. Return money to your account within 7 days !',
+
+        ];
+    
+        \Mail::to($orderInformation->email)->send(new \App\Mail\ReturnBookingEmail($details));
+
+        Session()->flash('success','Tour canceled successfully. Return money to your account within 7 days !');
         return back();
 
     }

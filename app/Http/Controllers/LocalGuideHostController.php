@@ -292,7 +292,7 @@ class LocalGuideHostController extends Controller
 
         ];
     
-        \Mail::to($tourInformation->email)->send(new \App\Mail\TourCompletedEMail($details));
+        \Mail::to($tourInformation->email)->send(new \App\Mail\TourCompletedEmail($details));
 
         Session()->flash('success','Send request successfully . Wait 7 days for payment !');
         return back();
