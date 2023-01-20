@@ -70,7 +70,7 @@
 
             @endphp
 
-            @if($today<$returnLastDate)
+            @if($today<$returnLastDate && $history->tour_status!="Cancel")
 
               <td data-label="Action"><a href="{{ url('return/booking/'.$history->id) }}" class="btn btn-danger">Return Booking</a></td>
 
