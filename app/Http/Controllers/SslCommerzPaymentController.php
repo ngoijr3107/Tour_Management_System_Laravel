@@ -333,6 +333,8 @@ class SslCommerzPaymentController extends Controller
                 
                 return $pdf->stream('Payment Copy.pdf',array("Attachment" => false));
 
+                exit();
+
 
                 //echo "<br >Transaction is successfully Completed";
             } else {
@@ -432,6 +434,9 @@ class SslCommerzPaymentController extends Controller
             $pdf = PDF::loadView('tourist.SuccesfullPaymentCopy', compact('virtualAssistantPrice','packageId','packageName','today', 'tran_id','from','to','amountOfDay','amountOfPerson','serviceHolderProfile','serviceDetails','placeDetails','totalBill'));
 
             return $pdf->stream('Payment Copy.pdf',array("Attachment" => false));
+
+            exit();
+            
 
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
