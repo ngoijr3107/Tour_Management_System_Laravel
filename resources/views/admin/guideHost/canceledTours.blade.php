@@ -12,7 +12,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Completed Tours</h4>
+                    <h4 class="card-title">Canceled Tours</h4>
                     <p class="card-description">
 
 
@@ -40,30 +40,30 @@
                         </thead>
                         <tbody>
 
-                            @foreach($completedTours as $completedTour)
+                            @foreach($canceledTours as $canceledTour)
 
                                 <tr>
 
                                 <td>
 
-                                    {{ $completedTour->from_date }}
+                                    {{ $canceledTour->from_date }}
 
                                 </td>
 
                                 <td>
 
-                                    {{ $completedTour->to_date }}
+                                    {{ $canceledTour->to_date }}
 
                                 </td>
 
                                 <td>
 
-                                    {{ $completedTour->place->name }}
+                                    {{ $canceledTour->place->name }}
 
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-rounded btn-success" href="{{ url('completedTour/details/'. $completedTour->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('canceledTour/details/'. $canceledTour->id) }}">Details</a>
 
                                 </td>
                               
