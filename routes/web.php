@@ -132,6 +132,7 @@ Route::middleware([
     Route::get('/balance/statement', [LocalGuideHostController::class, 'balanceStatement'])->name('/balance/statement');
     Route::get('/pending/tours', [LocalGuideHostController::class, 'pendingTour'])->name('/pending/tours');
     Route::get('/pendingTour/send/completed-request/{id}', [LocalGuideHostController::class, 'receiveTourCompletedRequest'])->name('/pendingTour/send/completed-request');
+    Route::get('/canceled/tours', [LocalGuideHostController::class, 'canceledTour'])->name('/canceled/tours');
     Route::get('/completed/tours', [LocalGuideHostController::class, 'completedTour'])->name('/completed/tours');
 
 });
