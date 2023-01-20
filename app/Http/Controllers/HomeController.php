@@ -255,7 +255,7 @@ class HomeController extends Controller
 
         $returnLastDate=date('Y-m-d', strtotime($tourStartDate. ' - 1 days'));
 
-        if($today<$returnLastDate)
+        if($today>$returnLastDate)
         {
 
             return view('errorPage.404');
