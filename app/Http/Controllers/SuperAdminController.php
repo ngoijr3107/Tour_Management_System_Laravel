@@ -248,7 +248,9 @@ class SuperAdminController extends Controller
 
         }
 
-        return view('admin.superAdmin.billGenerate',['service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review]);
+        $serviceHolder=User::where('id',$service->user_id)->first();
+
+        return view('admin.superAdmin.billGenerate',['service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review,'serviceHolder'=>$serviceHolder]);
 
     }
 

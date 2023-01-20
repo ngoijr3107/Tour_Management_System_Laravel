@@ -12,17 +12,6 @@
                         Pay to Guide-Host
                     </p>
 
-                    @if ($errors->any())
-
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                    @endif
 
                     @if(Session::has('success'))
 
@@ -35,32 +24,46 @@
 
                     @endif
 
+                    @if(Session::has('wrong'))
+
+                        <div class="alert alert-danger">
+
+                            {{Session::get('wrong')}}
+
+
+                        </div>
+
+                    @endif
+
                     <form class="forms-sample" method="post" action="{{ url('paid/guide-host') }}" enctype="multipart/form-data">
 
                         @csrf
 
                         <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Place name" required>
+                        <label for="exampleInputName1">Bank Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="bankName" value="{{ $serviceHolder->bank_name }}" required readonly>
                         </div>
 
                         <div class="form-group">
-                        <label for="exampleInputName1">Address</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="address" placeholder="Address" required>
+                        <label for="exampleInputName1">Account No</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="accountNo" value="{{ $serviceHolder->account_no }}" required readonly>
                         </div>
 
                         <div class="form-group">
-                       <label>Place Image</label>
-                       <input type="file" class="file-upload-default" name="placeImage" required>
-                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                       </div>
-                       </div>
+                        <label for="exampleInputName1">Total Amount</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="totalAmount" value="{{ $service->total_price }}" required readonly>
+                        </div>
+      
+                        <div class="form-group">
+                        <label for="exampleInputName1">Transaction No</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="accountNo" placeholder="Transaction No" required>
+                        </div>
                         
-                
+                        <div class="form-group">
+                        <label for="exampleInputName1">Payable Amount (Percentage)</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="payableAmount" placeholder="Percentage" required>
+                        </div>
+
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </form>
