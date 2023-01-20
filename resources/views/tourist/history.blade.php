@@ -42,7 +42,7 @@
             
             @endif
 
-            <td data-label="Virtual Assistant Service"><a href="{{ url('return/booking/'.$history->id) }}" class="btn btn-danger">Return Booking</a></td>
+            <td data-label="Action"><a href="{{ url('return/booking/'.$history->id) }}" class="btn btn-danger">Return Booking</a></td>
 
         </tr>
     @endforeach
