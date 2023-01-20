@@ -277,6 +277,19 @@ class HomeController extends Controller
     
         \Mail::to($orderInformation->email)->send(new \App\Mail\ReturnBookingEmail($details));
 
+        if($orderInformation->lg_service_id!=Null)
+        {
+
+            $serviceHolderEmail=User::where('id',$orderInformation->lg_service_id)->value('email');
+
+        }
+        else if($orderInformation->lh_service_id!=Null)
+        {
+
+            $serviceHolderEmail=User::where('id',$orderInformation->lh_service_id)->value('email');
+
+        }
+
         //semd mail to local guide or host
         $details = [
 
@@ -284,7 +297,7 @@ class HomeController extends Controller
 
         ];
     
-        \Mail::to($orderInformation->email)->send(new \App\Mail\TourCanceledEmail($details));
+        \Mail::to($serviceHolderEmail)->send(new \App\Mail\TourCanceledEmail($details));
 
         Session()->flash('success','Tour canceled successfully. Return money to your account within 7 days !');
         return back();
