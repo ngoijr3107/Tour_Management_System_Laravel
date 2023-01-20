@@ -271,6 +271,18 @@
           </li>
           @if(Auth::user()->usertype==3)
           <li class="nav-item">
+              <a class="nav-link" href="{{ url('/booking/list') }}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Booking List</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url('/return/booking-list') }}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Return Booking</span>
+              </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url('/pending/guide-host') }}">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Pending Guide-Host</span>
@@ -376,12 +388,6 @@
           @endif
 
           @if(Auth::user()->usertype==3)
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/transaction/list') }}">
-                <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Transaction</span>
-              </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/message/list') }}">
                 <i class="icon-paper menu-icon"></i>

@@ -192,6 +192,17 @@ class SuperAdminController extends Controller
         return back();
 
     }
+    public function bookingList()
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+        
+        
+
+    }
 
 
 }

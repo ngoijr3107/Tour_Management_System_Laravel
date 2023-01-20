@@ -155,6 +155,6 @@ Route::middleware([
     Route::get('/tourist-list', [SuperAdminController::class, 'touristList'])->name('/tourist/list');
     Route::get('/virtual-assistant-list', [SuperAdminController::class, 'virtualAssistantList'])->name('/virtual-assistant/list');
     Route::get('/super-admin-list', [SuperAdminController::class, 'superAdminList'])->name('/super-admin/list');
-    Route::get('/transaction/list', [SuperAdminController::class, 'transactionList'])->name('/transaction/list');
+    Route::get('/booking/list', [SuperAdminController::class, 'bookingList'])->name('/booking/list');
 
 });
