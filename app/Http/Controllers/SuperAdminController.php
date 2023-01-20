@@ -202,7 +202,7 @@ class SuperAdminController extends Controller
         
         $bookingLists=Order::where('status','Success')->where('tour_status','Success')->get();
 
-        return view('bookingList',['bookingLists'=>$bookingLists]);
+        return view('admin.guideHost.bookingList',['bookingLists'=>$bookingLists]);
 
     }
     public function returnBookingList()
@@ -215,7 +215,7 @@ class SuperAdminController extends Controller
         
         $returnBookingLists=Order::where('status','Success')->where('tour_status','Cancel')->get();
 
-        return view('returnBookingList',['returnBookingLists'=>$returnBookingLists]);
+        return view('admin.guideHost.returnBookingList',['returnBookingLists'=>$returnBookingLists]);
 
     }
 
