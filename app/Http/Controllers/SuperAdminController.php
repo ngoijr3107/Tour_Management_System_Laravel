@@ -284,10 +284,24 @@ class SuperAdminController extends Controller
 
 
         }
+        if($bookingInformation->package_id==3 || $bookingInformation->package_id==4)
+        {
+
+            $virtualAssistantPrice=Virtual_assistant::sum('price');
+
+            $totalPrice=$bookingInformation->amount-$virtualAssistantPrice;
+
+        }
+        else
+        {
+
+            $totalPrice=$bookingInformation->amount;
+
+        }
 
         $serviceHolder=User::where('id',$service->user_id)->first();
 
-        return view('admin.superAdmin.billGenerate',['getReview'=>$getReview,'id'=>$id,'service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review,'serviceHolder'=>$serviceHolder]);
+        return view('admin.superAdmin.billGenerate',['totalPrice'=>$totalPrice,'getReview'=>$getReview,'id'=>$id,'service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review,'serviceHolder'=>$serviceHolder]);
 
     }
     public function paidGuideHost(Request $req,$id)
