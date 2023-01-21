@@ -66,7 +66,7 @@
 
                         <div class="form-group">
                         <label for="exampleInputName1">Total Amount</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="totalAmount" value="{{ $service->total_price }}" required readonly>
+                        <input type="text" class="form-control" id="exampleInputName1" name="totalAmount" value="{{ $totalPrice }}" required readonly>
                         </div>
       
                         <div class="form-group">
