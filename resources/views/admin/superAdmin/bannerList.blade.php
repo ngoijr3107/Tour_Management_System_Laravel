@@ -7,8 +7,6 @@
 
     <br>
 
-    <div class="row">
-
     @if(Session::has('success'))
 
         <div class="alert alert-success">
@@ -21,7 +19,7 @@
     @endif
 
 
-   
+    <div class="row">
 
     @foreach($banners as $banner)
 
