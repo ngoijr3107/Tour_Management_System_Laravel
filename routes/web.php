@@ -165,6 +165,7 @@ Route::middleware([
     Route::post('/return/booking/confirm/{id}', [SuperAdminController::class, 'returnBookingConfirm'])->name('/return/booking/confirm');
     Route::get('/message/all', [SuperAdminController::class, 'messageList'])->name('/message/all');
     Route::get('/add/banner', [SuperAdminController::class, 'addBanner'])->name('/add/banner');
+    Route::post('/add/banner/process', [SuperAdminController::class, 'addBannerProcess'])->name('/add/banner/process');
     Route::get('/all/banner', [SuperAdminController::class, 'bannerList'])->name('/all/banner');
     Route::get('/banner/delete/{id}', [SuperAdminController::class, 'bannerDelete'])->name('/banner/delete');
 

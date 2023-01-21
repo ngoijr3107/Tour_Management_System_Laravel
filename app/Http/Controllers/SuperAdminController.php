@@ -515,6 +515,51 @@ class SuperAdminController extends Controller
         return view('admin.superAdmin.addBanner');
 
     }
+    public function addBannerProcess(Request $req)
+    {
 
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $title=$req->title;
+        $subtitle=$req->subtitle;
+
+        $validatedData = $req->validate([
+
+            'bannerImage' => ['required','mimes:jpeg,jpg,png|max:1000']
+
+        ]);
+
+        $imageTitle=rand();
+
+        //For Image compression, Image upload in webp format
+        $convertImageToWebp = Webp::make($req->file('bannerImage'));
+        $convertImageToWebp->save(public_path('assets/banner/'.$imageTitle.'.webp'));
+
+        /*
+
+            //Image upload in jpg,png format
+
+            $uploadedfile=$req->file('bannerImage');
+            $bannerImage=rand().'.'.$uploadedfile->getClientOriginalExtension();
+            $uploadedfile->move(public_path('assets/bannerImage'),$bannerImage);
+
+
+        */
+
+        $place=array();
+
+        $place['title']=$title;
+        $place['subtitle']=$subtitle;
+        $place['image']=$imageTitle.'.webp';
+
+        $addBanner=Banner::create($place);
+
+        Session()->flash('success','Banner added successfully !');
+        return back();
+
+    }
 
 }
