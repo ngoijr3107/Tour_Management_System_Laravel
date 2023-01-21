@@ -161,5 +161,6 @@ Route::middleware([
     Route::get('/booking/list/return', [SuperAdminController::class, 'returnBookingList'])->name('/booking/list/return');
     Route::get('/return/booking/process/{id}', [SuperAdminController::class, 'returnBookingProcess'])->name('/return/booking/process');
     Route::post('/return/booking/confirm/{id}', [SuperAdminController::class, 'returnBookingConfirm'])->name('/return/booking/confirm');
+    Route::get('/message/list', [SuperAdminController::class, 'messageList'])->name('/message/list');
 
 });
