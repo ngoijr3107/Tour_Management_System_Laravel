@@ -232,7 +232,29 @@ class SuperAdminController extends Controller
         
         $bookingInformation=Order::where('id',$id)->first();
 
-        $review=Review::where('order_id',$id)->first();
+        $getReview=Review::where('order_id',$id)->count();
+
+        $tourEndDate=$bookingInformation->to_date;
+
+        $today=date('Y-m-d');
+
+        $reviewLastDate=date('Y-m-d', strtotime($tourEndDate. ' + 7 days'));
+
+        $review=NULL;
+
+        if($getReview<0 && $reviewLastDate<$today)
+        {
+
+            Session()->flash('wrong','user review process remaining !');
+            return back();    
+
+        }
+        if($getReview>0)
+        {
+
+            $review=Review::where('order_id',$id)->first();   
+
+        }
 
         if($bookingInformation->lg_service_id!=Null)
         {
@@ -250,7 +272,21 @@ class SuperAdminController extends Controller
 
         $serviceHolder=User::where('id',$service->user_id)->first();
 
-        return view('admin.superAdmin.billGenerate',['service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review,'serviceHolder'=>$serviceHolder]);
+        return view('admin.superAdmin.billGenerate',['getReview'=>$getReview,'id'=>$id,'service'=>$service,'bookingInformation'=>$bookingInformation,'review'=>$review,'serviceHolder'=>$serviceHolder]);
+
+    }
+    public function paidGuideHost(Request $req,$id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $payment=array();
+
+        $payment['order_id']=$id;
+        
 
     }
 

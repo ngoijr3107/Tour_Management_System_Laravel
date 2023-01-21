@@ -13,10 +13,18 @@
                 <div class="card">
                     <div class="card-body">
                     <h4 class="card-title">Booking List</h4>
-                    <p class="card-description">
+
+                    @if(Session::has('wrong'))
+
+                        <div class="alert alert-danger">
+
+                            {{Session::get('wrong')}}
 
 
-                    </p>
+                        </div>
+
+                    @endif
+
                     <div class="table-responsive">
                         <table class="table table-striped">
                         <thead>

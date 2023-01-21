@@ -35,9 +35,24 @@
 
                     @endif
 
-                    <form class="forms-sample" method="post" action="{{ url('paid/guide-host') }}" enctype="multipart/form-data">
+                    <form class="forms-sample" method="post" action="{{ url('paid/guide-host/'.$id) }}" enctype="multipart/form-data">
 
                         @csrf
+
+                        @if($getReview>0)
+
+                            <div class="form-group">
+                            <label for="exampleInputName1">Tourist Rating</label>
+                            <input type="text" class="form-control" id="exampleInputName1" name="rating" value="{{ $review->rating }}" required readonly>
+                            </div>
+
+                            
+                            <div class="form-group">
+                            <label for="exampleInputName1">Tourist Comment</label>
+                            <input type="text" class="form-control" id="exampleInputName1" name="comment" value="{{ $review->comment }}" required readonly>
+                            </div>
+
+                        @endif
 
                         <div class="form-group">
                         <label for="exampleInputName1">Bank Name</label>
