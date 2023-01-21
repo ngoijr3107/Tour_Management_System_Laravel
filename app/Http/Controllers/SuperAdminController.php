@@ -426,9 +426,25 @@ class SuperAdminController extends Controller
     public function messageList()
     {
 
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
         $messages=Contact::all();
 
         return view('admin.superAdmin.messageList',['messages'=>$messages]);
+
+    }
+    public function addSuperAdmin()
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        return view('admin.superAdmin.addSuperAdmin');
 
     }
 
