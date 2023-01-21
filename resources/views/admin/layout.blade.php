@@ -378,7 +378,7 @@
               </a>
               <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Add Super Admin</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/add/super-admin') }}">Add Super Admin</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{ url('/super-admin-list') }}">All Super Admin</a></li>
