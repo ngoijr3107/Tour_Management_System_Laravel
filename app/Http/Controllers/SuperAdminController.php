@@ -490,6 +490,19 @@ class SuperAdminController extends Controller
         return view('admin.superAdmin.bannerList',['banners'=>$banners]);
 
     }
+    public function bannerDelete($id)
+    {
 
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        Banner::where('id',$id)->delete();
+
+        Session()->flash('success','Banner deleted successfully !');
+        return back();
+
+    }
 
 }
