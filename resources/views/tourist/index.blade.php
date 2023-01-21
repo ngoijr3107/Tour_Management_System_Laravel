@@ -14,7 +14,7 @@
                     @if($loop->first)
 
                         <div class="carousel-item active">
-                            <img class="w-100" src="{{ asset('assets/img/'.$banner->image) }}" alt="Image">
+                            <img class="w-100" src="{{ asset('assets/banner/'.$banner->image) }}" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 900px;">
                                 <h4 class="text-white text-uppercase mb-md-3">{{ $banner->title }}</h4>
@@ -27,7 +27,7 @@
                     @else
 
                         <div class="carousel-item">
-                                <img class="w-100" src="{{ asset('assets/img/'.$banner->image) }}" alt="Image">
+                                <img class="w-100" src="{{ asset('assets/banner/'.$banner->image) }}" alt="Image">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 900px;">
                                     <h4 class="text-white text-uppercase mb-md-3">{{ $banner->title }}</h4>
