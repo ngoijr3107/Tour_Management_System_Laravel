@@ -159,5 +159,6 @@ Route::middleware([
     Route::get('/pay/guide-host/{id}', [SuperAdminController::class, 'billGuideHost'])->name('/pay/guide-host');
     Route::post('/paid/guide-host/{id}', [SuperAdminController::class, 'paidGuideHost'])->name('/paid/guide-host');
     Route::get('/booking/list/return', [SuperAdminController::class, 'returnBookingList'])->name('/booking/list/return');
+    Route::get('/return/booking/process/{id}', [SuperAdminController::class, 'returnBookingProcess'])->name('/return/booking/process');
 
 });

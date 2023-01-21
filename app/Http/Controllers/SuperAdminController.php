@@ -222,6 +222,21 @@ class SuperAdminController extends Controller
         return view('admin.superAdmin.returnBookingList',['returnBookingLists'=>$returnBookingLists]);
 
     }
+    public function returnBookingProcess($id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $bookingInformation=Order::where('id',$id)->first();
+
+        $user=User::where('id',$id)->first();
+
+        return view('admin.superAdmin.returnBookingProcess',['bookingInfomation'=>$bookingInformation,'user'=>$user]);
+
+    }
     public function billGuideHost($id)
     {
 
