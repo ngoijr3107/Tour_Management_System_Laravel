@@ -9,37 +9,37 @@
            
             <div class="carousel-inner">
 
-                <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('assets/img/coxbazar.jpg') }}" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                        <h4 class="text-white text-uppercase mb-md-3">Relaxable</h4>
-                            <h1 class="display-3 text-white mb-md-4">Enjoy relaxable tour</h1>
-                            <a href="#place" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                        <img class="w-100" src="{{ asset('assets/img/sajek.jpg') }}" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Adventure</h4>
-                                <h1 class="display-3 text-white mb-md-4">Take an adventure tour</h1>
-                                <a href="#place" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                @foreach($banners as $banner)
+
+                    @if($loop->first)
+
+                        <div class="carousel-item active">
+                            <img class="w-100" src="{{ asset('assets/img/'.$banner->image) }}" alt="Image">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase mb-md-3">{{ $banner->title }}</h4>
+                                    <h1 class="display-3 text-white mb-md-4">{{ $banner->subtitle }}</h1>
+                                    <a href="#place" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                                </div>
                             </div>
                         </div>
-                </div>
-               
-                <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('assets/img/sundarban.jpg') }}" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                        <h4 class="text-white text-uppercase mb-md-3">Affordable</h4>
-                            <h1 class="display-3 text-white mb-md-4">Get an affordable tour</h1>
-                            <a href="#place" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+
+                    @else
+
+                        <div class="carousel-item">
+                                <img class="w-100" src="{{ asset('assets/img/'.$banner->image) }}" alt="Image">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 900px;">
+                                    <h4 class="text-white text-uppercase mb-md-3">{{ $banner->title }}</h4>
+                                        <h1 class="display-3 text-white mb-md-4">{{ $banner->subtitle }}</h1>
+                                        <a href="#place" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                                    </div>
+                                </div>
                         </div>
-                    </div>
-                </div>
+
+                    @endif
+
+                @endforeach
               
             </div>
             <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">

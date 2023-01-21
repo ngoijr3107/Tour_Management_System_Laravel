@@ -12,6 +12,7 @@ use App\Models\Local_Guide_Service;
 use App\Models\Local_Host_Service;
 use App\Models\Virtual_assistant;
 use App\Models\Contact;
+use App\Models\Banner;
 
 class GuestController extends Controller
 {
