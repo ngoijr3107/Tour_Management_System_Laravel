@@ -298,7 +298,6 @@ class HomeController extends Controller
 
         }
 
-
         $tour=array();
 
         $tour['tour_status']="Cancel";
