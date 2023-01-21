@@ -154,6 +154,7 @@ Route::middleware([
     Route::get('/local-host-list', [SuperAdminController::class, 'hostList'])->name('/local-host/list');
     Route::get('/tourist-list', [SuperAdminController::class, 'touristList'])->name('/tourist/list');
     Route::get('/virtual-assistant-list', [SuperAdminController::class, 'virtualAssistantList'])->name('/virtual-assistant/list');
+    Route::get('/add/super-admin', [SuperAdminController::class, 'addSuperAdmin'])->name('/add/super-admin');
     Route::get('/super-admin-list', [SuperAdminController::class, 'superAdminList'])->name('/super-admin/list');
     Route::get('/booking-list', [SuperAdminController::class, 'bookingList'])->name('/booking-list');
     Route::get('/pay/guide-host/{id}', [SuperAdminController::class, 'billGuideHost'])->name('/pay/guide-host');
