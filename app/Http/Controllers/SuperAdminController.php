@@ -422,6 +422,14 @@ class SuperAdminController extends Controller
         
 
     }
+    public function messageList()
+    {
+
+        $messages=Contact::all();
+
+        return view('admin.superAdmin.messageList',['messages'=>$messages]);
+
+    }
 
 
 }
