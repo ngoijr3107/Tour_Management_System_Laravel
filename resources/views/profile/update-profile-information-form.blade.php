@@ -111,7 +111,19 @@
             <x-jet-input-error for="date_of_birth" class="mt-2" />
         </div>
 
-       
+        <!-- Bank Name -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="bank_name" value="{{ __('Bank Name') }}" />
+            <x-jet-input id="bank_name" type="number" class="mt-1 block w-full" wire:model.defer="state.bank_name" autocomplete="bank_name" />
+            <x-jet-input-error for="bank_name" class="mt-2" />
+        </div>
+            
+        <!-- Account no -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="account_no" value="{{ __('Account No') }}" />
+            <x-jet-input id="account_no" type="number" class="mt-1 block w-full" wire:model.defer="state.account_no" autocomplete="account_no" />
+            <x-jet-input-error for="account_no" class="mt-2" />
+        </div>
 
 
     </x-slot>
