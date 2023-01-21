@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Review;
 use App\Models\Local_guide_service;
 use App\Models\Local_host_service;
+use App\Models\Contact;
 
 use Illuminate\Http\Request;
 use Gate;
