@@ -504,5 +504,17 @@ class SuperAdminController extends Controller
         return back();
 
     }
+    public function addBanner()
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        return view('admin.superAdmin.addBanner');
+
+    }
+
 
 }
