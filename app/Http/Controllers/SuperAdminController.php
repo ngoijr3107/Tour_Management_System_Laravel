@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Gate;
 use Auth;
 use Webp;
+use Hash;
 
 class SuperAdminController extends Controller
 {
@@ -445,6 +446,32 @@ class SuperAdminController extends Controller
         }
 
         return view('admin.superAdmin.addSuperAdmin');
+
+    }
+    public function addSuperAdminProcess(Request $req)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $validatedData = $req->validate([
+
+            'email' => ['required', 'unique:users'],
+            'password' => ['required','min:8'],
+
+        ]);
+
+        $superAdmin=array();
+
+        $superAdmin['name']=$req->name;
+        $superAdmin['email']=$req->email;
+        $superAdmin['password']=Hash::make($req->password);
+        $superAdmin['usertype']='3';
+
+        Session()->flash('success','Super Admin added successfully !');
+        return back();
 
     }
 
