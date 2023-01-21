@@ -26,6 +26,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'date_of_birth' => ['nullable', 'string'],
             'address' => ['nullable', 'string'],
             'phone' => ['nullable', 'string'],
+            'bank_name' => ['nullable', 'string'],
+            'account_no' => ['nullable', 'string'],
 
         ])->validateWithBag('updateProfileInformation');
 
@@ -44,6 +46,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'date_of_birth' => $input['date_of_birth'],
                 'address' => $input['address'],
                 'phone' => $input['phone'],
+                'bank_name' => $input['bank_name'],
+                'account_no' => $input['account_no'],
             ])->save();
         }
     }
