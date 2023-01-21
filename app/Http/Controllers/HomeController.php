@@ -288,6 +288,17 @@ class HomeController extends Controller
 
         }
 
+        $userDetails=User::where('id',$orderInformation->user_id)->first();
+
+        if($userDetails->bank_name==Null || $userDetails->account_no==Null)
+        {
+
+            Session()->flash('wrong','Please provide bank name & account name in profile section.');
+            return back();
+
+        }
+
+
         $tour=array();
 
         $tour['tour_status']="Cancel";
