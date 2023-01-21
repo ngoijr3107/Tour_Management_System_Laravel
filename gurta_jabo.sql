@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2023 at 06:49 PM
+-- Generation Time: Jan 21, 2023 at 06:56 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -377,7 +377,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Og7sbf26A9OcP7sEq92gu6tFdv8hzNoeCj6JVz7U', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiWk00V013RHlNdjNNT3dIN05nYXVlZ1E2cVJNaTkzaEFITVRGd3E0byI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEp3NU0yY3RoYnMxNVhwcW54T2tNSnVuQ2doTU84N0pQTDlPam8wVng1M3RnSktWalcuYmZlIjt9', 1674323106),
+('CpyIRGA2a1RdHZm9R2eagP9MAoKXS4DQAvlAoaqM', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiWUtyMXB3WTFCb1pxQTRWaUVtczh0bzlheHFGbndDcWVIUFlnR1ZiTCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQyOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGFzaGJvYXJkP3ZlcmlmaWVkPTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQ1QVFQelo4M05JV1ZGNTdSVW9TaFQuS3BObUEvQ2UvbHhHSTJLOTJPakNtTnBpcUNaU1Q0SyI7fQ==', 1674323667),
+('QnG1dcYb50AnkI8JyYgKf4C0vQr2J2Jt0EaA7Q7K', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiajdSREdaOUhXa1N0eTR1OG9mNXZ6QXZGTXhlY09ZN0xHUFJHMHpMMCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fX0=', 1674323692),
 ('TRJDZYLTuZZgiOedQlKaOWUmh7gfmttmvMS08MLp', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMzNrQ2YxVHd2RlVMUFNVSkw3MFkwbWVRUXNIRW9pcU1CUEdvWXQxNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9wYXkvZ3VpZGUtaG9zdC85NiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkSnc1TTJjdGhiczE1WHBxbnhPa01KdW5DZ2hNTzg3SlBMOU9qbzBWeDUzdGdKS1ZqVy5iZmUiO30=', 1674299705),
 ('zdUZZ7a0nGYeThrMmBv5cmpekukvmWbYrWRnaFao', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRGJBWnV5c3puNUFxczhONUJ1WTVtQWM5WVRZRGx6ZFJ3bUsydDhJYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC91c2VyL3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEp3NU0yY3RoYnMxNVhwcW54T2tNSnVuQ2doTU84N0pQTDlPam8wVng1M3RnSktWalcuYmZlIjt9', 1674285077);
 
@@ -415,13 +416,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `usertype`, `email`, `phone`, `address`, `date_of_birth`, `nid`, `status`, `bank_name`, `account_no`, `profile_photo_path`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sajeeb Chakraborty', '3', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-19', '844984984423', 'Apporve', 'Rocket', '527568', 'profile-photos/KgaxzcG50KjRCLvJuu5kv5x9lpbv3pFJLGG8CFEK.jpg', '2023-01-02 11:14:18', '$2y$10$Jw5M2cthbs15XpqnxOkMJunCghMO87JPL9Ojo0Vx53tgJKVjW.bfe', NULL, NULL, NULL, 'K0cDeqKlPc0W6kvS9d2dxrQVZ0HygOqNUFGDmcl0XtZlEtKvPJA8HUsvgrkp', '2023-01-02 09:27:29', '2023-01-21 01:11:14'),
+(1, 'Sajeeb Chakraborty', '1', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-19', '844984984423', 'Apporve', 'Rocket', '527568', 'profile-photos/KgaxzcG50KjRCLvJuu5kv5x9lpbv3pFJLGG8CFEK.jpg', '2023-01-02 11:14:18', '$2y$10$Jw5M2cthbs15XpqnxOkMJunCghMO87JPL9Ojo0Vx53tgJKVjW.bfe', NULL, NULL, NULL, 'aPwOASpY5zsVBiN7O7U4S82Wh1LzgBAtPUcSOOYnEbCW1zWYl0RCZv3KaJtW', '2023-01-02 09:27:29', '2023-01-21 01:11:14'),
 (2, 'Robin Chakraborty', '1', 'robincb.symphony@gmail.com', '01824072334', NULL, NULL, NULL, 'Pending', NULL, NULL, NULL, '2023-01-02 10:13:58', '$2y$10$qs7uJrm24D43KjZKKMDbc.ryQkuWEycSHVAPfktLsM2SvTgzDrUx2', NULL, NULL, NULL, NULL, '2023-01-02 10:02:55', '2023-01-14 05:35:29'),
 (3, 'MD AL Amin', '2', 'alamin.rucse18@gmail.com', NULL, NULL, NULL, NULL, 'Approve', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-12 14:43:11'),
 (4, 'Jahid Hasan', '2', 'jahid.cseru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (13, 'Sajeeb Chakraborty', '0', 'sajeebcb.cseru@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-14', '454544', NULL, NULL, NULL, 'profile-photos/jK4T3WqWLoBck4GZAM7kVJqpBfFnAKoFD7TQY9Vc.jpg', '2023-01-10 06:03:49', '$2y$10$e1uKhxml2qqk0uCtzmu64u0jDM7rtb12r8vQm3Ql.6Q9hERrjazkS', NULL, NULL, NULL, NULL, '2023-01-10 06:02:16', '2023-01-11 14:17:56'),
 (14, 'Tresna Rani', '0', 'tresna312@gmail.com', NULL, NULL, NULL, NULL, 'Pending', NULL, NULL, NULL, '2023-01-11 02:02:04', '$2y$10$04jSiwTF96S5hmy6N4MdpuZjWA.jXcLhEXhtb0i7nWq8mMvpuvOFO', NULL, NULL, NULL, NULL, '2023-01-11 01:45:00', '2023-01-11 02:02:04'),
-(15, 'Sajeeb Chakraborty', '3', 'sudarshanchakraborty1963@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$X0er5veEWZkBb5rJiUMgAun8FAFLDVIMEujLycV9nCa4O5NASfhpO', NULL, NULL, NULL, NULL, '2023-01-21 10:05:27', '2023-01-21 10:05:27');
+(15, 'Sajeeb Chakraborty', '3', 'sudarshanchakraborty1963@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$X0er5veEWZkBb5rJiUMgAun8FAFLDVIMEujLycV9nCa4O5NASfhpO', NULL, NULL, NULL, NULL, '2023-01-21 10:05:27', '2023-01-21 10:05:27'),
+(16, 'Sajeeb Chakraborty', '3', 's1811076104@ru.ac.bd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-21 11:54:27', '$2y$10$5AQPzZ83NIWVF57RUoShT.KpNmA/Ce/lxGI2K92OjCmNpiqCZST4K', NULL, NULL, NULL, NULL, '2023-01-21 11:51:43', '2023-01-21 11:54:27');
 
 -- --------------------------------------------------------
 
@@ -606,7 +608,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `virtual_assistants`
