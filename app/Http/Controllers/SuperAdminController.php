@@ -476,6 +476,19 @@ class SuperAdminController extends Controller
         return back();
 
     }
+    public function bannerList()
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $banners=Banner::all();
+
+        return view('admin.superAdmin.bannerList',['banners'=>$banners]);
+
+    }
 
 
 }
