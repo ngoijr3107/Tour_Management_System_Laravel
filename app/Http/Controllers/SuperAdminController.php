@@ -369,6 +369,59 @@ class SuperAdminController extends Controller
         
 
     }
+    public function returnBookingConfirm(Request $req,$id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        if($req->payableAmount<0 || $req->payableAmount>100)
+        {
+
+            Session()->flash('wrong','Invalid Payable Amount !');
+            return back();   
+
+        }
+
+        $bookingInformation=Order::where('id',$id)->first();
+
+        if($bookingInformation->return_tranx_id!=Null)
+        {
+
+            Session()->flash('wrong','Already Returned !');
+            return back();
+
+        }
+
+        $payment=array();
+
+        $paidAmount=($req->payableAmount*$req->totalAmount)/100;
+
+        $payment['return_amount']=$paidAmount;
+
+        $payment['return_tranx_id']=$req->transactionNo;
+
+        $payment['status']='Returned';
+
+        Order::where('id',$id)->update($payment);
+
+        //return amount notification mail to tourist
+        $details = [
+
+            'title' => 'Return Booking Amount Email',
+            'body' => 'You get '.$paidAmount. ' Tk for your return booking service. Tnx No - '.$req->transactionNo,
+
+        ];
+        
+        \Mail::to($bookingInformation->email)->send(new \App\Mail\ReturnBookingMail($details));
+
+        Session()->flash('success','Return amount done successfully !');
+        return back();
+        
+
+    }
 
 
 }
