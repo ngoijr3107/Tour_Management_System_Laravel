@@ -25,7 +25,7 @@
                
                 <br>
 
-                <a href="{{ url('banner/delete/'.$banner->delete) }}" class="btn btn-danger">Delete</a>
+                <a href="{{ url('banner/delete/'.$banner->id) }}" class="btn btn-danger">Delete</a>
 
             </div>
             </div>
