@@ -12,7 +12,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Local Guide</h4>
+                    <h4 class="card-title">Message List</h4>
                     <p class="card-description">
 
 
@@ -21,9 +21,6 @@
                         <table class="table table-striped">
                         <thead>
                             <tr>
-                            <th>
-                                User
-                            </th>
                             <th>
                                 Name
                             </th>
@@ -34,32 +31,29 @@
                                 Phone
                             </th>
                             <th>
-                                Action
+                                Message
                             </th>
                           
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($guides as $guide)
+                            @foreach($messages as $message)
 
                                 <tr>
-                                <td class="py-1">
-                                    <img src="{{ $guide->profile_photo_url }}" alt="image"/>
-                                </td>
                                 <td>
-                                    {{ $guide->name }}
+                                    {{ $message->name }}
                                 </td>
                                 <td>
 
-                                    {{ $guide->email }}
+                                    {{ $message->email }}
 
                                 </td>
                                 <td>
-                                    {{ $guide->phone }}
+                                    {{ $message->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-guide/list/'. $guide->id) }}">Details</a>
+                                    {{ $message->message }}
                                 </td>
                                 </tr>
                             
