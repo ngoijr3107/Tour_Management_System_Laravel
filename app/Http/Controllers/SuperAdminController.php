@@ -204,7 +204,7 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
         
-        $bookingLists=Order::where('status','Success')->where('tour_status','!=','Cancel')->get();
+        $bookingLists=Order::where('status','Success')->orderBy('id', 'desc')->where('tour_status','!=','Cancel')->get();
 
         return view('admin.superAdmin.bookingList',['bookingLists'=>$bookingLists]);
 
@@ -217,7 +217,7 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
         
-        $returnBookingLists=Order::where('status','Success')->where('tour_status','Cancel')->get();
+        $returnBookingLists=Order::where('status','Success')->orderBy('id', 'desc')->where('tour_status','Cancel')->get();
 
         return view('admin.superAdmin.returnBookingList',['returnBookingLists'=>$returnBookingLists]);
 
