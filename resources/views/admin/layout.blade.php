@@ -385,9 +385,23 @@
                 </ul>
               </div>
             </li>
-          @endif
 
-          @if(Auth::user()->usertype==3)
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#banners" aria-expanded="false" aria-controls="charts">
+                <i class="icon-bar-graph menu-icon"></i>
+                <span class="menu-title">Banner</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="banners">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/add/banner') }}">Add Banner</a></li>
+                </ul>
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('/all/banner') }}">All Banner</a></li>
+                </ul>
+              </div>
+            </li>
+        
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/message/all') }}">
                 <i class="icon-paper menu-icon"></i>
