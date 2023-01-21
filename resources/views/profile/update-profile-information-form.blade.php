@@ -116,7 +116,7 @@
             <x-jet-label for="bank_name" value="{{ __('Bank Name') }}" />
             <select id="bank_name" class="mt-1 block w-full form-control" wire:model.defer="state.bank_name" autocomplete="bank_name">
             
-                <option value="" disabled>select</option>
+                <option value=""selected>select</option>
                 <option>Bkash</option>
                 <option>Rocket</option>
                 <option>Nagad</option>

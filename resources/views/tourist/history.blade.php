@@ -15,7 +15,7 @@
   <div class="alert alert-danger">
 
       {{Session::get('wrong')}}
-
+      <a href="/user/profile" style="color:blue;">Update Profile</a>
 
   </div>
 
