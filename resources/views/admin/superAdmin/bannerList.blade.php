@@ -3,7 +3,7 @@
 @section('container')
 
     
-    <h3 class="card-title">banner</h3>
+    <h3 class="card-title">Banner List</h3>
 
     <br>
 
@@ -26,7 +26,7 @@
                 <br>
 
                 <a href="{{ url('banner/delete/'.$banner->delete) }}" class="btn btn-danger">Delete</a>
-                
+
             </div>
             </div>
 
