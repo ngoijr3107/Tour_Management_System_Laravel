@@ -232,9 +232,9 @@ class SuperAdminController extends Controller
 
         $bookingInformation=Order::where('id',$id)->first();
 
-        $user=User::where('id',$id)->first();
+        $user=User::where('id',$bookingInformation->user_id)->first();
 
-        return view('admin.superAdmin.returnBookingProcess',['bookingInfomation'=>$bookingInformation,'user'=>$user]);
+        return view('admin.superAdmin.returnBookingProcess',['id'=>$id,'bookingInformation'=>$bookingInformation,'user'=>$user]);
 
     }
     public function billGuideHost($id)

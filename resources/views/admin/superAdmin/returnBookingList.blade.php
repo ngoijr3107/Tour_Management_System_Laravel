@@ -89,7 +89,7 @@
                                 <td>
                                 @if($returnBookingList->return_tranx_id==Null)
 
-                                    <a class="btn btn-rounded btn-primary" href="{{ url('/return/booking/procces'. $returnBookingList->id) }}">Return Now</a>
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('/return/booking/process/'. $returnBookingList->id) }}">Return Now</a>
 
                                 @else
 

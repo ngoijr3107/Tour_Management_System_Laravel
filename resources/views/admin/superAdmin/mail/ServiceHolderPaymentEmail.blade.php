@@ -146,7 +146,7 @@
           <!-- start permission -->
           <tr>
             <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because you receive a payment by our system.</p>
+              <p style="margin: 0;">You received this email because you receive a payment from our system.</p>
             </td>
           </tr>
           <!-- end permission -->
