@@ -318,11 +318,37 @@ class SuperAdminController extends Controller
 
         $payment=array();
 
-        $payment['pay_guide_host']=($req->payableAmount*$req->totalAmount)/100;
+        $paidAmount=($req->payableAmount*$req->totalAmount)/100;
+
+        $payment['pay_guide_host']=$paidAmount;
 
         $payment['guide_host_tranx_id']=$req->transactionNo;
 
         Order::where('id',$id)->update($payment);
+
+        //payment notification mail to guide or host
+        $details = [
+
+            'title' => 'Service Holder Payment Email',
+            'body' => 'You get '.$paidAmount. ' Tk for your service. Tnx No - '.$req->transactionNo,
+
+        ];
+
+        if($bookingInformation->lg_service_id!=Null)
+        {
+
+            $serviceHolderEmail=User::where('id',$bookingInformation->lg_service_id)->value('email');
+
+        }
+        else if($bookingInformation->lh_service_id!=Null)
+        {
+
+            $serviceHolderEmail=User::where('id',$bookingInformation->lh_service_id)->value('email');
+
+
+        }
+        
+        \Mail::to($serviceHolderEmail)->send(new \App\Mail\ServiceHolderPaymentMail($details));
 
         Session()->flash('success','Payment added successfully !');
         return back();
