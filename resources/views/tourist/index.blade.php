@@ -76,7 +76,7 @@
                                 <img class="img-fluid" src="{{ asset('assets/img/about-1.jpg') }}" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="{{ asset('assets/img/about-2.jpg') }}" alt="">
+                                <img class="img-fluid" src="{{ asset('assets/img/about-3.jpg') }}" alt="">
                             </div>
                         </div>
                         <a href="#place" class="btn btn-primary mt-1">Book Now</a>
