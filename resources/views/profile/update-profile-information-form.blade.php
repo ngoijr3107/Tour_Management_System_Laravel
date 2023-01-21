@@ -114,7 +114,19 @@
         <!-- Bank Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="bank_name" value="{{ __('Bank Name') }}" />
-            <x-jet-input id="bank_name" type="number" class="mt-1 block w-full" wire:model.defer="state.bank_name" autocomplete="bank_name" />
+            <select id="bank_name" class="mt-1 block w-full form-control" wire:model.defer="state.bank_name" autocomplete="bank_name">
+            
+                <option value="" disabled>select</option>
+                <option>Bkash</option>
+                <option>Rocket</option>
+                <option>Nagad</option>
+                <option>DBBL</option>
+                <option>Paypal</option>
+                <option>Agrani Bank Ltd</option>
+                <option>Sonali Bank Ltd</option>
+
+            </select>
+
             <x-jet-input-error for="bank_name" class="mt-2" />
         </div>
             
