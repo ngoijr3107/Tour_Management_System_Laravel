@@ -21,8 +21,9 @@ class GuestController extends Controller
 
         $places = Place::all();
 
+        $banners = Banner::all();
 
-        return view('tourist.index',['places'=>$places]);
+        return view('tourist.index',['places'=>$places,'banners'=>$banners]);
 
 
     }
