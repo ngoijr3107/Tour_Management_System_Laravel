@@ -283,9 +283,34 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
 
+        if($req->payableAmount<0 || $req->payableAmount>100)
+        {
+
+            Session()->flash('wrong','Invalid Payable Amount !');
+            return back();   
+
+        }
+
+        $bookingInformation=Order::where('id',$id)->first();
+
+        if($bookingInformation->guide_host_tranx_id!=Null)
+        {
+
+            Session()->flash('wrong','Already Paid !');
+            return back();
+
+        }
+
         $payment=array();
 
-        $payment['order_id']=$id;
+        $payment['pay_guide_host']=($req->payableAmount*$req->totalAmount)/100;
+
+        $payment['guide_host_tranx_id']=$req->transactionNo;
+
+        Order::where('id',$id)->update($payment);
+
+        Session()->flash('success','Payment added successfully !');
+        return back();
         
 
     }

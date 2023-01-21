@@ -87,8 +87,16 @@
 
                                 </td>
                                 <td>
+                                @if($bookingList->guide_host_tranx_id==Null)
 
                                     <a class="btn btn-rounded btn-primary" href="{{ url('/pay/guide-host/'. $bookingList->id) }}">Pay Now</a>
+
+                                @else
+
+                                    Already Paid
+
+
+                                @endif
 
                                 </td>
                               
