@@ -470,6 +470,8 @@ class SuperAdminController extends Controller
         $superAdmin['password']=Hash::make($req->password);
         $superAdmin['usertype']='3';
 
+        User::create($superAdmin);
+
         Session()->flash('success','Super Admin added successfully !');
         return back();
 
