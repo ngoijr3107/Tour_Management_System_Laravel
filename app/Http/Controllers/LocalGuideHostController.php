@@ -231,7 +231,7 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $canceledTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
+            $canceledTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
 
         }
         else if(Auth::user()->usertype == 2)
