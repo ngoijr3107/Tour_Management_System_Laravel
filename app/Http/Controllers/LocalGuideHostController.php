@@ -207,7 +207,6 @@ class LocalGuideHostController extends Controller
 
             $pendingTours=Order::with('place')->where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
-
         }
 
         return view('admin.guideHost.pendingTours',['pendingTours'=>$pendingTours,'today'=>$today]);
