@@ -56,6 +56,8 @@ class PremiumPackageController extends Controller
 
         $totalBill=$hostBill*$amountOfDay*$amountOfPerson;
 
+        $serviceHolderId=Local_host_service::where('id',$hostServiceId)->value('user_id');
+
         //cache for ssl payment gateway
         Session::put('totalBill',$totalBill);
         Session::put('from',$from);
@@ -65,7 +67,8 @@ class PremiumPackageController extends Controller
         Session::put('placeId',$placeId);
         Session::put('packageId',$packageId);
         Session::put('lgServiceId',null);
-        Session::put('lhServiceId',$hostServiceId);    
+        Session::put('lhServiceId',$hostServiceId);   
+        Session::put('serviceHolderId',$serviceHolderId);   
         
         return view('tourist.premiumPackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'totalBill'=>$totalBill]);
 
