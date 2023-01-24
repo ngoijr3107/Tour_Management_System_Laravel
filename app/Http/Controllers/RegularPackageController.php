@@ -57,6 +57,8 @@ class RegularPackageController extends Controller
 
         $totalBill=$guideBill*$amountOfDay*$amountOfPerson;
 
+        $serviceHolderId=Local_guide_service::where('id',$guideServiceId)->value('user_id');
+
         //cache for ssl payment gateway
         Session::put('totalBill',$totalBill);
         Session::put('from',$from);
