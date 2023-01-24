@@ -66,7 +66,8 @@ class RegularPackageController extends Controller
         Session::put('placeId',$placeId);
         Session::put('packageId',$packageId);
         Session::put('lgServiceId',$guideServiceId);
-        Session::put('lhServiceId',null);    
+        Session::put('lhServiceId',null);
+        Session::put('serviceHolderId',$serviceHolderId);     
         
         return view('tourist.regularPackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'guideBill'=>$guideBill,'totalBill'=>$totalBill]);
 
