@@ -64,6 +64,8 @@ class ProPackageController extends Controller
 
         $totalBill=($hostBill + $virtualAssistantBill)*$amountOfDay*$amountOfPerson;
 
+        $serviceHolderId=Local_host_service::where('id',$hostServiceId)->value('user_id');
+
           //cache for ssl payment gateway
           Session::put('totalBill',$totalBill);
           Session::put('from',$from);
@@ -73,7 +75,8 @@ class ProPackageController extends Controller
           Session::put('placeId',$placeId);
           Session::put('packageId',$packageId);
           Session::put('lgServiceId',null);
-          Session::put('lhServiceId',$hostServiceId); 
+          Session::put('lhServiceId',$hostServiceId);
+          Session::put('serviceHolderId',$serviceHolderId);   
         
         return view('tourist.Propackage.billGenerate',['amountOfDay'=>$amountOfDay,'amountOfPerson'=>$amountOfPerson,'hostBill'=>$hostBill,'virtualAssistantBill'=>$virtualAssistantBill,'totalBill'=>$totalBill]);
 
