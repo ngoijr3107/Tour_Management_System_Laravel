@@ -54,6 +54,7 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <!-- End plugin js for this page -->
@@ -64,7 +65,7 @@
   <script src="../../js/template.js"></script>
   <script src="../../js/settings.js"></script>
   <script src="../../js/todolist.js"></script>
-  
+
   <!-- endinject -->
 </body>
 
