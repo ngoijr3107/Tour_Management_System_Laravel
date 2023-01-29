@@ -16,6 +16,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
+  
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
 
@@ -23,7 +24,7 @@
 
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
-      
+
       <div class="content-wrapper d-flex align-items-center text-center error-page bg-info">
         <div class="row flex-grow">
 
