@@ -61,8 +61,9 @@
     <!-- page-body-wrapper ends -->
 
   </div>
-  
+
   <!-- container-scroller -->
+  
   <!-- plugins:js -->
   <script src="{{ asset('assets/admin/vendors/js/vendor.bundle.base.js') }}"></script>
 
