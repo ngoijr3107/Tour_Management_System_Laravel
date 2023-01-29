@@ -38,11 +38,12 @@
                 <h2>SORRY!</h2>
 
                 <h3 class="font-weight-light">Internal server error!</h3>
-                
+
               </div>
             </div>
 
             <div class="row mt-5">
+              
               <div class="col-12 text-center mt-xl-2">
                 <a class="text-white font-weight-medium" href="../../index.html">Back to home</a>
               </div>
