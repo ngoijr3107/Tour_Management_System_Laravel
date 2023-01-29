@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  
+
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-center text-center error-page bg-info">
@@ -30,6 +30,7 @@
               <div class="col-lg-6 text-lg-right pr-lg-4">
                 <h1 class="display-1 mb-0">500</h1>
               </div>
+              
               <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
                 <h2>SORRY!</h2>
                 <h3 class="font-weight-light">Internal server error!</h3>
