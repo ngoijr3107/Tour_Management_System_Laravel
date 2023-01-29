@@ -49,10 +49,11 @@
                 <p class="text-white font-weight-medium text-center">Copyright &copy; Ghurte Jabo .  All rights reserved.</p>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
+      
       <!-- content-wrapper ends -->
     </div>
     <!-- page-body-wrapper ends -->
