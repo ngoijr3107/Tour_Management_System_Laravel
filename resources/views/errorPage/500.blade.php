@@ -34,8 +34,9 @@
               </div>
 
               <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
-                
+
                 <h2>SORRY!</h2>
+                
                 <h3 class="font-weight-light">Internal server error!</h3>
               </div>
             </div>
