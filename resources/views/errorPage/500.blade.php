@@ -48,8 +48,9 @@
               <div class="col-12 text-center mt-xl-2">
 
                 <a class="text-white font-weight-medium" href="../../index.html">Back to home</a>
-                
+
               </div>
+              
             </div>
 
             <div class="row mt-5">
