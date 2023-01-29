@@ -39,6 +39,7 @@
                 <a class="text-white font-weight-medium" href="../../index.html">Back to home</a>
               </div>
             </div>
+            
             <div class="row mt-5">
               <div class="col-12 mt-xl-2">
                 <p class="text-white font-weight-medium text-center">Copyright &copy; 2021  All rights reserved.</p>
@@ -49,7 +50,7 @@
       </div>
 
       <!-- content-wrapper ends -->
-      
+
     </div>
 
     <!-- page-body-wrapper ends -->
