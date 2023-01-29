@@ -24,7 +24,7 @@
   <!-- endinject -->
 
   <link rel="shortcut icon" href="../../images/favicon.png" />
-  
+
 </head>
 
 <body>
@@ -87,6 +87,7 @@
 
   <!-- endinject -->
   <!-- Plugin js for this page -->
+  
   <!-- End plugin js for this page -->
   <!-- inject:js -->
 
