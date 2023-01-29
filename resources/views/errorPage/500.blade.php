@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-center text-center error-page bg-info">
@@ -34,7 +35,7 @@
                 <h3 class="font-weight-light">Internal server error!</h3>
               </div>
             </div>
-            
+
             <div class="row mt-5">
               <div class="col-12 text-center mt-xl-2">
                 <a class="text-white font-weight-medium" href="../../index.html">Back to home</a>
