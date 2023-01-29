@@ -43,6 +43,7 @@
                 <a class="text-white font-weight-medium" href="{{ url('/') }}">Back to home</a>
               </div>
             </div>
+            
             <div class="row mt-5">
               <div class="col-12 mt-xl-2">
                 <p class="text-white font-weight-medium text-center">Copyright &copy; Ghurte Jabo .  All rights reserved.</p>
