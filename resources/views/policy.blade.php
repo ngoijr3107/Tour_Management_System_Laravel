@@ -9,7 +9,7 @@
 
             <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
             <h1>Privacy Policy</h1>
-            
+
                 <ul>
                     <li>Collect only necessary information.</li>
                     <li>Obtain consent for data collection.</li>
@@ -19,6 +19,7 @@
                     <li>Disclose data sharing practices.</li>
                     <li>Provide means to file complaint.</li>
                 </ul> 
+                
             </div>
         </div>
     </div>
