@@ -20,11 +20,12 @@
                     <li>Explain how data will be used.</li>
                     <li>Disclose data sharing practices.</li>
                     <li>Provide means to file complaint.</li>
-                    
+
                 </ul> 
 
             </div>
         </div>
+        
     </div>
 </x-guest-layout>
 
