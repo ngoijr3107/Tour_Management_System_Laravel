@@ -12,6 +12,7 @@
             <h1>Privacy Policy</h1>
 
                 <ul>
+                    
                     <li>Collect only necessary information.</li>
                     <li>Obtain consent for data collection.</li>
                     <li>Store data securely.</li>
