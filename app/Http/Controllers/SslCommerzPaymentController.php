@@ -119,7 +119,6 @@ class SslCommerzPaymentController extends Controller
         $packageId=Session::get('packageId');
         $lgServiceId=Session::get('lgServiceId');
         $lhServiceId=Session::get('lhServiceId');
-        $serviceHolderId=Session::get('serviceHolderId');
 
         $today=date('F d, Y');
 
@@ -187,8 +186,6 @@ class SslCommerzPaymentController extends Controller
                 'currency' => $post_data['currency'],
                 'payment_date' => $today,
                 'tour_status'=> 'Pending',
-                'service_holder_id'=>$serviceHolderId,
-                
 
             ]);
 
@@ -437,6 +434,8 @@ class SslCommerzPaymentController extends Controller
             $pdf = PDF::loadView('tourist.SuccesfullPaymentCopy', compact('virtualAssistantPrice','packageId','packageName','today', 'tran_id','from','to','amountOfDay','amountOfPerson','serviceHolderProfile','serviceDetails','placeDetails','totalBill'));
 
             return $pdf->stream('Payment Copy.pdf',array("Attachment" => false));
+            
+            // return view('tourist.paymentCopy');
 
             exit();
             
@@ -445,6 +444,7 @@ class SslCommerzPaymentController extends Controller
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
         }
+
 
     }
 
