@@ -533,7 +533,6 @@ class SslCommerzPaymentController extends Controller
             } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
 
                 #That means Order status already updated. No need to udate database.
-                
                 echo "Transaction is already successfully Completed";
             } else {
                 #That means something wrong happened. You can redirect customer to your product page.
