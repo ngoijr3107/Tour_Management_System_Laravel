@@ -537,7 +537,6 @@ class SslCommerzPaymentController extends Controller
                 echo "Transaction is already successfully Completed";
             } else {
                 #That means something wrong happened. You can redirect customer to your product page.
-                
                 echo "Invalid Transaction";
             }
         } else {
