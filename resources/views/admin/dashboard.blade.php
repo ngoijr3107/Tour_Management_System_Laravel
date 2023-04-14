@@ -47,8 +47,8 @@
                         <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
                       </div>
                       <div class="ml-2">
-                        <h4 class="location font-weight-normal">Bangalore</h4>
-                        <h6 class="font-weight-normal">India</h6>
+                        <h4 class="location font-weight-normal">Rajshahi</h4>
+                        <h6 class="font-weight-normal">Bangladesh</h6>
                       </div>
                     </div>
                   </div>
@@ -61,7 +61,9 @@
                   <div class="card card-tale">
                     <div class="card-body">
                       <p class="mb-4">Total Earn</p>
-                      <p class="fs-30 mb-2">4006</p>
+                      <p class="fs-30 mb-2">
+                        {{ $totalEarn }} BDT
+                      </p>
                       <p></p>
                     </div>
                   </div>
@@ -70,7 +72,7 @@
                   <div class="card card-dark-blue">
                     <div class="card-body">
                       <p class="mb-4">Total Bookings</p>
-                      <p class="fs-30 mb-2">61344</p>
+                      <p class="fs-30 mb-2">{{ $totalBooking }}</p>
                       <p></p>
                     </div>
                   </div>
@@ -81,7 +83,7 @@
                   <div class="card card-light-blue">
                     <div class="card-body">
                       <p class="mb-4">Total Service</p>
-                      <p class="fs-30 mb-2">34040</p>
+                      <p class="fs-30 mb-2">{{ $totalService }}</p>
                       <p></p>
                     </div>
                   </div>
@@ -90,7 +92,7 @@
                   <div class="card card-light-danger">
                     <div class="card-body">
                       <p class="mb-4">Pending Tours</p>
-                      <p class="fs-30 mb-2">47033</p>
+                      <p class="fs-30 mb-2">{{ $pendingTour }}</p>
                       <p></p>
                     </div>
                   </div>

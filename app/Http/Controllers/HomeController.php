@@ -136,7 +136,48 @@ class HomeController extends Controller
 
             $today=date('F d, Y');
 
-            return view('admin.dashboard',['usertype'=>$usertype,'today'=>$today]);
+            if(Auth::user()->usertype == 1)
+            {
+    
+                $pendingTour=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','Pending')->count();
+    
+                $totalBooking=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->count();
+
+                $totalEarn=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->sum('pay_guide_host');
+
+                $totalService=Local_guide_service::where('user_id',Auth::user()->id)->count();
+
+            }
+            else if(Auth::user()->usertype == 2)
+            {
+    
+                $pendingTour=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','Pending')->count();
+    
+                $totalBooking=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->count();
+
+                $totalEarn=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->sum('pay_guide_host');
+
+                $totalService=Local_host_service::where('user_id',Auth::user()->id)->count();
+
+    
+            }
+            else{
+
+                $pendingTour=Order::where('tour_status','Pending')->count();
+    
+                $totalBooking=Order::where('tour_status','!=','Cancel')->count();
+
+                $totalEarn=Order::where('tour_status','!=','Cancel')->sum('pay_guide_host');
+
+                $totalGuideService=Local_host_service::count();
+
+                $totalHostService=Local_host_service::count();
+
+                $totalService=$totalGuideService+$totalHostService;
+
+            }
+
+            return view('admin.dashboard',['usertype'=>$usertype,'today'=>$today,'totalEarn'=>$totalEarn,'pendingTour'=>$pendingTour,'totalBooking'=>$totalBooking,'totalService'=>$totalService]);
 
 
         }

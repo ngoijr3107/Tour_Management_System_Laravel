@@ -7,6 +7,8 @@ use App\Models\Local_guide_service;
 use App\Models\Local_host_service;
 use App\Models\Place;
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Review;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -199,13 +201,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $pendingTours=Order::with('place')->where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
+            $pendingTours=Order::with('place')->where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $pendingTours=Order::with('place')->where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
+            $pendingTours=Order::with('place')->where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
         }
 
@@ -230,13 +232,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $canceledTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
+            $canceledTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $canceledTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
+            $canceledTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
 
         }
 
@@ -261,13 +263,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $completedTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
+            $completedTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $completedTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
+            $completedTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
         }
 
@@ -325,6 +327,172 @@ class LocalGuideHostController extends Controller
 
         Session()->flash('success','Send request successfully . Wait 7 days for payment !');
         return back();
+
+    }
+    public function pendingTourDetails($id)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        $tourInformation=Order::where('id',$id)->first();
+
+        $userInformation=User::where('id',$tourInformation->user_id)->first();
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $serviceInformation=Local_guide_service::where('id',$tourInformation->lg_service_id)->first();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $serviceInformation=Local_host_service::where('id',$tourInformation->lh_service_id)->first();
+
+
+        }
+
+        return view('admin.guideHost.pendingTourDetail',['tourInformation'=>$tourInformation,'userInformation'=>$userInformation,'serviceInformation'=>$serviceInformation]);
+
+    }
+    public function canceledTourDetails($id)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        $tourInformation=Order::where('id',$id)->first();
+
+        $userInformation=User::where('id',$tourInformation->user_id)->first();
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $serviceInformation=Local_guide_service::where('id',$tourInformation->lg_service_id)->first();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $serviceInformation=Local_host_service::where('id',$tourInformation->lh_service_id)->first();
+
+
+        }
+
+        return view('admin.guideHost.canceledTourDetail',['tourInformation'=>$tourInformation,'userInformation'=>$userInformation,'serviceInformation'=>$serviceInformation]);
+
+    }
+    public function completedTourDetails($id)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        $tourInformation=Order::where('id',$id)->first();
+
+        $userInformation=User::where('id',$tourInformation->user_id)->first();
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $serviceInformation=Local_guide_service::where('id',$tourInformation->lg_service_id)->first();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $serviceInformation=Local_host_service::where('id',$tourInformation->lh_service_id)->first();
+
+
+        }
+
+        return view('admin.guideHost.completedTourDetail',['tourInformation'=>$tourInformation,'userInformation'=>$userInformation,'serviceInformation'=>$serviceInformation]);
+
+    }
+    public function balanceStatement()
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $paymentOrders=Order::where('lg_service_id',Auth::user()->id)->where('guide_host_tranx_id','!=',null)->get();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $paymentOrders=Order::where('lh_service_id',Auth::user()->id)->where('guide_host_tranx_id','!=',null)->where('status','Success')->get();
+
+        }
+
+        return view('admin.guideHost.balanceStatement',['paymentOrders'=>$paymentOrders]);
+
+
+    }
+    public function reviewList()
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $Orders=Order::where('lg_service_id',Auth::user()->id)->get();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $Orders=Order::where('lh_service_id',Auth::user()->id)->get();
+
+        }
+
+        foreach($Orders as $order)
+        {
+                
+                $review=Review::where('order_id',$order->id)->first();
+    
+                if($review)
+                {
+    
+                    $reviews[]=$review;
+    
+                }
+    
+        }
+
+        return view('admin.guideHost.reviewList',['reviews'=>$reviews]);
+
+
 
     }
 

@@ -131,10 +131,15 @@ Route::middleware([
     Route::post('/add/service/process', [LocalGuideHostController::class, 'addServiceProcess'])->name('/add/service/process');
     Route::get('/all/service', [LocalGuideHostController::class, 'allService'])->name('/all/service');
     Route::get('/balance/statement', [LocalGuideHostController::class, 'balanceStatement'])->name('/balance/statement');
+    Route::get('/review/list', [LocalGuideHostController::class, 'reviewList'])->name('/review/list');
     Route::get('/pending/tours', [LocalGuideHostController::class, 'pendingTour'])->name('/pending/tours');
     Route::get('/pendingTour/send/completed-request/{id}', [LocalGuideHostController::class, 'receiveTourCompletedRequest'])->name('/pendingTour/send/completed-request');
     Route::get('/canceled/tours', [LocalGuideHostController::class, 'canceledTour'])->name('/canceled/tours');
     Route::get('/completed/tours', [LocalGuideHostController::class, 'completedTour'])->name('/completed/tours');
+    Route::get('/pendingTour/details/{id}', [LocalGuideHostController::class, 'pendingTourDetails'])->name('/pendingTour/details');
+    Route::get('/canceledTour/details/{id}', [LocalGuideHostController::class, 'canceledTourDetails'])->name('/canceledTour/details');
+    Route::get('/completedTour/details/{id}', [LocalGuideHostController::class, 'completedTourDetails'])->name('/completdTour/details');
+
 
 });
 

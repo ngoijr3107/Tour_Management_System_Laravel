@@ -340,6 +340,12 @@
               </div>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ url('/review/list') }}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Review List</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{ url('/balance/statement') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Balance Statement</span>
