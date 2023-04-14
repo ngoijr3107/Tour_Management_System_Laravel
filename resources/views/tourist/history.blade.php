@@ -56,7 +56,7 @@
             <td data-label="Payment Copy"><a href="{{ url('/download/payment-copy/'.$history->id) }}" class="btn btn-success">Download</a></td>
             @if($history->package_id=='3' || $history->package_id=='4')
             
-              <td data-label="Virtual Assistant Service"><a href="{{ url('http://localhost:3000/?transactionId='.$history->transaction_id) }}"  target="_blank" class="btn btn-dark">Get App</a></td>
+              <td data-label="Virtual Assistant Service"><a href="{{ url('/virtual-assistant/service/'.$history->transaction_id) }}"  target="_blank" class="btn btn-dark">Get App</a></td>
             
             @else
 

@@ -2,20 +2,76 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+
+//Model added
+use App\Models\Order;
+
 use Illuminate\Http\Request;
 
 class VirtualAssistantController extends Controller
 {
     
-    public function virtualAssistantService(Request $req)
+    public function virtualAssistantService(Request $req,$id)
     {
+
+        $userId=Auth::user()->id;
+
+        $orderAvailable=Order::where('user_id',$userId)->where('transaction_id',$id)->count();
+
+        //available check
+        if($orderAvailable==0)
+        {
+
+            $reason="You are not eligible for this service.";
+            return view('errorPage.404_VR',compact('reason'));
+
+        }
+
+        $order=Order::where('user_id',$userId)->where('transaction_id',$id)->first();
+
+        if($order->tour_status == 'Cancel')
+        {
+
+            $reason="You are not eligible for this service.";
+            return view('errorPage.404_VR');
+
+        }
+        else if($order->tour_status == 'Completed')
+        {
+
+            $reason="Your tour already completed.";
+            return view('errorPage.404_VR');
+
+        }
+        else if($order->package_id==1 || $order->package_id==2)
+        {
+
+            $reason="You are not eligible for this package.";
+            return view('errorPage.404_VR',compact('reason'));
+
+        }
+        else if( $order->from_date > date('Y-m-d'))
+        {
+
+            $reason="You can't use this service before your tour date.";
+            return view('errorPage.404_VR',compact('reason'));
+
+        }
+        else if($order->to_date < date('Y-m-d'))
+        {
+
+            $reason="You can't use this service after your tour completion.";
+            return view('errorPage.404_VR',compact('reason'));
+
+        }
+
 
         if($req->question == null)
         {
 
             $question=null;
-
-            return view('tourist.virtualAssistant.service',compact('question'));
+            return view('tourist.virtualAssistant.service',compact('question','id'));
         }
 
         $apiKey = env('OPENAI_API_KEY');
@@ -66,7 +122,7 @@ class VirtualAssistantController extends Controller
         $question=$prompt;
         $answer=$replies;
 
-        return view('tourist.virtualAssistant.service',compact('question','answer'));
+        return view('tourist.virtualAssistant.service',compact('question','answer','id'));
 
     }
 

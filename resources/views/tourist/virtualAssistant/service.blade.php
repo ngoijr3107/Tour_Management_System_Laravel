@@ -5,13 +5,27 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/styleVirtualAssistant.css') }}">
 
+<title>Ghurte Jabo</title>
+
 <div class="container">
 
     <div class="row clearfix">
 
-            <div class="header">
+            <div class="header display-inline-css" style="diplay:inline-css !important">
 
-                <h2 style="font-size:40px !important; text-align:center; margin-bottom:40px;"><strong>Virtual </strong> Assistant App</h2>
+                <div>
+
+                    <!-- <img src="{{ asset('assets/img/logo.png') }}"  style="width:100px;height:100px; border-radius:50%;margin-bottom:10px;" alt="avatar">  -->
+
+                </div>
+
+                <div>
+
+                    <h2 style="font-size:40px !important; text-align:center; margin-bottom:40px;"><strong>Ghurte </strong> Jabo</h2>
+
+
+                </div>
+
                 
             </div>
     <div class="col-lg-12">
@@ -25,7 +39,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                <img src="{{ asset('assets/img/vr.png') }}" alt="avatar">
                             </a>
                             <div class="chat-about">
                                 <h6 class="m-b-0">Virtual Assistant</h6>
@@ -38,33 +52,39 @@
                     <ul class="m-b-0">
 
                         <li class="clearfix">
-                            <div class="message-data text-right">
-
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar"> you
-
-                            </div>
+                           
 
                             @if($question != null)
+
+                                <div class="message-data text-right">
+
+                                    <img src="{{ url('storage/'.Auth::user()->profile_photo_path) }}" alt="avatar"> <b>{{ Auth::user()->name }} (You)</b>
+
+                                </div>
 
                                 <div class="message other-message float-left"> <b>Question : </b> {{ $question }} </div>
 
                                 <br>
                                 <br>
-                                <div class="chat-header clearfix">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <a href="javascript:void(0);" class="float-right" data-toggle="modal" data-target="#view_info">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="float-right" alt="avatar">
-                                            </a>
-                                            <div class="chat-about float-right">
-                                                <h6 class="m-b-0 float-right">Virtual Assistant</h6>
-                                                <small></small>
-                                            </div>
-                                        </div>
+
+                                <div style="display:inline-css !important" class=" display-inline-css float-right">
+
+
+                                    <div class="float:right">
+
+                                        <img src="{{ asset('assets/img/vr.png') }}"  style="width:40px;height:40px; border-radius:50%;margin-bottom:10px;" alt="avatar"> <b>Virtual Assistant</b>
+
                                     </div>
+
+                                    <div class="message other-message float-right">
+    
+                                        <b>Reply : </b>    {{ $answer }} 
+
+                                    </div>
+
                                 </div>
 
-                                <div class="message other-message float-right">  <b>Reply : </b> {{ $answer }} </div>
+                                
 
                             @else
 
@@ -76,7 +96,7 @@
                                                      
                     </ul>
                 </div>
-                <form method="get" action="/virtual-assistant/service">
+                <form method="get" action="/virtual-assistant/service/{{$id}}">
 
                     @csrf
 

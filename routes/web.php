@@ -180,6 +180,6 @@ Route::middleware([
 ])->group(function () {
 
 
-    Route::get('/virtual-assistant/service', [VirtualAssistantController::class, 'virtualAssistantService'])->name('/virtual-assistant/service');
+    Route::get('/virtual-assistant/service/{id}', [VirtualAssistantController::class, 'virtualAssistantService'])->name('/virtual-assistant/service');
 
 });
