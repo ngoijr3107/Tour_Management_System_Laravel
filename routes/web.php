@@ -13,6 +13,7 @@ use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LocalGuideHostController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\VirtualAssistantController;
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -168,5 +169,17 @@ Route::middleware([
     Route::post('/add/banner/process', [SuperAdminController::class, 'addBannerProcess'])->name('/add/banner/process');
     Route::get('/all/banner', [SuperAdminController::class, 'bannerList'])->name('/all/banner');
     Route::get('/banner/delete/{id}', [SuperAdminController::class, 'bannerDelete'])->name('/banner/delete');
+
+});
+
+//virtual assistant service
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+
+
+    Route::get('/virtual-assistant/service', [VirtualAssistantController::class, 'virtualAssistantService'])->name('/virtual-assistant/service');
 
 });
