@@ -237,7 +237,22 @@ class SuperAdminController extends Controller
 
         $user=User::where('id',$bookingInformation->user_id)->first();
 
-        return view('admin.superAdmin.returnBookingProcess',['id'=>$id,'bookingInformation'=>$bookingInformation,'user'=>$user]);
+        if($bookingInformation->lg_service_id!=NULL)
+        {
+
+            $serviceInformation=Local_guide_service::where('id',$bookingInformation->lg_service_id)->first();
+
+        }
+        else
+        {
+
+            $serviceInformation=Local_host_service::where('id',$bookingInformation->lh_service_id)->first();
+
+        }
+
+        $serviceHolderInformation=User::where('id',$serviceInformation->user_id)->first();
+
+        return view('admin.superAdmin.returnBookingProcess',['id'=>$id,'bookingInformation'=>$bookingInformation,'user'=>$user,'serviceInformation'=>$serviceInformation,'serviceHolderInformation'=>$serviceHolderInformation]);
 
     }
     public function billGuideHost($id)
@@ -560,6 +575,68 @@ class SuperAdminController extends Controller
         Session()->flash('success','Banner added successfully !');
         return back();
 
+    }
+    public function bookingListDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $bookingDetails=Order::where('id',$id)->first();
+
+            $userInformation=User::where('id',$bookingDetails->user_id)->first();
+
+            if($bookingDetails->lg_service_id!=Null)
+            {
+    
+                $serviceInformation=Local_guide_service::where('id',$bookingDetails->lg_service_id)->first();
+    
+            }
+            else if($bookingDetails->lh_service_id!=Null)
+            {
+    
+                $serviceInformation=Local_host_service::where('id',$bookingDetails->lh_service_id)->first();
+    
+    
+            }
+
+            $serviceHolderInformation=User::where('id',$serviceInformation->user_id)->first();
+    
+            return view('admin.superAdmin.bookingListDetails',['bookingDetails'=>$bookingDetails,'userInformation'=>$userInformation,'serviceInformation'=>$serviceInformation,'serviceHolderInformation'=>$serviceHolderInformation]);
+    
+    }
+    public function returnBookingListDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $bookingDetails=Order::where('id',$id)->first();
+
+            $userInformation=User::where('id',$bookingDetails->user_id)->first();
+
+            if($bookingDetails->lg_service_id!=Null)
+            {
+    
+                $serviceInformation=Local_guide_service::where('id',$bookingDetails->lg_service_id)->first();
+    
+            }
+            else if($bookingDetails->lh_service_id!=Null)
+            {
+    
+                $serviceInformation=Local_host_service::where('id',$bookingDetails->lh_service_id)->first();
+    
+    
+            }
+
+            $serviceHolderInformation=User::where('id',$serviceInformation->user_id)->first();
+    
+            return view('admin.superAdmin.returnBookingListDetails',['bookingDetails'=>$bookingDetails,'userInformation'=>$userInformation,'serviceInformation'=>$serviceInformation,'serviceHolderInformation'=>$serviceHolderInformation]);
+    
     }
 
 }

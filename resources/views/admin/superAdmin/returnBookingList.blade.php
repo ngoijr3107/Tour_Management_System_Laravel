@@ -83,7 +83,7 @@
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-rounded btn-success" href="{{ url('returnBookingList/details/'. $returnBookingList->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('return-booking-list/details/'. $returnBookingList->id) }}">Details</a>
 
                                 </td>
                                 <td>

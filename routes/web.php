@@ -168,9 +168,11 @@ Route::middleware([
     Route::post('/add/super-admin/process', [SuperAdminController::class, 'addSuperAdminProcess'])->name('/add/super-admin/process');
     Route::get('/super-admin-list', [SuperAdminController::class, 'superAdminList'])->name('/super-admin/list');
     Route::get('/booking-list', [SuperAdminController::class, 'bookingList'])->name('/booking-list');
+    Route::get('/booking-list/details/{id}', [SuperAdminController::class, 'bookingListDetails'])->name('/booking-list/details');
     Route::get('/pay/guide-host/{id}', [SuperAdminController::class, 'billGuideHost'])->name('/pay/guide-host');
     Route::post('/paid/guide-host/{id}', [SuperAdminController::class, 'paidGuideHost'])->name('/paid/guide-host');
     Route::get('/booking/list/return', [SuperAdminController::class, 'returnBookingList'])->name('/booking/list/return');
+    Route::get('/return-booking-list/details/{id}', [SuperAdminController::class, 'returnBookingListDetails'])->name('/return-booking-list/details');
     Route::get('/return/booking/process/{id}', [SuperAdminController::class, 'returnBookingProcess'])->name('/return/booking/process');
     Route::post('/return/booking/confirm/{id}', [SuperAdminController::class, 'returnBookingConfirm'])->name('/return/booking/confirm');
     Route::get('/message/all', [SuperAdminController::class, 'messageList'])->name('/message/all');
