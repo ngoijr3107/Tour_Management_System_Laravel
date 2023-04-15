@@ -19,6 +19,7 @@ use Symfony\Component\Process\Process;
 use Auth;
 use PDF;
 use Redirect;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -136,14 +137,36 @@ class HomeController extends Controller
 
             $today=date('F d, Y');
 
+            $ip = $_SERVER['REMOTE_ADDR'];
+		    $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+
+            if($ip=="127.0.0.1")
+            {
+                $city="Rajshahi";
+                $country="Bangladesh";
+            }
+            else
+            {
+
+                $city=$details->region;
+                $country=$details->country;
+
+            }
+
+            $client = new Client();
+            $response = $client->get('https://api.openweathermap.org/data/2.5/weather?q='.$city.'&appid='.env('OPEN_WEATHER_API_KEY'));
+        
+            $body = $response->getBody();
+            $weather = json_decode($body);
+        
             if(Auth::user()->usertype == 1)
             {
     
                 $pendingTour=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','Pending')->count();
     
-                $totalBooking=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->count();
+                $totalBooking=Order::where('lg_service_id',Auth::user()->id)->count();
 
-                $totalEarn=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->sum('pay_guide_host');
+                $totalEarn=Order::where('lg_service_id',Auth::user()->id)->sum('pay_guide_host');
 
                 $totalService=Local_guide_service::where('user_id',Auth::user()->id)->count();
 
@@ -153,9 +176,9 @@ class HomeController extends Controller
     
                 $pendingTour=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','Pending')->count();
     
-                $totalBooking=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->count();
+                $totalBooking=Order::where('lh_service_id',Auth::user()->id)->count();
 
-                $totalEarn=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','!=','Cancel')->sum('pay_guide_host');
+                $totalEarn=Order::where('lh_service_id',Auth::user()->id)->sum('pay_guide_host');
 
                 $totalService=Local_host_service::where('user_id',Auth::user()->id)->count();
 
@@ -165,9 +188,9 @@ class HomeController extends Controller
 
                 $pendingTour=Order::where('tour_status','Pending')->count();
     
-                $totalBooking=Order::where('tour_status','!=','Cancel')->count();
+                $totalBooking=Order::count();
 
-                $totalEarn=Order::where('tour_status','!=','Cancel')->sum('pay_guide_host');
+                $totalEarn=Order::sum('amount');
 
                 $totalGuideService=Local_host_service::count();
 
@@ -177,7 +200,7 @@ class HomeController extends Controller
 
             }
 
-            return view('admin.dashboard',['usertype'=>$usertype,'today'=>$today,'totalEarn'=>$totalEarn,'pendingTour'=>$pendingTour,'totalBooking'=>$totalBooking,'totalService'=>$totalService]);
+            return view('admin.dashboard',['usertype'=>$usertype,'today'=>$today,'totalEarn'=>$totalEarn,'pendingTour'=>$pendingTour,'totalBooking'=>$totalBooking,'totalService'=>$totalService,'weather'=>$weather,'city'=>$city,'country'=>$country]);
 
 
         }

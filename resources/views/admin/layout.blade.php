@@ -305,52 +305,55 @@
               </div>
             </li>
           @endif
-          @if(Auth::user()->usertype==1 || Auth::user()->usertype==2)
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <i class="icon-columns menu-icon"></i>
-                <span class="menu-title">Service</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="{{ url('/add/service') }}">Add Service</a></li>
-                </ul>
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="{{ url('/all/service') }}">All Service</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="icon-bar-graph menu-icon"></i>
-                <span class="menu-title">Tours</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Pending Tours</a></li>
-                </ul>
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ url('/canceled/tours') }}">Canceled Tours</a></li>
-                </ul>
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ url('/completed/tours') }}">Completed Tours</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/review/list') }}">
-                <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Review List</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/balance/statement') }}">
-                <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Balance Statement</span>
-              </a>
-            </li>
+          @if(Auth::user()->status!="Pending")
+            @if(Auth::user()->usertype==1 || Auth::user()->usertype==2)
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                  <i class="icon-columns menu-icon"></i>
+                  <span class="menu-title">Service</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="form-elements">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/add/service') }}">Add Service</a></li>
+                  </ul>
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/all/service') }}">All Service</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                  <i class="icon-bar-graph menu-icon"></i>
+                  <span class="menu-title">Tours</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="charts">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('/pending/tours') }}">Pending Tours</a></li>
+                  </ul>
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('/canceled/tours') }}">Canceled Tours</a></li>
+                  </ul>
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('/completed/tours') }}">Completed Tours</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/review/list') }}">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Review List</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/balance/statement') }}">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Balance Statement</span>
+                </a>
+              </li>
+            @endif
+
           @endif
           @if(Auth::user()->usertype==3)
             <li class="nav-item">

@@ -130,6 +130,9 @@ Route::middleware([
     Route::get('/add/service', [LocalGuideHostController::class, 'addService'])->name('/add/service');
     Route::post('/add/service/process', [LocalGuideHostController::class, 'addServiceProcess'])->name('/add/service/process');
     Route::get('/all/service', [LocalGuideHostController::class, 'allService'])->name('/all/service');
+    Route::get('/service/view/{id}', [LocalGuideHostController::class, 'viewService'])->name('/service/view');
+    Route::get('/service/edit/{id}', [LocalGuideHostController::class, 'editService'])->name('/service/edit');
+    Route::post('/service/update/{id}', [LocalGuideHostController::class, 'updateServiceProcess'])->name('/service/update');
     Route::get('/balance/statement', [LocalGuideHostController::class, 'balanceStatement'])->name('/balance/statement');
     Route::get('/review/list', [LocalGuideHostController::class, 'reviewList'])->name('/review/list');
     Route::get('/pending/tours', [LocalGuideHostController::class, 'pendingTour'])->name('/pending/tours');

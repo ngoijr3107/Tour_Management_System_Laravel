@@ -10,7 +10,7 @@
         "buglinjo/laravel-webp": "^2.3",
         "dgvai/laravel-user-review": "^1.5",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.9",
         "laravel/sanctum": "^2.11",
@@ -18,7 +18,8 @@
         "livewire/livewire": "^2.5",
         "picqer/php-barcode-generator": "^2.2",
         "simplesoftwareio/simple-qrcode": "^4.2",
-        "symfony/process": "^5.4"
+        "symfony/process": "^5.4",
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -17,10 +17,10 @@
 
             <div class="card" style="width: 18rem;">
             @can('isLocalGuide')
-            <img class="card-img-top" src="{{ asset('assets/lgHotelRoomImage/'.$service->room_picture) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('assets/lgHotelRoomImage/'.$service->room_picture) }}" style="width:80%;height:150px;" alt="Card image cap">
             @endcan
             @can('isLocalHost')
-            <img class="card-img-top" src="{{ asset('assets/lhRoomImage/'.$service->room_picture) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('assets/lhRoomImage/'.$service->room_picture) }}"  style="width:80%;height:150px" alt="Card image cap">
             @endcan
             <div class="card-body">
                 <h5 class="card-title">{{ $service->service_name }}</h5>
@@ -36,8 +36,8 @@
 
                 @endif
                 <br>
-                <a href="#" class="btn btn-primary">View</a>
-                <a href="#" class="btn btn-success">Edit</a>
+                <a href="{{ url('/service/view/'.$service->id) }}" class="btn btn-primary">View</a>
+                <a href="{{ url('/service/edit/'.$service->id) }}" class="btn btn-success">Edit</a>
             </div>
             </div>
 

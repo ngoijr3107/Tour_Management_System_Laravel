@@ -173,7 +173,7 @@
                 <p><i class="fa fa-envelope mr-2"></i>ghurtejabo@gmail.com</p>
                 <br>
                 <br>
-                <a href=" https://drive.google.com/file/d/1i1Ug2vB2gEW2dNGgSRRLqXH2aMYOt2Ir/view?usp=sharing" target="_blank" download><img src="{{ asset('assets/img/apk.png') }}"  style="width:280px;height:100px;margin-bottom:10px;" alt="avatar"> </a>
+                <a href=" https://drive.google.com/file/d/1i1Ug2vB2gEW2dNGgSRRLqXH2aMYOt2Ir/view?usp=sharing" target="_blank" download><img src="{{ asset('assets/img/apk.png') }}"  style="width:280px;height:80px;" alt="avatar"> </a>
                 
             </div>
         </div>

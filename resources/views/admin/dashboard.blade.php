@@ -7,7 +7,15 @@
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                   <h3 class="font-weight-bold">Welcome {{ Auth::user()->name }}</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You are now interacted as a 
+                  @if(Auth::user()->status!="Pending")
+                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! You are now interacted as a 
+                  
+                  @else
+
+                    <h6 class="font-weight-normal mb-0">Please wait for the admin approval.Then you are interacted as a 
+                  
+                  @endif
+          
                   @if(Auth::user()->usertype==1)
                   
                     <span class="text-primary">Local Guide</span></h6>
@@ -44,11 +52,11 @@
                   <div class="weather-info">
                     <div class="d-flex">
                       <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>{{ $weather->main->temp - 273 }} <sup>C</sup></h2>
                       </div>
                       <div class="ml-2">
-                        <h4 class="location font-weight-normal">Rajshahi</h4>
-                        <h6 class="font-weight-normal">Bangladesh</h6>
+                        <h4 class="location font-weight-normal">{{ $city }}</h4>
+                        <h6 class="font-weight-normal">{{ $country }}</h6>
                       </div>
                     </div>
                   </div>

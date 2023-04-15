@@ -495,6 +495,206 @@ class LocalGuideHostController extends Controller
 
 
     }
+    public function viewService($id)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $service=Local_guide_service::where('id',$id)->first();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $service=Local_host_service::where('id',$id)->first();
+
+        }
+
+        return view('admin.guideHost.viewService',['service'=>$service]);
+
+    }
+    public function editService($id)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        if(Auth::user()->usertype == 1)
+        {
+
+            $service=Local_guide_service::where('id',Auth::user()->id)->first();
+
+        }
+        else if(Auth::user()->usertype == 2)
+        {
+
+            $service=Local_host_service::where('id',Auth::user()->id)->first();
+
+        }
+
+        return view('admin.guideHost.editService',['service'=>$service]);
+
+    }
+    public function updateServiceProcess(Request $req,$id)
+    {
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+        if(!(Gate::allows('isLocalGuide') ||  Gate::allows('isLocalHost')))
+        {
+           return view('errorPage.404');
+        }
+
+        if(Auth::user()->status=="Pending")
+        {
+
+            return view('errorPage.404');
+
+        }
+
+
+        $serviceName=$req->serviceName;
+        $hotelName=$req->hotelName;
+        $roomType=$req->roomType;
+        $hotelPrice=$req->hotelPrice;
+        $available=$req->available;;
+        $feature=$req->feature;
+        $serviceCharge=$req->serviceCharge;
+        $foodItem=$req->foodItem;
+        $foodPrice=$req->foodPrice;
+        $roomPrice=$req->roomPrice;
+        $roomPicture=$req->roomImage;
+        $foodPicture=$req->foodImage;
+
+
+        $service=array();
+
+        if($serviceCharge<0 || $hotelPrice<0 || $roomPrice<0 || $foodPrice<0)
+        {
+
+            Session()->flash('wrongInformation','Invaild price !');
+            return back();
+
+
+        }
+
+        $service['service_name']=$serviceName;
+        $service['available']=$available;
+        $service['feature']=$feature;
+        $service['food_item']=$foodItem;
+        $service['food_price']=$foodPrice;
+
+
+        if(Auth::user()->usertype==1)
+        {
+
+            $totalPrice=$serviceCharge+$hotelPrice+$foodPrice;
+
+            $service['hotel_name']=$hotelName;
+            $service['hotel_price']=$hotelPrice;
+            $service['room_type']=$roomType;
+            $service['service_charge']=$serviceCharge;
+
+            //For Image compression, Image upload in webp format
+            if($req->roomImage!=NUll)
+            {
+
+                $imageName=rand().'webp';
+                $convertImageToWebp = Webp::make($req->file('roomImage'));
+                $convertImageToWebp->save(public_path('assets/lgHotelRoomImage/'.$imageName));
+    
+                $service['room_picture']=$imageName;
+
+            }
+            if($req->foodImage!=NUll)
+            {
+
+                $convertImageToWebp = Webp::make($req->file('foodImage'));
+                $convertImageToWebp->save(public_path('assets/lgFoodImage/'.$imageName));
+
+                $service['food_picture']=$imageName;
+
+            }
+
+
+            $service['total_price']=$totalPrice;
+
+            $addService=Local_guide_service::where('id',$id)->update($service);
+
+            Session()->flash('success','Service updated successfully !');
+            return back();
+
+        }
+        else
+        {
+
+            $totalPrice=$roomPrice+$foodPrice;
+
+            //For Image compression, Image upload in webp format
+
+            if($req->foodImage!=NUll){
+
+                $imageName=rand().'webp';
+                $convertImageToWebp = Webp::make($req->file('roomImage'));
+                $convertImageToWebp->save(public_path('assets/lhRoomImage/'.$imageName));
+    
+                $service['room_picture']=$imageName;
+
+            }
+
+            if($req->foodImage!=NUll)
+            {
+    
+                $convertImageToWebp = Webp::make($req->file('foodImage'));
+                $convertImageToWebp->save(public_path('assets/lhFoodImage/'.$imageName));
+    
+                $service['food_picture']=$imageName;
+
+            }
+
+
+            $service['total_price']=$totalPrice;
+
+            $addService=Local_host_service::where('id',$id)->update($service);
+
+            Session()->flash('success','Service updated successfully !');
+            return back();
+
+        }
+
+    }
 
    
 
