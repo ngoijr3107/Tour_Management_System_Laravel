@@ -43,6 +43,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
    
+    Route::get('/user/log-out-other-browser-session', [HomeController::class, 'logOutOtherBrowser'])->name('/user/log-out-other-browser-session');
     Route::get('/dashboard', [HomeController::class, 'afterLogin'])->name('dashboard');
     Route::get('/history', [HomeController::class, 'viewHistory'])->name('/history');
     Route::get('/download/payment-copy/{id}', [HomeController::class, 'paymentCopyDownload'])->name('/download/payment-copy');

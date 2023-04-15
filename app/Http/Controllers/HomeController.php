@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Virtual_assistant;
 use App\Models\Place;
 use App\Models\Review;
+use App\Models\Session;
 
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -401,6 +402,20 @@ class HomeController extends Controller
 
         Session()->flash('success','Tour canceled successfully. Return money to your account within 7 days !');
         return back();
+
+    }
+    public function logOutOtherBrowser()
+    {
+
+        $userId=Auth::user()->id;
+
+        $request = app(Request::class);
+        $currentUserAgent = $request->userAgent();
+
+        Session::where('user_id',$userId)->where('user_agent','!=',$currentUserAgent)->delete();
+
+        return back();
+
 
     }
 

@@ -52,9 +52,9 @@
         @endif
 
         <div class="flex items-center mt-5">
-            <x-jet-button wire:click="confirmLogout" wire:loading.attr="disabled">
-                {{ __('Log Out Other Browser Sessions') }}
-            </x-jet-button>
+
+            <a href="/user/log-out-other-browser-session" style="border:2px solid black; border-radius:5%; padding:5px;background:black;color:white;">Log Out Other Browser Sessions</a>
+
 
             <x-jet-action-message class="ml-3" on="loggedOut">
                 {{ __('Done.') }}

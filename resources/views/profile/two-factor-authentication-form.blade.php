@@ -1,3 +1,4 @@
+
 <x-jet-action-section>
     <x-slot name="title">
         {{ __('Two Factor Authentication') }}
@@ -51,11 +52,36 @@
         @endif
 
         <div class="mt-5">
-            @if (! $this->enabled)
+            @if (1)
+            <form method="POST" action="/user/two-factor-authentication">
+                        @csrf
+
+                        @if (auth()->user()->two_factor_secret)
+                            @method('DElETE')
+
+                            <div class="pb-5">
+                                {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                            </div>
+
+                            <div>
+                                <h3>Recovery Codes:</h3>
+
+                                <ul>
+                                    @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes)) as $code)
+                                        <li>{{ $code }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <br>
+                            <button class="btn btn-danger" style="border:2px solid black; border-radius:10%; padding:5px;background:red;color:white;">Disable</button>
+                        @else
+                            <button class="btn btn-dark" style="border:2px solid black; border-radius:10%; padding:5px;background:black;color:white;">Enable</button>
+                        @endif
+                    </form>
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-jet-button type="button" wire:loading.attr="disabled">
+                    <!-- <x-jet-button type="button" wire:loading.attr="disabled">
                         {{ __('Enable') }}
-                    </x-jet-button>
+                    </x-jet-button> -->
                 </x-jet-confirms-password>
             @else
                 @if ($showingRecoveryCodes)
