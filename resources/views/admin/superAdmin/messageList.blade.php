@@ -28,12 +28,8 @@
                                 Email
                             </th>
                             <th>
-                                Phone
-                            </th>
-                            <th>
                                 Message
-                            </th>
-                          
+                            </th>                  
                             </tr>
                         </thead>
                         <tbody>
@@ -48,9 +44,6 @@
 
                                     {{ $message->email }}
 
-                                </td>
-                                <td>
-                                    {{ $message->phone }}
                                 </td>
                                 <td>
                                     {{ $message->message }}

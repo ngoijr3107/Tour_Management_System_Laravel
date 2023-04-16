@@ -22,17 +22,12 @@
                         <thead>
                             <tr>
                             <th>
-                                User
-                            </th>
-                            <th>
                                 Name
                             </th>
                             <th>
-                                Email
+                                Price
                             </th>
-                            <th>
-                                Phone
-                            </th>
+
                             <th>
                                 Action
                             </th>
@@ -44,22 +39,19 @@
                             @foreach($virtualAssistant as $virtualAssistant)
 
                                 <tr>
-                                <td class="py-1">
-                                    <img src="{{ $virtualAssistant->profile_photo_url }}" alt="image"/>
-                                </td>
+  
                                 <td>
                                     {{ $virtualAssistant->name }}
                                 </td>
                                 <td>
 
-                                    {{ $virtualAssistant->email }}
+                                    {{ $virtualAssistant->price }}
 
                                 </td>
+
                                 <td>
-                                    {{ $virtualAssistant->phone }}
-                                </td>
-                                <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-virtualAssistant/list/'. $virtualAssistant->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('virtual-assistant/list/'. $virtualAssistant->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('virtual-assistant/edit/'. $virtualAssistant->id) }}">Edit</a>
                                 </td>
                                 </tr>
                             

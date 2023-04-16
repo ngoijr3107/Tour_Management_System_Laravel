@@ -413,7 +413,7 @@
             </li>
         
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/message/all') }}">
+              <a class="nav-link" href="{{ url('/messages') }}">
                 <i class="icon-paper menu-icon"></i>
                 <span class="menu-title">Message</span>
               </a>

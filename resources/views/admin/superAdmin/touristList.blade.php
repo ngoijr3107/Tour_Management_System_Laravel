@@ -59,7 +59,7 @@
                                     {{ $tourist->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-tourist/list/'. $tourist->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('tourist-list/'. $tourist->id) }}">Details</a>
                                 </td>
                                 </tr>
                             

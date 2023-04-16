@@ -67,7 +67,7 @@
                                     {{ $pendingGuideHost->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-primary" href="{{ url('pending/GuideHost/list/'. $pendingGuideHost->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-primary" href="{{ url('pending-guide-host/details/'. $pendingGuideHost->id) }}">Details</a>
                                     <a class="btn btn-rounded btn-success" href="{{ url('pending/guide-host/approve/'. $pendingGuideHost->id) }}">Approve</a>
                                 </td>
                                 </tr>

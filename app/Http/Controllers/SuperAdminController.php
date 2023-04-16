@@ -207,7 +207,7 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
         
-        $bookingLists=Order::where('status','Success')->orderBy('id', 'desc')->where('tour_status','!=','Cancel')->get();
+        $bookingLists=Order::where('status','Success')->orderBy('id', 'desc')->where('tour_status','!=','Cancel')->where('tour_status','!=','Returned')->get();
 
         return view('admin.superAdmin.bookingList',['bookingLists'=>$bookingLists]);
 
@@ -352,6 +352,8 @@ class SuperAdminController extends Controller
 
         $paidAmount=($req->payableAmount*$req->totalAmount)/100;
 
+        $payment['amount']=$req->totalAmount-$paidAmount;
+
         $payment['pay_guide_host']=$paidAmount;
 
         $payment['guide_host_tranx_id']=$req->transactionNo;
@@ -395,13 +397,21 @@ class SuperAdminController extends Controller
             return view('errorPage.404');
         }
 
-        if($req->payableAmount<0 || $req->payableAmount>100)
+        if($req->payableAmount<0 || $req->payableAmount>100 || $req->serviceHolderPayableAmount<0 || $req->serviceHolderPayableAmount>100)
         {
 
             Session()->flash('wrong','Invalid Payable Amount !');
             return back();   
 
         }
+        if($req->payableAmount + $req->serviceHolderPayableAmount>100)
+        {
+
+            Session()->flash('wrong','Invalid Payable Amount !');
+            return back();   
+
+        }
+
 
         $bookingInformation=Order::where('id',$id)->first();
 
@@ -415,6 +425,7 @@ class SuperAdminController extends Controller
 
         $payment=array();
 
+
         $paidAmount=($req->payableAmount*$req->totalAmount)/100;
 
         $payment['return_amount']=$paidAmount;
@@ -422,6 +433,14 @@ class SuperAdminController extends Controller
         $payment['return_tranx_id']=$req->transactionNo;
 
         $payment['status']='Returned';
+
+        $serviceHolderPaidAmount=($req->serviceHolderPayableAmount*$req->totalAmount)/100;
+
+        $payment['pay_guide_host']=$serviceHolderPaidAmount;
+
+        $payment['guide_host_tranx_id']=$req->serviceHolderTransactionNo;
+
+        $payment['amount']=$req->totalAmount-$paidAmount;
 
         Order::where('id',$id)->update($payment);
 
@@ -434,6 +453,32 @@ class SuperAdminController extends Controller
         ];
         
         \Mail::to($bookingInformation->email)->send(new \App\Mail\ReturnBookingMail($details));
+
+        if($bookingInformation->lg_service_id!=NULL)
+        {
+
+            $serviceInformation=Local_guide_service::where('id',$bookingInformation->lg_service_id)->first();
+
+        }
+        else
+        {
+
+            $serviceInformation=Local_host_service::where('id',$bookingInformation->lh_service_id)->first();
+
+        }
+
+        $serviceHolderInformation=User::where('id',$serviceInformation->user_id)->first();
+
+        //return amount notification mail to service holder
+        $details = [
+
+            'title' => 'Return Booking Amount Email',
+            'body' => 'You get '.$serviceHolderPaidAmount. ' Tk for your return booking service. Tnx No - '.$req->serviceHolderTransactionNo,
+
+        ];
+        
+        \Mail::to($serviceHolderInformation->email)->send(new \App\Mail\ReturnBookingMail($details));
+
 
         Session()->flash('success','Return amount done successfully !');
         return back();
@@ -637,6 +682,128 @@ class SuperAdminController extends Controller
     
             return view('admin.superAdmin.returnBookingListDetails',['bookingDetails'=>$bookingDetails,'userInformation'=>$userInformation,'serviceInformation'=>$serviceInformation,'serviceHolderInformation'=>$serviceHolderInformation]);
     
+    }
+    public function pendingGuideHostDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=User::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.pendingGuideHostDetails',['userDetails'=>$userDetails]);
+    
+    }
+    public function guideDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=User::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.guideDetails',['userDetails'=>$userDetails]);
+    
+    }
+    public function hostDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=User::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.hostDetails',['userDetails'=>$userDetails]);
+    
+    }
+    public function virtualAssistantDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=Virtual_assistant::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.virtualAssistantDetails',['userDetails'=>$userDetails]);
+    
+    }
+    public function touristDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=User::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.touristDetails',['userDetails'=>$userDetails]);
+    
+    }
+    public function superAdminDetails($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=User::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.superAdminDetails',['userDetails'=>$userDetails]);
+    
+    }
+    public function virtualAssistantEdit($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $userDetails=Virtual_assistant::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.virtualAssistantEdit',['userDetails'=>$userDetails]);
+    
+    }
+    public function virtualAssistantUpdate(Request $req,$id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        if($req->price<0)
+        {
+            Session()->flash('wrongInformation','Price can not be negative.');
+            return back();
+        }
+
+        $virtualAssistantUpdate=Virtual_assistant::where('id',$id)
+                        ->update([
+
+                            'name'=>$req->name,
+                            'feature'=>$req->feature,
+                            'price'=>$req->price,
+
+
+                        ]);
+        
+
+        
+        Session()->flash('success','Successfully updated Virtual Assistant.');
+        return back();
+
+
     }
 
 }

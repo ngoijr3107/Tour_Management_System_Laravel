@@ -30,7 +30,7 @@ class VirtualAssistantController extends Controller
 
         $order=Order::where('user_id',$userId)->where('transaction_id',$id)->first();
 
-        if($order->tour_status == 'Cancel')
+        if($order->tour_status == 'Cancel' || $order->tour_status == 'Returned')
         {
 
             $reason="You are not eligible for this service.";

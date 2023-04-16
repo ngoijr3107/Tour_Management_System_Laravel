@@ -59,7 +59,7 @@
                                     {{ $superAdmin->phone }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-rounded btn-success" href="{{ url('local-superAdmin/list/'. $superAdmin->id) }}">Details</a>
+                                    <a class="btn btn-rounded btn-success" href="{{ url('super-admin-list/'. $superAdmin->id) }}">Details</a>
                                 </td>
                                 </tr>
                             
