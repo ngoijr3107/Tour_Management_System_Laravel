@@ -83,6 +83,7 @@
                         </div>
 
                     @endcan
+                    
                         <div class="form-group">
                         <label for="exampleInputName1">Service Name</label>
                         <input type="text" class="form-control" id="exampleInputName1" name="serviceName" value="{{ $service->service_name }}">
