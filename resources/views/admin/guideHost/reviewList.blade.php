@@ -51,66 +51,73 @@
                         </thead>
                         <tbody>
 
-                            @foreach($reviews as $review)
+                           
 
-                                <tr>
+                                @foreach($reviews as $review)
 
-                                  
+                                    @if($review!=null)
 
-                                <td>
+                                        <tr>
 
-                                    {{ $review->order->from_date }}
+                                        
 
-                                </td>
+                                        <td>
 
-                                   
+                                            {{ $review->order->from_date }}
 
-                                <td>
+                                        </td>
 
-                                    {{ $review->order->to_date }}
-                                 
-                                </td>
+                                        
 
-                                <td>
+                                        <td>
 
-                                    {{ $review->order->place->name }}
+                                            {{ $review->order->to_date }}
+                                        
+                                        </td>
+
+                                        <td>
+
+                                            {{ $review->order->place->name }}
+                                            
+                                        </td>
+                                        <td>
+
+                                            {{ $review->order->name }}
+
+                                        </td>
+                                        <td>
+
+                                            {{ $review->order->email }}
+
+
+                                        </td>
+                                        <td>
+
+                                            {{ $review->comment }}
+
+                                        </td>
+                                        <td>
+
+                                            {{ $review->rating }}
+
+                                        </td>
+                                        <td>
+
+                                            {{ $review->date }}
+
+                                        </td>
+
+
                                     
-                                </td>
-                                <td>
+                                    
 
-                                    {{ $review->order->name }}
-
-                                </td>
-                                <td>
-
-                                    {{ $review->order->email }}
+                                        </tr>    
+                                        
+                                    @endif
+                                
+                                @endforeach
 
 
-                                </td>
-                                <td>
-
-                                    {{ $review->comment }}
-
-                                </td>
-                                <td>
-
-                                    {{ $review->rating }}
-
-                                </td>
-                                <td>
-
-                                    {{ $review->date }}
-
-                                </td>
-
-
-                              
-                             
-
-                                </tr>
-                            
-                             
-                            @endforeach
                         </tbody>
                         </table>
                     </div>

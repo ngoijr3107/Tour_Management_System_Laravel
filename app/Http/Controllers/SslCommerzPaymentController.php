@@ -119,6 +119,7 @@ class SslCommerzPaymentController extends Controller
         $packageId=Session::get('packageId');
         $lgServiceId=Session::get('lgServiceId');
         $lhServiceId=Session::get('lhServiceId');
+        $serviceHolderId=Session::get('serviceHolderId');
 
         $today=date('F d, Y');
 
@@ -185,6 +186,7 @@ class SslCommerzPaymentController extends Controller
                 'transaction_id' => $post_data['tran_id'],
                 'currency' => $post_data['currency'],
                 'payment_date' => $today,
+                'service_holder_id' => $serviceHolderId,
                 'tour_status'=> 'Pending',
 
             ]);

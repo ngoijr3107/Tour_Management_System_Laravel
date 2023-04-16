@@ -163,11 +163,11 @@ class HomeController extends Controller
             if(Auth::user()->usertype == 1)
             {
     
-                $pendingTour=Order::where('lg_service_id',Auth::user()->id)->where('tour_status','Pending')->count();
+                $pendingTour=Order::where('service_holder_id',Auth::user()->id)->where('tour_status','Pending')->count();
     
-                $totalBooking=Order::where('lg_service_id',Auth::user()->id)->count();
+                $totalBooking=Order::where('service_holder_id',Auth::user()->id)->count();
 
-                $totalEarn=Order::where('lg_service_id',Auth::user()->id)->sum('pay_guide_host');
+                $totalEarn=Order::where('service_holder_id',Auth::user()->id)->sum('pay_guide_host');
 
                 $totalService=Local_guide_service::where('user_id',Auth::user()->id)->count();
 
@@ -175,11 +175,11 @@ class HomeController extends Controller
             else if(Auth::user()->usertype == 2)
             {
     
-                $pendingTour=Order::where('lh_service_id',Auth::user()->id)->where('tour_status','Pending')->count();
+                $pendingTour=Order::where('service_holder_id',Auth::user()->id)->where('tour_status','Pending')->count();
     
-                $totalBooking=Order::where('lh_service_id',Auth::user()->id)->count();
+                $totalBooking=Order::where('service_holder_id',Auth::user()->id)->count();
 
-                $totalEarn=Order::where('lh_service_id',Auth::user()->id)->sum('pay_guide_host');
+                $totalEarn=Order::where('service_holder_id',Auth::user()->id)->sum('pay_guide_host');
 
                 $totalService=Local_host_service::where('user_id',Auth::user()->id)->count();
 

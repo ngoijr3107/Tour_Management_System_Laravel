@@ -201,13 +201,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $pendingTours=Order::with('place')->where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
+            $pendingTours=Order::with('place')->where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $pendingTours=Order::with('place')->where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
+            $pendingTours=Order::with('place')->where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->get();
 
         }
 
@@ -232,13 +232,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $canceledTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
+            $canceledTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $canceledTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
+            $canceledTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Cancel')->get();
 
         }
 
@@ -263,13 +263,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $completedTours=Order::where('lg_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
+            $completedTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $completedTours=Order::where('lh_service_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
+            $completedTours=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Completed')->get();
 
         }
 
@@ -434,13 +434,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $paymentOrders=Order::where('lg_service_id',Auth::user()->id)->where('guide_host_tranx_id','!=',null)->get();
+            $paymentOrders=Order::where('service_holder_id',Auth::user()->id)->where('guide_host_tranx_id','!=',null)->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $paymentOrders=Order::where('lh_service_id',Auth::user()->id)->where('guide_host_tranx_id','!=',null)->where('status','Success')->get();
+            $paymentOrders=Order::where('service_holder_id',Auth::user()->id)->where('guide_host_tranx_id','!=',null)->where('status','Success')->get();
 
         }
 
@@ -466,13 +466,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $Orders=Order::where('lg_service_id',Auth::user()->id)->get();
+            $Orders=Order::where('service_holder_id',Auth::user()->id)->get();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $Orders=Order::where('lh_service_id',Auth::user()->id)->get();
+            $Orders=Order::where('service_holder_id',Auth::user()->id)->get();
 
         }
 
@@ -486,6 +486,13 @@ class LocalGuideHostController extends Controller
     
                     $reviews[]=$review;
     
+                }
+                else
+                {
+
+                    $reviews[]=null;
+
+
                 }
     
         }
@@ -544,13 +551,13 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->usertype == 1)
         {
 
-            $service=Local_guide_service::where('id',Auth::user()->id)->first();
+            $service=Local_guide_service::where('id',$id)->first();
 
         }
         else if(Auth::user()->usertype == 2)
         {
 
-            $service=Local_host_service::where('id',Auth::user()->id)->first();
+            $service=Local_host_service::where('id',$id)->first();
 
         }
 
@@ -651,7 +658,7 @@ class LocalGuideHostController extends Controller
 
             $service['total_price']=$totalPrice;
 
-            $addService=Local_guide_service::where('id',$id)->update($service);
+            $updateService=Local_guide_service::where('id',$id)->update($service);
 
             Session()->flash('success','Service updated successfully !');
             return back();
@@ -687,7 +694,7 @@ class LocalGuideHostController extends Controller
 
             $service['total_price']=$totalPrice;
 
-            $addService=Local_host_service::where('id',$id)->update($service);
+            $updateService=Local_host_service::where('id',$id)->update($service);
 
             Session()->flash('success','Service updated successfully !');
             return back();

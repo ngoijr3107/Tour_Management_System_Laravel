@@ -90,8 +90,11 @@
                         </div>
 
                         <div class="form-group">
-                        <label for="exampleInputName1">Available</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="available" value="{{ $service->available }}">
+                            <label for="exampleSelectGender">Service Available</label>
+                            <select class="form-control" id="exampleSelectGender" name="available" required>
+                            <option <?php if($service->available=="Yes") echo"selected"; ?>>Yes</option>
+                            <option <?php if($service->available=="No") echo"selected"; ?>>No</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
