@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 21, 2023 at 06:56 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Host: localhost:3306
+-- Generation Time: Apr 16, 2023 at 05:02 PM
+-- Server version: 5.7.33
+-- PHP Version: 8.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,7 +55,7 @@ CREATE TABLE `contacts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -94,7 +94,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -109,12 +109,12 @@ CREATE TABLE `local_guide_services` (
   `available` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `place_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `feature` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feature` longtext COLLATE utf8mb4_unicode_ci,
   `hotel_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `room_type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `room_picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `service_charge` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rating` double(15,1) DEFAULT 0.0,
+  `rating` double(15,1) DEFAULT '0.0',
   `hotel_price` double(15,2) DEFAULT NULL,
   `food_item` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `food_picture` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE `local_guide_services` (
 --
 
 INSERT INTO `local_guide_services` (`id`, `service_name`, `available`, `user_id`, `place_id`, `feature`, `hotel_name`, `room_type`, `room_picture`, `service_charge`, `rating`, `hotel_price`, `food_item`, `food_picture`, `food_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 'Sajek Student Pack', 'Yes', '1', '1', 'Daily activities and entertainment, such as yoga classes, beach volleyball, and live music\nAccess to the resort\'s state-of-the-art fitness center and spa', 'Hotel Maitree', 'Non AC', 'student-pack.jpeg', '250', 3.7, 800.00, 'Rice,Chicken,Vegetables', 'food1.jpg', 80.00, 1130.00, NULL, '2023-01-20 05:45:23'),
+(1, 'Sajek Student Pack', 'Yes', '1', '1', 'Daily activities and entertainment, such as yoga classes, beach volleyball, and live music\r\nAccess to the resort\'s state-of-the-art fitness center and spa', 'Hotel Maitree', 'Non AC', 'student-pack.jpeg', '250', 3.0, 800.00, 'Rice,Chicken,Vegetables', 'food1.jpg', 80.00, 1130.00, NULL, '2023-04-16 10:54:16'),
 (2, 'Sajek Couple Pack', 'No', '1', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'Meghadree Eco Resort', 'AC', 'couple-pack.jpg', '300', 0.0, 2000.00, 'Rice,Fish', 'food2.jpg', 100.00, 2400.00, NULL, NULL),
 (3, 'Sajek Family Pack', 'Yes', '2', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'Monghor Resort', 'AC', 'family-pack.jpg', '500', 0.0, 2000.00, 'Biryani', 'food3.jpg', 100.00, 2600.00, NULL, NULL);
 
@@ -145,9 +145,9 @@ CREATE TABLE `local_host_services` (
   `available` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `place_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `feature` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feature` longtext COLLATE utf8mb4_unicode_ci,
   `room_picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rating` double(15,1) DEFAULT 0.0,
+  `rating` double(15,1) DEFAULT '0.0',
   `room_price` double(15,2) DEFAULT NULL,
   `food_item` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `food_picture` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -164,7 +164,7 @@ CREATE TABLE `local_host_services` (
 INSERT INTO `local_host_services` (`id`, `service_name`, `available`, `user_id`, `place_id`, `feature`, `room_picture`, `rating`, `room_price`, `food_item`, `food_picture`, `food_price`, `total_price`, `created_at`, `updated_at`) VALUES
 (1, 'Sajek Economy Pack', 'Yes', '3', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'student-pack.jpeg', 0.0, 500.00, 'Rice,Chicken', 'food1.jpg', 50.00, 550.00, NULL, NULL),
 (2, 'Sajek Business Pack', 'No', '4', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'couple-pack.jpg', 0.0, 300.00, 'Rice,Fish', 'food2.jpg', 40.00, 340.00, NULL, NULL),
-(3, 'Sajek First Class Pack', 'Yes', '3', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'family-pack.jpg', 0.0, 800.00, 'Biryani', 'food3.jpg', 90.00, 890.00, NULL, NULL);
+(3, 'Sajek First Class Pack', 'Yes', '3', '1', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', 'family-pack.jpg', 0.0, 800.00, 'Biryani', 'food3.jpg', 90.00, 890.00, NULL, '2023-04-15 00:50:59');
 
 -- --------------------------------------------------------
 
@@ -213,6 +213,7 @@ CREATE TABLE `orders` (
   `amount_of_person` int(11) DEFAULT NULL,
   `place_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `package_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `service_holder_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lg_service_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lh_service_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -220,8 +221,8 @@ CREATE TABLE `orders` (
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount` double DEFAULT NULL,
   `payment_date` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pay_guide_host` double(15,2) NOT NULL DEFAULT 0.00,
-  `return_amount` double(15,2) NOT NULL DEFAULT 0.00,
+  `pay_guide_host` double(15,2) NOT NULL DEFAULT '0.00',
+  `return_amount` double(15,2) NOT NULL DEFAULT '0.00',
   `guide_host_tranx_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `return_tranx_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -237,43 +238,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `from_date`, `to_date`, `amount_of_day`, `amount_of_person`, `place_id`, `package_id`, `lg_service_id`, `lh_service_id`, `name`, `email`, `phone`, `amount`, `payment_date`, `pay_guide_host`, `return_amount`, `guide_host_tranx_id`, `return_tranx_id`, `address`, `status`, `tour_status`, `transaction_id`, `currency`, `created_at`, `updated_at`) VALUES
-(96, '1', '2023-01-06', '2023-01-07', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 169.50, 0.00, '45464', NULL, 'Customer Address', 'Success', 'Completed', '63b7af6dda0fa', 'BDT', NULL, '2023-01-21 07:48:24'),
-(97, '1', '2023-01-06', '2023-01-07', 2, 1, '1', '2', NULL, '1', 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 1100, 'January 06, 2023', 0.00, 0.00, NULL, NULL, 'Customer Address', 'Success', 'Pending', '63b7afa069a2a', 'BDT', NULL, NULL),
-(98, '1', '2023-01-06', '2023-01-07', 2, 1, '1', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2200, 'January 06, 2023', 0.00, 0.00, NULL, NULL, 'Customer Address', 'Success', 'Pending', '63b7afcba0a2f', 'BDT', NULL, NULL),
-(99, '1', '2023-01-06', '2023-01-23', 2, 1, '1', '4', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 3360, 'January 06, 2023', 0.00, 0.00, NULL, NULL, 'Customer Address', 'Success', 'Completed', '63b7affde1dd4', 'BDT', NULL, '2023-01-18 12:58:12'),
-(101, '1', '2023-01-06', '2023-01-23', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Completed', '63b7b3318c51a', 'BDT', NULL, '2023-01-18 13:00:57'),
-(102, '1', '2023-01-06', '2023-01-23', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Completed', '63b7b48c89c28', 'BDT', NULL, '2023-01-18 13:02:57'),
-(103, '1', '2023-01-23', '2023-01-23', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63b7bc2cad317', 'BDT', NULL, NULL),
-(104, '1', '2023-01-06', '2023-01-07', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63b7bc5e0f875', 'BDT', NULL, NULL),
-(105, '1', '2023-01-06', '2023-01-07', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63b7bd56e61a7', 'BDT', NULL, NULL),
-(106, '1', '2023-01-06', '2023-01-07', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 06, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63b7c64302eec', 'BDT', NULL, NULL),
-(107, '1', '2023-01-07', '2023-01-08', 2, 1, '1', '3', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 07, 2023', 0.00, 0.00, NULL, NULL, '', 'Cancel', 'Pending', '63b905fd68724', 'BDT', NULL, NULL),
-(108, '1', '2023-01-09', '2023-01-10', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 09, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bbb9f5808c6', 'BDT', NULL, NULL),
-(109, '1', '2023-01-09', '2023-01-10', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 2260, 'January 09, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bbbadabe0b1', 'BDT', NULL, NULL),
-(110, '1', '2023-01-09', '2023-01-13', 5, 1, '1', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 5500, 'January 09, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bbbb300f2aa', 'BDT', NULL, NULL),
-(111, '1', '2023-01-09', '2023-01-13', 5, 1, '1', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 5500, 'January 09, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bbbbfcbe6c1', 'BDT', NULL, NULL),
-(112, '1', '2023-01-09', '2023-01-11', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 3390, 'January 09, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bbbc7c2dfa7', 'BDT', NULL, NULL),
-(113, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63bd54ea22b23', 'BDT', NULL, NULL),
-(114, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', NULL, '63bd553052c14', 'BDT', NULL, NULL),
-(115, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', NULL, '63bd559a3eb27', 'BDT', NULL, NULL),
-(116, '1', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bd5694a3563', 'BDT', NULL, NULL),
-(117, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63bd572870ba5', 'BDT', NULL, NULL),
-(118, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', NULL, 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63bd574deecd5', 'BDT', NULL, NULL),
-(119, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', '01824072334', 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63bd576226121', 'BDT', NULL, NULL),
-(120, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', '', 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63bd57b812c4d', 'BDT', NULL, NULL),
-(121, '13', '2023-01-10', '2023-01-12', 3, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 3390, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bd57f10bf36', 'BDT', NULL, NULL),
-(122, '13', '2023-01-10', '2023-01-13', 4, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 4520, 'January 10, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63bd586f233de', 'BDT', NULL, NULL),
-(123, '14', '2023-01-11', '2023-01-17', 7, 2, '1', '4', '3', NULL, 'Tresna Rani', 'tresna312@gmail.com', 'cus', 44100, 'January 11, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63be6dfbcee13', 'BDT', NULL, NULL),
-(124, '1', '2023-01-19', '2023-01-20', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 2260, 'January 16, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63c5ab9647028', 'BDT', NULL, NULL),
-(125, '1', '2023-01-19', '2023-01-26', 8, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 9040, 'January 16, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63c5ac24eed18', 'BDT', NULL, NULL),
-(126, '1', '2023-01-19', '2023-01-26', 8, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 9040, 'January 16, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '63c5ac6da9029', 'BDT', NULL, NULL),
-(127, '1', '2023-01-19', '2023-01-26', 8, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 9040, 'January 16, 2023', 6780.00, 0.00, 'duyhhweyh8y7', NULL, '', 'Success', 'Pending', '63c5ac9bb166a', 'BDT', NULL, '2023-01-21 09:19:56'),
-(128, '1', '2023-01-21', '2023-01-26', 8, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 9040, 'January 16, 2023', 847.50, 0.00, 'duyhhweyh8y7', NULL, '', 'Success', 'Pending', '63c5acee2ad67', 'BDT', NULL, '2023-01-21 08:52:59'),
-(129, '1', '2023-01-2', '2023-01-20', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 2260, 'January 18, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63c84487461aa', 'BDT', NULL, NULL),
-(130, '1', '2023-01-20', '2023-01-21', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 2260, 'January 20, 2023', 847.50, 0.00, 'duyhhweyh8y7', NULL, '', 'Success', 'Pending', '63ca1a271050c', 'BDT', NULL, '2023-01-21 07:54:36'),
-(131, '1', '2023-01-20', '2023-01-21', 2, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 2260, 'January 20, 2023', 0.00, 0.00, NULL, NULL, '', 'Pending', 'Pending', '63ca1a9d4ce6e', 'BDT', NULL, NULL),
-(132, '1', '2023-01-23', '2023-01-23', 4, 1, '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebchakraborty.cse2000@gmail.com', 'cus', 4520, 'January 20, 2023', 0.00, 3390.00, NULL, 'duyhhweyh8y7', '', 'Returned', 'Cancel', '63ca3e78d21e4', 'BDT', NULL, '2023-01-21 09:30:28');
+INSERT INTO `orders` (`id`, `user_id`, `from_date`, `to_date`, `amount_of_day`, `amount_of_person`, `place_id`, `package_id`, `service_holder_id`, `lg_service_id`, `lh_service_id`, `name`, `email`, `phone`, `amount`, `payment_date`, `pay_guide_host`, `return_amount`, `guide_host_tranx_id`, `return_tranx_id`, `address`, `status`, `tour_status`, `transaction_id`, `currency`, `created_at`, `updated_at`) VALUES
+(151, '13', '2023-04-16', '2023-04-18', 3, 1, '1', '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 3390, 'April 16, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '643c225b19d42', 'BDT', NULL, NULL),
+(152, '13', '2023-04-16', '2023-04-16', 1, 1, '1', '1', '1', '1', NULL, 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 113, 'April 16, 2023', 1017.00, 0.00, 'duyhhweyh8y7', NULL, '', 'Success', 'Completed', '643c22eb2b703', 'BDT', NULL, '2023-04-16 10:35:15'),
+(153, '13', '2023-04-20', '2023-04-22', 3, 1, '1', '3', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 660, 'April 16, 2023', 330.00, 2640.00, 'ughyhgheg', 'fhbfhbghfhbg', '', 'Returned', 'Cancel', '643c24320a2c9', 'BDT', NULL, '2023-04-16 10:43:48'),
+(154, '13', '2023-04-16', '2023-04-16', 1, 1, '1', '3', '3', NULL, '1', 'Sajeeb Chakraborty', 'sajeebcb.cseru@gmail.com', 'cus', 1100, 'April 16, 2023', 0.00, 0.00, NULL, NULL, '', 'Success', 'Pending', '643c248e1449b', 'BDT', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -299,7 +268,7 @@ CREATE TABLE `personal_access_tokens` (
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -325,7 +294,7 @@ CREATE TABLE `places` (
 --
 
 INSERT INTO `places` (`id`, `name`, `address`, `photo`, `created_at`, `updated_at`) VALUES
-(1, 'Sajek Valley', 'Rangamati', 'sajek.jpg', NULL, NULL),
+(1, 'Sajek Valley', 'Rangamati', 'sajek.jpg', NULL, '2023-04-16 09:17:52'),
 (2, 'Sundarban Mangrove', 'Bagarhat', 'sundarban.jpg', NULL, NULL),
 (3, 'Cox\'s Bazar Sea Beach', 'Cox\'s Bazar', 'coxbazar.jpg', NULL, NULL);
 
@@ -342,7 +311,7 @@ CREATE TABLE `reviews` (
   `order_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `rating` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `comment` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` longtext COLLATE utf8mb4_unicode_ci,
   `date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -353,9 +322,7 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `local_guide_service_id`, `local_host_service_id`, `order_id`, `user_id`, `rating`, `comment`, `date`, `created_at`, `updated_at`) VALUES
-(2, '1', NULL, '102', '1', '3', 'Good', '2023-01-20', '2023-01-20 05:42:49', '2023-01-20 05:42:49'),
-(3, '1', NULL, '101', '1', '4', 'Better', '2023-01-20', '2023-01-20 05:44:00', '2023-01-20 05:44:00'),
-(4, '1', NULL, '99', '1', '4', 'Wow', '2023-01-20', '2023-01-20 05:45:23', '2023-01-20 05:45:23');
+(5, '1', NULL, '152', '13', '3', 'Be Improve', '2023-04-16', '2023-04-16 10:33:32', '2023-04-16 10:33:32');
 
 -- --------------------------------------------------------
 
@@ -367,7 +334,7 @@ CREATE TABLE `sessions` (
   `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
   `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -377,10 +344,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('CpyIRGA2a1RdHZm9R2eagP9MAoKXS4DQAvlAoaqM', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiWUtyMXB3WTFCb1pxQTRWaUVtczh0bzlheHFGbndDcWVIUFlnR1ZiTCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQyOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGFzaGJvYXJkP3ZlcmlmaWVkPTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQ1QVFQelo4M05JV1ZGNTdSVW9TaFQuS3BObUEvQ2UvbHhHSTJLOTJPakNtTnBpcUNaU1Q0SyI7fQ==', 1674323667),
-('QnG1dcYb50AnkI8JyYgKf4C0vQr2J2Jt0EaA7Q7K', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiajdSREdaOUhXa1N0eTR1OG9mNXZ6QXZGTXhlY09ZN0xHUFJHMHpMMCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fX0=', 1674323692),
-('TRJDZYLTuZZgiOedQlKaOWUmh7gfmttmvMS08MLp', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMzNrQ2YxVHd2RlVMUFNVSkw3MFkwbWVRUXNIRW9pcU1CUEdvWXQxNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9wYXkvZ3VpZGUtaG9zdC85NiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkSnc1TTJjdGhiczE1WHBxbnhPa01KdW5DZ2hNTzg3SlBMOU9qbzBWeDUzdGdKS1ZqVy5iZmUiO30=', 1674299705),
-('zdUZZ7a0nGYeThrMmBv5cmpekukvmWbYrWRnaFao', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRGJBWnV5c3puNUFxczhONUJ1WTVtQWM5WVRZRGx6ZFJ3bUsydDhJYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC91c2VyL3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEp3NU0yY3RoYnMxNVhwcW54T2tNSnVuQ2doTU84N0pQTDlPam8wVng1M3RnSktWalcuYmZlIjt9', 1674285077);
+('PAKUFIRcCkEbvAnAj43AvjTZMblK5e06OoPt5Qtw', 13, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoic1pEQ0JnczNvVUJZTkFDWUkyUlp0UGRaWDRzVlJRVlNzZnF4YWd1YyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjEzO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGNXTzh4MDQ2c2dBT3I5dU1QZzhCdmU2NGRsY3EwUlJ1ZTdvUnA3L3NzNFVpTldVUG50L0g2Ijt9', 1681664330),
+('pnwftVJXjRqPLHf4Y9tyuDPd0NPXDTlNwL4QVCeH', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMDJDY1lIMkpWMkpoSHo3YW5INFJoOWphWFVkTFV0dnRXWkVjZWlkUCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGNXTzh4MDQ2c2dBT3I5dU1QZzhCdmU2NGRsY3EwUlJ1ZTdvUnA3L3NzNFVpTldVUG50L0g2Ijt9', 1681664389),
+('qYNgtEzkVdcLHLM7KCQ61FU2MrcPzQkQiRqpfdKt', 13, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNU42anhZNU5rSGdCMmRvbXY2OWxVQ0NqMk9tcUJzcFQzS0ZMT3NWayI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjEzO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGNXTzh4MDQ2c2dBT3I5dU1QZzhCdmU2NGRsY3EwUlJ1ZTdvUnA3L3NzNFVpTldVUG50L0g2Ijt9', 1681664313);
 
 -- --------------------------------------------------------
 
@@ -403,8 +369,8 @@ CREATE TABLE `users` (
   `profile_photo_path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `two_factor_secret` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `two_factor_recovery_codes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `two_factor_secret` text COLLATE utf8mb4_unicode_ci,
+  `two_factor_recovery_codes` text COLLATE utf8mb4_unicode_ci,
   `two_factor_confirmed_at` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -416,14 +382,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `usertype`, `email`, `phone`, `address`, `date_of_birth`, `nid`, `status`, `bank_name`, `account_no`, `profile_photo_path`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sajeeb Chakraborty', '1', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-19', '844984984423', 'Apporve', 'Rocket', '527568', 'profile-photos/KgaxzcG50KjRCLvJuu5kv5x9lpbv3pFJLGG8CFEK.jpg', '2023-01-02 11:14:18', '$2y$10$Jw5M2cthbs15XpqnxOkMJunCghMO87JPL9Ojo0Vx53tgJKVjW.bfe', NULL, NULL, NULL, 'aPwOASpY5zsVBiN7O7U4S82Wh1LzgBAtPUcSOOYnEbCW1zWYl0RCZv3KaJtW', '2023-01-02 09:27:29', '2023-01-21 01:11:14'),
-(2, 'Robin Chakraborty', '1', 'robincb.symphony@gmail.com', '01824072334', NULL, NULL, NULL, 'Pending', NULL, NULL, NULL, '2023-01-02 10:13:58', '$2y$10$qs7uJrm24D43KjZKKMDbc.ryQkuWEycSHVAPfktLsM2SvTgzDrUx2', NULL, NULL, NULL, NULL, '2023-01-02 10:02:55', '2023-01-14 05:35:29'),
-(3, 'MD AL Amin', '2', 'alamin.rucse18@gmail.com', NULL, NULL, NULL, NULL, 'Approve', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-12 14:43:11'),
-(4, 'Jahid Hasan', '2', 'jahid.cseru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'Sajeeb Chakraborty', '0', 'sajeebcb.cseru@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-14', '454544', NULL, NULL, NULL, 'profile-photos/jK4T3WqWLoBck4GZAM7kVJqpBfFnAKoFD7TQY9Vc.jpg', '2023-01-10 06:03:49', '$2y$10$e1uKhxml2qqk0uCtzmu64u0jDM7rtb12r8vQm3Ql.6Q9hERrjazkS', NULL, NULL, NULL, NULL, '2023-01-10 06:02:16', '2023-01-11 14:17:56'),
-(14, 'Tresna Rani', '0', 'tresna312@gmail.com', NULL, NULL, NULL, NULL, 'Pending', NULL, NULL, NULL, '2023-01-11 02:02:04', '$2y$10$04jSiwTF96S5hmy6N4MdpuZjWA.jXcLhEXhtb0i7nWq8mMvpuvOFO', NULL, NULL, NULL, NULL, '2023-01-11 01:45:00', '2023-01-11 02:02:04'),
-(15, 'Sajeeb Chakraborty', '3', 'sudarshanchakraborty1963@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$X0er5veEWZkBb5rJiUMgAun8FAFLDVIMEujLycV9nCa4O5NASfhpO', NULL, NULL, NULL, NULL, '2023-01-21 10:05:27', '2023-01-21 10:05:27'),
-(16, 'Sajeeb Chakraborty', '3', 's1811076104@ru.ac.bd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-21 11:54:27', '$2y$10$5AQPzZ83NIWVF57RUoShT.KpNmA/Ce/lxGI2K92OjCmNpiqCZST4K', NULL, NULL, NULL, NULL, '2023-01-21 11:51:43', '2023-01-21 11:54:27');
+(1, 'Sajeeb Chakraborty', '1', 'sajeebchakraborty.cse2000@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-19', '844984984423', 'Apporve', 'Rocket', '527568', 'profile-photos/hTzB8I8oAeqP2hzbpFLKaN87AD4NDccWk2ax8Q5W.jpg', '2023-01-02 11:14:18', '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, 'IrDV1Oy0ExFA3ExFeMvPTb2CoMXvMb9bY1lchkUoP9ZjPua5QNcuJlcJxFez', '2023-01-02 09:27:29', '2023-04-16 10:56:04'),
+(2, 'Robin Chakraborty', '1', 'robincb.symphony@gmail.com', '01824072334', NULL, NULL, NULL, 'Pending', NULL, NULL, NULL, '2023-01-02 10:13:58', '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, '2023-01-02 10:02:55', '2023-01-14 05:35:29'),
+(3, 'MD AL Amin', '2', 'alamin.rucse18@gmail.com', '01844684455', NULL, NULL, NULL, 'Approve', 'Nagad', '44568', NULL, '2023-01-02 11:14:18', '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, NULL, '2023-01-12 14:43:11'),
+(4, 'Jahid Hasan', '2', 'jahid.cseru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'Sajeeb Chakraborty', '0', 'sajeebcb.cseru@gmail.com', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', '2023-01-14', '454544', NULL, 'Bkash', '01824072334', 'profile-photos/hTzB8I8oAeqP2hzbpFLKaN87AD4NDccWk2ax8Q5W.jpg', '2023-01-10 06:03:49', '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, '2023-01-10 06:02:16', '2023-04-16 10:41:37'),
+(14, 'Tresna Rani', '0', 'tresna312@gmail.com', NULL, NULL, NULL, NULL, 'Pending', NULL, NULL, NULL, '2023-01-11 02:02:04', '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, '2023-01-11 01:45:00', '2023-01-11 02:02:04'),
+(15, 'Sajeeb Chakraborty', '3', 'sudarshanchakraborty1963@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, '2023-01-21 10:05:27', '2023-01-21 10:05:27'),
+(16, 'Sajeeb Chakraborty', '3', 's1811076104@ru.ac.bd', '01824072334', 'Sumyia Mension, Chawkbazar, Chittagong', NULL, NULL, NULL, 'Bkash', '01824072334', 'profile-photos/ikJOahmpQxiDxBuTXOjNO8Bhiidp8WNyNMjp5dcE.jpg', '2023-01-21 11:54:27', '$2y$10$cWO8x046sgAOr9uMPg8Bve64dlcq0RRue7oRp7/ss4UiNWUPnt/H6', NULL, NULL, NULL, NULL, '2023-01-21 11:51:43', '2023-04-16 09:52:56');
 
 -- --------------------------------------------------------
 
@@ -434,7 +400,7 @@ INSERT INTO `users` (`id`, `name`, `usertype`, `email`, `phone`, `address`, `dat
 CREATE TABLE `virtual_assistants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `feature` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feature` longtext COLLATE utf8mb4_unicode_ci,
   `price` double(15,2) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -445,7 +411,7 @@ CREATE TABLE `virtual_assistants` (
 --
 
 INSERT INTO `virtual_assistants` (`id`, `name`, `feature`, `price`, `created_at`, `updated_at`) VALUES
-(1, 'Jarvix Personal Assistant', 'Find out Tourist location \n and Translate any language by virtual assistant.', 550.00, NULL, NULL);
+(1, 'Jarvix Personal Assistant', 'Find out Tourist location \r\n and Translate any language by virtual assistant.', 550.00, NULL, '2023-04-16 08:51:18');
 
 --
 -- Indexes for dumped tables
@@ -548,7 +514,7 @@ ALTER TABLE `virtual_assistants`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -566,13 +532,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `local_guide_services`
 --
 ALTER TABLE `local_guide_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `local_host_services`
 --
 ALTER TABLE `local_host_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -584,7 +550,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -596,19 +562,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `virtual_assistants`
