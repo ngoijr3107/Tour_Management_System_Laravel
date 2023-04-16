@@ -106,7 +106,7 @@
                             <span class="input-group-text">+88</span>
                         </div>
                         <input type="text" name="customer_mobile" class="form-control" id="mobile" placeholder="Mobile"
-                               value="{{ Auth::user()->phone }}" required>
+                               value="{{ Auth::user()->phone }}" required readonly>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your Mobile number is required.
                         </div>
