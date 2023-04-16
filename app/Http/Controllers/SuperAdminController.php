@@ -842,6 +842,7 @@ class SuperAdminController extends Controller
             $convertImageToWebp->save(public_path('assets/placeImage/'.$placeName.'.webp'));
 
             $place['photo']=$placeName.'.webp';
+            
         }
 
         $updatePlace=Place::where('id',$id)->update($place);
