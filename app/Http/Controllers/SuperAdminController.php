@@ -805,5 +805,51 @@ class SuperAdminController extends Controller
 
 
     }
+    public function placeEdit($id)
+    {
+            
+            if(!(Gate::allows('isSuperAdmin')))
+            {
+                return view('errorPage.404');
+            }
+    
+            $placeDetails=Place::where('id',$id)->first();
+ 
+            return view('admin.superAdmin.placeEdit',['placeDetails'=>$placeDetails]);
+    
+    }
+    public function placeUpdate(Request $req,$id)
+    {
+
+        if(!(Gate::allows('isSuperAdmin')))
+        {
+            return view('errorPage.404');
+        }
+
+        $placeName=$req->name;
+        $address=$req->address;
+        
+        $place=array();
+
+        $place['name']=$placeName;
+        $place['address']=$address;
+
+        if($req->placeImage!=Null)
+        {
+               
+            //For Image compression, Image upload in webp format
+            $convertImageToWebp = Webp::make($req->file('placeImage'));
+            $convertImageToWebp->save(public_path('assets/placeImage/'.$placeName.'.webp'));
+
+            $place['photo']=$placeName.'.webp';
+
+        }
+
+        $updatePlace=Place::where('id',$id)->update($place);
+
+        Session()->flash('success','Place updated successfully !');
+        return back();
+
+    }
 
 }

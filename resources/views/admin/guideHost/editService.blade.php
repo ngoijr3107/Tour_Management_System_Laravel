@@ -99,7 +99,7 @@
                         <input type="text" class="form-control" id="exampleInputName1" value="{{ $service->place->name }}" readonly>
                         </div>
 
-                        <div class="form-group">
+                       <div class="form-group">
                        <label>Room Image</label>
                        <input type="file" class="file-upload-default" name="roomImage">
                        <div class="input-group col-xs-12">

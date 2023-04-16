@@ -24,8 +24,9 @@
                 <p class="card-text">Address : {{ $place->address }}</p>
                
                 <br>
-                <a href="#" class="btn btn-primary">View</a>
-                <a href="#" class="btn btn-success">Edit</a>
+
+                <a href="{{ url('place/edit/'.$place->id) }}" class="btn btn-success">Edit</a>
+
             </div>
             </div>
 
