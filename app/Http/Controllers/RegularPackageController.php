@@ -9,6 +9,7 @@ use App\Models\Local_guide_service;
 use App\Models\User;
 use Session;
 
+
 class RegularPackageController extends Controller
 {
     
