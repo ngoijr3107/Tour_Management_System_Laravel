@@ -190,6 +190,7 @@ class SslCommerzPaymentController extends Controller
                 'tour_status'=> 'Pending',
 
             ]);
+      
 
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
@@ -204,6 +205,7 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
+
         echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
