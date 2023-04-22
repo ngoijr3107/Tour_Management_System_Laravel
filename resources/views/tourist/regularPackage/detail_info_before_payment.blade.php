@@ -11,7 +11,8 @@
             <p style="text-align:center; color:red;">
 
                 {{Session::get('wrongInformation')}}       
-               
+     
+                
             </p>
 
         @endif
