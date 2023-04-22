@@ -13,6 +13,7 @@
                 {{Session::get('wrongInformation')}}                             
    
                 
+                
             </p>
 
         @endif
