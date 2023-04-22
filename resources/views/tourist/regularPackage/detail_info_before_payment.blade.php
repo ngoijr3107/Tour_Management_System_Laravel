@@ -10,8 +10,7 @@
 
             <p style="text-align:center; color:red;">
 
-                {{Session::get('wrongInformation')}}       
-    
+                {{Session::get('wrongInformation')}}        
                 
             </p>
 
