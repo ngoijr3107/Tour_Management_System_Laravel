@@ -28,6 +28,7 @@ class SuperAdminController extends Controller
         {
             return view('errorPage.404');
         }
+        
         $guides=User::where('usertype',1)->get();
 
         return view('admin.superAdmin.guideList',['guides'=>$guides]);
