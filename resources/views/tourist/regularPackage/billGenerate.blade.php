@@ -36,7 +36,6 @@
         <h3 style="color:red;"> "Any complaint or review must be submitted within 7 days of the end of the tour"</h3>
     
     </div> 
-       
     <div class="row py-3">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
