@@ -30,11 +30,10 @@ class LocalGuideHostController extends Controller
         {
 
             return view('errorPage.404');    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
         }
 
         $places=Place::all();
-
 
         return view('admin.guideHost.addService',['places'=>$places]);
 
