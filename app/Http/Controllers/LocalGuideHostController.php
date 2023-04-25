@@ -29,7 +29,8 @@ class LocalGuideHostController extends Controller
         if(Auth::user()->status=="Pending")
         {
 
-            return view('errorPage.404');                                                                                                                                                      
+            return view('errorPage.404');
+                                                                                                                                                                  
         }
 
         $places=Place::all();
