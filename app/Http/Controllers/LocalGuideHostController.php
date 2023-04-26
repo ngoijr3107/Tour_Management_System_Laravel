@@ -37,7 +37,6 @@ class LocalGuideHostController extends Controller
 
         return view('admin.guideHost.addService',['places'=>$places]);
 
-
     }
     public function allService()
     {
